@@ -12,10 +12,10 @@
 
         <ImageView
             android:id="@+id/txt_left_drawer_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/_10dp"
             android:src="@drawable/side_menu_home" />
 
         <TextView
@@ -25,20 +25,20 @@
             android:layout_gravity="center"
             android:text="@string/txt_hoem"
             android:textColor="@color/blackColor"
-            android:textSize="20sp" />
+            android:textSize="@dimen/_20sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_60dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/_10dp"
             android:src="@drawable/side_menu_abou_us" />
 
         <TextView
@@ -58,10 +58,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/_10dp"
             android:src="@drawable/side_menu_contact_us" />
 
         <TextView
@@ -81,10 +81,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/_10dp"
             android:src="@drawable/side_menu_terms_conditions" />
 
         <TextView
@@ -104,10 +104,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/_10dp"
             android:src="@drawable/side_menu_diclaimer" />
 
         <TextView
@@ -126,10 +126,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/_10dp"
             android:src="@drawable/side_menu_help" />
 
         <TextView
