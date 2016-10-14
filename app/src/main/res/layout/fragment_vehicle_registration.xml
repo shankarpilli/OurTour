@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VehicleRegistration">
+    <RelativeLayout
+        android:id="@+id/rl_one"
+        android:paddingRight="@dimen/five_dp"
+        android:paddingLeft="@dimen/five_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/five_dp"
+            android:paddingLeft="@dimen/five_dp">
+            <Spinner
+                android:id="@+id/spin_vehicle"
+                android:prompt="@string/vehicle_make"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+            <EditText
+                android:id="@+id/et_"
+                android:textSize="@dimen/twenty_sp"
+                android:layout_width="match_parent"
+                android:hint="@string/vehicle_model"
+                android:layout_below="@id/et_vendor"
+                android:layout_height="wrap_content" />
+           <Spinner
+
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"></Spinner>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/rl_two"
+            android:layout_below="@id/ll_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_vehicle_reg_number"
+                android:hint="@string/vehicle_reg_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:id="@+id/ll_three"
+                android:weightSum="2"
+                android:layout_below="@id/et_vehicle_reg_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></LinearLayout>
+            <EditText
+                android:id="@+id/et_reg_date"
+                android:layout_below="@id/et_vehicle_reg_number"
+                android:layout_width="wrap_content"
+                android:hint="@string/reg_date"
+                android:layout_height="wrap_content" />
+            <EditText
+
+                android:id="@+id/et_exp_date"
+                android:layout_below="@id/et_vehicle_reg_number"
+                android:layout_toRightOf="@id/et_reg_date"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:hint="@string/exp_date"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

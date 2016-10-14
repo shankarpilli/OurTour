@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/fifteen_dp"
+    tools:context="com.httpversatilemobitech.ourtour.VendorRegistration">
+
+    <RelativeLayout
+        android:paddingRight="@dimen/five_dp"
+        android:paddingLeft="@dimen/five_dp"
+        android:layout_marginBottom="@dimen/three_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/et_vendor"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:hint="@string/vendor_firm"/>
+        <EditText
+            android:id="@+id/et_email"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_width="match_parent"
+            android:hint="@string/email"
+            android:layout_below="@id/et_vendor"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/twenty_sp"
+            android:hint="@string/phone_number"
+            android:layout_below="@id/et_email"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_owner"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/twenty_sp"
+            android:hint="@string/owner_name"
+            android:layout_below="@id/et_phone_number"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_registration_number"
+            android:hint="@string/registration_Number"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_width="match_parent"
+            android:layout_below="@id/et_owner"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_bank_acc"
+            android:hint="@string/bank_acc_no"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_below="@id/et_registration_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_branch"
+            android:hint="@string/branch"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_below="@id/et_bank_acc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_ifsc"
+            android:hint="@string/ifsc_code"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_below="@id/et_branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_area_name"
+            android:hint="@string/area_name"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_below="@id/et_ifsc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_guarage"
+            android:hint="@string/guarage_name"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_below="@id/et_area_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_district"
+            android:hint="@string/district"
+            android:layout_below="@id/et_guarage"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_state"
+            android:hint="@string/state"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_below="@id/et_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/et_submit"
+            android:text="@string/submit"
+            android:textSize="@dimen/twenty_sp"
+            android:background="@color/yello"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/et_state"
+            android:layout_width="180dp"
+            android:layout_height="70dp" />
+    </RelativeLayout>
+</LinearLayout>
+
+
+
