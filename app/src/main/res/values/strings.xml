@@ -1,13 +1,34 @@
 <resources>
     <string name="app_name">OurTour</string>
 
-    <string name="txt_hoem">Home</string>
-    <string name="txt_about_us">About Us</string>
-    <string name="txt_contact_us">Contact us</string>
-    <string name="txt_term_conditions">Term and conditions</string>
-    <string name="txt_disclaimer">Disclaime</string>
-    <string name="txt_help">Help</string>
-    <string name="txt_add_you_car">Add you car</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="vendor_firm">Vendor Firm Name</string>
+    <string name="email">e-Mail</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="registration_Number">Registration Number</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="bank_acc_no">Bamk A/c No</string>
+    <string name="branch">Branch</string>
+    <string name="ifsc_code">IFSC Code</string>
+    <string name="area_name">Area Name</string>
+    <string name="guarage_name">Guarage Name</string>
+    <string name="district">District</string>
+    <string name="state">State</string>
+    <string name="submit">Submit</string>
+    <string name="vehicle_make">Vehicle Make</string>
+    <string name="vehicle_model">Vehicle Model</string>
+    <string name="seaters">Seaters</string>
+    <string name="vehicle_reg_number">Vehicle Register Number</string>
+    <string name="reg_date">Reg Date</string>
+    <string name="exp_date">Exp Date</string>
+    <string name="permit_number">Permit Number</string>
+    <string name="fitness_number">Fitness Number</string>
+    <string name="insurence_number">Insurence Number</string>
+    <string name="pollution_number">Pollution Number</string>
 
-    <string name="txt_home_content">Loerm Ompusm is simply dummy text of printing and typesetting industry. Loerm Impusm has been the industry\'s standerd dummy text ever sinse 1500s when an unknown printer took a galley of type and scrambled it to make \type specimen it has servived not only five countries but also the leap into \n\n scrambled it to make \type specimen it has servived not only five countries but also the leap into </string>
+
+
+
 </resources>
