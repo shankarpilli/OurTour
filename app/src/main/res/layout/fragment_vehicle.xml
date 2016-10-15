@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/vehicle_reg_bg"
     tools:context="com.versatilemobitech.ourtour.fragments.VehicleRegistrationFragment">
 
 
@@ -19,6 +20,7 @@
                 android:layout_height="@dimen/_0dp"
                 android:layout_marginBottom="@dimen/_5dp"
                 android:layout_weight=".32"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:weightSum="3">
 
@@ -26,6 +28,8 @@
                     android:id="@+id/edt_vehicla_make"
                     android:layout_width="match_parent"
                     android:singleLine="true"
+                    android:focusable="false"
+                    android:drawableRight="@drawable/down_arrow"
                     android:layout_height="@dimen/_0dp"
                     android:layout_weight="1"
                     android:hint="@string/vehicle_make" />
@@ -42,7 +46,9 @@
                     android:singleLine="true"
                     android:id="@+id/edt_seaters"
                     android:layout_width="match_parent"
+                    android:focusable="false"
                     android:layout_height="@dimen/_0dp"
+                    android:drawableRight="@drawable/down_arrow"
                     android:layout_weight="1"
                     android:hint="@string/seaters" />
             </LinearLayout>
@@ -65,6 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/three_dp"
                         android:orientation="vertical"
+                        android:background="@color/white"
                         android:paddingLeft="@dimen/five_dp"
                         android:paddingRight="@dimen/five_dp">
 
@@ -89,6 +96,7 @@
                                 android:singleLine="true"
                                 android:id="@+id/edt_vendor_reg_date"
                                 android:layout_width="@dimen/_0dp"
+                                android:focusable="false"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="@dimen/_5dp"
                                 android:layout_weight=".5"
@@ -99,6 +107,7 @@
                                 android:singleLine="true"
                                 android:id="@+id/edt_vendor_exp_date"
                                 android:layout_width="@dimen/_0dp"
+                                android:focusable="false"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
                                 android:layout_marginLeft="@dimen/_5dp"
@@ -126,6 +135,7 @@
 
                             <EditText
                                 android:singleLine="true"
+                                android:focusable="false"
                                 android:id="@+id/edt_permit_reg_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -136,6 +146,7 @@
 
                             <EditText
                                 android:singleLine="true"
+                                android:focusable="false"
                                 android:id="@+id/edt_permit_exp_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -165,6 +176,7 @@
 
                             <EditText
                                 android:singleLine="true"
+                                android:focusable="false"
                                 android:id="@+id/edt_fitness_reg_num"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -175,6 +187,7 @@
 
                             <EditText
                                 android:singleLine="true"
+                                android:focusable="false"
                                 android:id="@+id/edt_fitness_exp_num"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -203,6 +216,7 @@
                             android:weightSum="1">
 
                             <EditText
+                                android:focusable="false"
                                 android:singleLine="true"
                                 android:id="@+id/edt_insurance_reg_date"
                                 android:layout_width="@dimen/_0dp"
@@ -213,6 +227,7 @@
                                 android:textSize="@dimen/twenty_sp" />
 
                             <EditText
+                                android:focusable="false"
                                 android:singleLine="true"
                                 android:id="@+id/edt_insurance_exp_date"
                                 android:layout_width="@dimen/_0dp"
@@ -234,7 +249,6 @@
                             android:textSize="@dimen/twenty_sp" />
 
                         <LinearLayout
-
                             android:id="@+id/ll_population_num"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -243,6 +257,7 @@
                             android:weightSum="1">
 
                             <EditText
+                                android:focusable="false"
                                 android:id="@+id/edt_population_reg_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -253,6 +268,7 @@
                                 android:textSize="@dimen/twenty_sp" />
 
                             <EditText
+                                android:focusable="false"
                                 android:singleLine="true"
                                 android:id="@+id/edt_population_exp_date"
                                 android:layout_width="@dimen/_0dp"

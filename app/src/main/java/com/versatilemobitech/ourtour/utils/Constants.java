@@ -7,4 +7,6 @@ public class Constants {
 
     public static final String APP_PREF = "Ourtout_Pref";
     public static int SPLASH_TIME_OUT = 2000;
+
+    public static final boolean logMessageOnOrOff = true;
 }

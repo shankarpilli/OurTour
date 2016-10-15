@@ -2,6 +2,7 @@ package com.versatilemobitech.ourtour.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -10,8 +11,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.versatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.customviews.SnackBar;
 
 /**
  * Created by Rev's Nani on 13-10-2016.
@@ -21,7 +27,9 @@ public class Utility {
     public static boolean isMarshmallowOS() {
         return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
     }
-
+    public static int getDimen(Context context, int id) {
+        return (int) context.getResources().getDimension(id);
+    }
     public static boolean isNetworkAvailable(Context context) {
         try {
             ConnectivityManager connMgr = (ConnectivityManager) context
@@ -54,6 +62,7 @@ public class Utility {
         fragmentTransaction.addToBackStack(tag);
         fragmentTransaction.commit();
     }
+
     public static void setSharedPrefBooleanData(Context context, String key, boolean value) {
         SharedPreferences appInstallInfoSharedPref = context.getSharedPreferences(Constants.APP_PREF,
                 Context.MODE_PRIVATE);
@@ -66,6 +75,7 @@ public class Utility {
         SharedPreferences userAcountPreference = context.getSharedPreferences(Constants.APP_PREF, Context.MODE_PRIVATE);
         return userAcountPreference.getBoolean(key, false);
     }
+
     public static void setSharedPrefStringData(Context context, String key, String value) {
         try {
             if (context != null) {
@@ -79,6 +89,7 @@ public class Utility {
             e.printStackTrace();
         }
     }
+
     public static String getSharedPrefStringData(Context context, String key) {
 
         try {
@@ -100,6 +111,47 @@ public class Utility {
             value = context.getResources().getString(id);
         }
         return value;
+    }
+
+    public static boolean isValueNullOrEmpty(String value) {
+        boolean isValue = false;
+        if (value == null || value.equals(null) || value.equals("")
+                || value.equals("null") || value.trim().length() == 0) {
+            isValue = true;
+        }
+        return isValue;
+    }
+    public static void showToastMessage(Context context, String message) {
+        try {
+            if (!isValueNullOrEmpty(message) && context != null) {
+                final Toast toast = Toast.makeText(
+                        context.getApplicationContext(), message,
+                        Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void showLog(String logMsg, String logVal) {
+        try {
+            if (Constants.logMessageOnOrOff) {
+                if (!isValueNullOrEmpty(logMsg) && !isValueNullOrEmpty(logVal)) {
+                    Log.e(logMsg, logVal);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void setSnackBarEnglish(AppCompatActivity parent, View mView, String message) {
+        SnackBar snackBarIconTitle = new SnackBar();
+        snackBarIconTitle.view(mView)
+                .text(message, "OK")
+                .textColors(Color.WHITE, Color.BLACK)
+                .backgroundColor(parent.getResources().getColor(R.color.themeColor))
+                .duration(SnackBar.SnackBarDuration.LONG);
+        snackBarIconTitle.show();
     }
 
 }

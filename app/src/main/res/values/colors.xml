@@ -9,5 +9,8 @@
     <color name="themeColor">#ffea01</color>
     <color name="blackColor">#000000</color>
     <color name="clicked">#538291</color>
+    <color name="white">#ffffff</color>
+    <color name="error">#ff0202</color>
+    <color name="dark_gray_color">#c1bebe</color>
 
 </resources>
