@@ -22,14 +22,14 @@
             android:id="@+id/content_frame"
             style="@style/match" />
 
-        <ListView
-            android:id="@+id/lv_left_drawer"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp" />
-        <!--<include layout="@layout/menu_drawer_layout"/>-->
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_home_left_drawer"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start"
+        android:background="@android:color/white"
+        android:choiceMode="singleChoice" />
+
 </android.support.v4.widget.DrawerLayout>

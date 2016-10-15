@@ -56,7 +56,7 @@ public class LeftMenuAdapter extends BaseAdapter {
                     null);
             mLeftMenuItemHolder = new LeftMenuItemHolder();
             mLeftMenuItemHolder.txt_left_drawer_text = (TextView) convertView.findViewById(R.id.txt_left_drawer_text);
-            mLeftMenuItemHolder.iv_left_drawer_icon = (ImageView) convertView.findViewById(R.id.iv_left_drawer_icon);
+            mLeftMenuItemHolder.iv_left_drawer_icon = (ImageView) convertView.findViewById(R.id.txt_left_drawer_icon);
             convertView.setTag(mLeftMenuItemHolder);
         } else {
             mLeftMenuItemHolder = (LeftMenuItemHolder) convertView.getTag();
@@ -65,6 +65,7 @@ public class LeftMenuAdapter extends BaseAdapter {
         mLeftMenuItemHolder.iv_left_drawer_icon.setImageResource(mSideMenuItemIconsList[position]);
         return convertView;
     }
+
     private class LeftMenuItemHolder {
         private TextView txt_left_drawer_text;
         private ImageView iv_left_drawer_icon;

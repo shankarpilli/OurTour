@@ -25,18 +25,19 @@ import java.util.ArrayList;
 /**
  * Created by Rev's Nani on 13-10-2016.
  */
-public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
+public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private DrawerLayout drawerHomeLayout;
+    public DrawerLayout mDrawerLayout;
     private ImageView imgLeftDrawerIcon;
     private ListView lvLeftDrawer;
 
     private ArrayList<String> mSideMenuItemNamesList;
     private int[] mSideMenuItemIconsList = {R.drawable.side_menu_home, R.drawable.side_menu_abou_us,
-            R.drawable.side_menu_contact_us,R.drawable.side_menu_terms_conditions,
-            R.drawable.side_menu_diclaimer,R.drawable.side_menu_help};
+            R.drawable.side_menu_contact_us, R.drawable.side_menu_terms_conditions,
+            R.drawable.side_menu_diclaimer, R.drawable.side_menu_help};
 
-    private LeftMenuAdapter mLeftMenuAdapter= null;
+    private LeftMenuAdapter mLeftMenuAdapter = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +48,13 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     private void initUI() {
 
-        drawerHomeLayout = (DrawerLayout)findViewById(R.id.drawer_home_layout);
-        imgLeftDrawerIcon = (ImageView)findViewById(R.id.iv_left_drawer_icon);
-        lvLeftDrawer = (ListView)findViewById(R.id.lv_left_drawer);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_home_layout);
+        imgLeftDrawerIcon = (ImageView) findViewById(R.id.iv_left_drawer_icon);
+        lvLeftDrawer = (ListView) findViewById(R.id.list_home_left_drawer);
 
         setData();
+
+        imgLeftDrawerIcon.setOnClickListener(this);
     }
 
     private void setData() {
@@ -60,21 +63,20 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mSideMenuItemNamesList.add("About Us");
         mSideMenuItemNamesList.add("Contact us");
         mSideMenuItemNamesList.add("Terms and conditions");
-        mSideMenuItemNamesList.add("Disclaime");
+        mSideMenuItemNamesList.add("Disclaimer");
         mSideMenuItemNamesList.add("Help");
 
-        mLeftMenuAdapter = new LeftMenuAdapter(this,mSideMenuItemNamesList,mSideMenuItemIconsList);
-
+        mLeftMenuAdapter = new LeftMenuAdapter(this, mSideMenuItemNamesList, mSideMenuItemIconsList);
         lvLeftDrawer.setAdapter(mLeftMenuAdapter);
         setHeaderFooterToListView(lvLeftDrawer);
-        
+
         lvLeftDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,final int position, long id) {
-                drawerHomeLayout.postDelayed(new Runnable() {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                mDrawerLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        drawerHomeLayout.closeDrawers();
+                        mDrawerLayout.closeDrawers();
                         navigateScreens(position);
                     }
                 }, 300);
@@ -108,12 +110,13 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.drawer_home_layout:
-                drawerHomeLayout.openDrawer(GravityCompat.START);
+        switch (v.getId()) {
+            case R.id.iv_left_drawer_icon:
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
         }
     }
+
     private void setHeaderFooterToListView(ListView list_view) {
         LinearLayout layout_list_header = (LinearLayout) getLayoutInflater().inflate(R.layout.
                 layout_list_header, null);
