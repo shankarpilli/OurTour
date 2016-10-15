@@ -1,13 +1,137 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.versatilemobitech.ourtour.fragments.VendorRegistrationFragment">
+    android:layout_margin="@dimen/fifteen_dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/three_dp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/five_dp"
+            android:paddingRight="@dimen/five_dp">
+
+            <EditText
+                android:id="@+id/et_vendor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:hint="@string/vendor_firm"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_vendor"
+                android:hint="@string/email"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_email"
+                android:hint="@string/phone_number"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_phone_number"
+                android:hint="@string/owner_name"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_registration_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_owner"
+                android:hint="@string/registration_Number"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_bank_acc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_registration_number"
+                android:hint="@string/bank_acc_no"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_branch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_bank_acc"
+                android:hint="@string/branch"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_ifsc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_branch"
+                android:hint="@string/ifsc_code"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_area_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_ifsc"
+                android:hint="@string/area_name"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_guarage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_area_name"
+                android:hint="@string/guarage_name"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_guarage"
+                android:hint="@string/district"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_district"
+                android:hint="@string/state"
+                android:textSize="@dimen/twenty_sp" />
+
+            <Button
+                android:id="@+id/et_submit"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/et_state"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:background="@drawable/home_image"
+                android:text="@string/submit"
+                android:textSize="@dimen/twenty_sp" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/car_icon_gray" />
+</RelativeLayout>
+
+

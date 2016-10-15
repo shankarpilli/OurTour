@@ -24,7 +24,7 @@ import com.versatilemobitech.ourtour.utils.Utility;
  */
 public class AddCarFragment extends Fragment {
 
-    public static final String TAG = "HomeFragment";
+    public static final String TAG = "AddCarFragment";
     private DashboardActivity mParent;
     private Toolbar mToolbar;
     private View rootView;
