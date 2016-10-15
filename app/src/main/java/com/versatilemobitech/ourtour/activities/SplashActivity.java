@@ -1,12 +1,12 @@
-package com.httpversatilemobitech.ourtour.activities;
+package com.versatilemobitech.ourtour.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.httpversatilemobitech.ourtour.R;
-import com.httpversatilemobitech.ourtour.utils.Constants;
+import com.versatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.utils.Constants;
 
 /**
  * Created by Rev's Nani on 13-10-2016.

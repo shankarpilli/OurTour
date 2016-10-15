@@ -1,4 +1,4 @@
-package com.httpversatilemobitech.ourtour.fragments;
+package com.versatilemobitech.ourtour.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,15 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.httpversatilemobitech.ourtour.R;
-import com.httpversatilemobitech.ourtour.activities.DashboardActivity;
+import com.versatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.activities.DashboardActivity;
 
 /**
  * Created by Rev's Nani on 13-10-2016.
  */
-public class TermsAndConditionsFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    public static final String TAG = "TermsAndConditionsFragment";
+    public static final String TAG = "HomeFragment";
     private DashboardActivity mParent;
 
     private Toolbar mToolbar;
@@ -37,7 +37,7 @@ public class TermsAndConditionsFragment extends Fragment {
         if (mToolbar != null) {
             mToolbar.setVisibility(View.VISIBLE);
         }
-        rootView = inflater.inflate(R.layout.fragment_terms_conditions, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         return rootView;
     }

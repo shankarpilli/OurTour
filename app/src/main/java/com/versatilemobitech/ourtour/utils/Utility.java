@@ -1,4 +1,4 @@
-package com.httpversatilemobitech.ourtour.utils;
+package com.versatilemobitech.ourtour.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.httpversatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.R;
 
 /**
  * Created by Rev's Nani on 13-10-2016.

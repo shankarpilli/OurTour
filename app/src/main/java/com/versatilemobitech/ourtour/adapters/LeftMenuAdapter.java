@@ -1,4 +1,4 @@
-package com.httpversatilemobitech.ourtour.adapters;
+package com.versatilemobitech.ourtour.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.httpversatilemobitech.ourtour.R;
-import com.httpversatilemobitech.ourtour.activities.DashboardActivity;
+
+import com.versatilemobitech.ourtour.R;
 
 import java.util.ArrayList;
 

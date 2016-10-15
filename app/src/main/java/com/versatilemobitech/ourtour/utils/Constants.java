@@ -1,4 +1,4 @@
-package com.httpversatilemobitech.ourtour.utils;
+package com.versatilemobitech.ourtour.utils;
 
 /**
  * Created by Rev's Nani on 13-10-2016.

@@ -1,4 +1,4 @@
-package com.httpversatilemobitech.ourtour.activities;
+package com.versatilemobitech.ourtour.activities;
 
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -10,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.httpversatilemobitech.ourtour.R;
-import com.httpversatilemobitech.ourtour.adapters.LeftMenuAdapter;
-import com.httpversatilemobitech.ourtour.fragments.AboutUsFragment;
-import com.httpversatilemobitech.ourtour.fragments.ContctUsFragment;
-import com.httpversatilemobitech.ourtour.fragments.DiclaimerFragment;
-import com.httpversatilemobitech.ourtour.fragments.HelpFragment;
-import com.httpversatilemobitech.ourtour.fragments.HomeFragment;
-import com.httpversatilemobitech.ourtour.fragments.TermsAndConditionsFragment;
-import com.httpversatilemobitech.ourtour.utils.Utility;
+import com.versatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.adapters.LeftMenuAdapter;
+import com.versatilemobitech.ourtour.fragments.AboutUsFragment;
+import com.versatilemobitech.ourtour.fragments.ContctUsFragment;
+import com.versatilemobitech.ourtour.fragments.DiclaimerFragment;
+import com.versatilemobitech.ourtour.fragments.HelpFragment;
+import com.versatilemobitech.ourtour.fragments.HomeFragment;
+import com.versatilemobitech.ourtour.fragments.TermsAndConditionsFragment;
+import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private ListView lvLeftDrawer;
 
     private ArrayList<String> mSideMenuItemNamesList;
-    private int[] mSideMenuItemIconsList = {R.drawable.side_menu_home,R.drawable.side_menu_abou_us,
+    private int[] mSideMenuItemIconsList = {R.drawable.side_menu_home, R.drawable.side_menu_abou_us,
             R.drawable.side_menu_contact_us,R.drawable.side_menu_terms_conditions,
             R.drawable.side_menu_diclaimer,R.drawable.side_menu_help};
 
