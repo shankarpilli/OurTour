@@ -1,13 +1,272 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.versatilemobitech.ourtour.fragments.VehicleRegistrationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        <!-- TODO: Update blank fragment layout -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_10dp"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_0dp"
+                android:layout_marginBottom="@dimen/_5dp"
+                android:layout_weight=".32"
+                android:orientation="vertical"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/edt_vehicla_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_0dp"
+                    android:layout_weight="1"
+                    android:hint="@string/vehicle_make" />
+
+                <EditText
+                    android:id="@+id/edt_vehicle_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_0dp"
+                    android:layout_weight="1"
+                    android:hint="@string/vehicle_model" />
+
+                <EditText
+                    android:id="@+id/edt_seaters"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_0dp"
+                    android:layout_weight="1"
+                    android:hint="@string/seaters" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_0dp"
+                android:layout_weight=".69"
+                android:orientation="vertical">
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/et_submit">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/three_dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/five_dp"
+                        android:paddingRight="@dimen/five_dp">
+
+                        <EditText
+                            android:id="@+id/edt_vendor_reg_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/ten_dp"
+                            android:hint="@string/txt_vehicla_reg_num"
+                            android:textSize="@dimen/twenty_sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_vendor_reg_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/edt_vendor_reg_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/reg_date"
+                                android:textSize="@dimen/twenty_sp" />
+
+                            <EditText
+                                android:id="@+id/edt_vendor_exp_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/exp_date"
+                                android:textSize="@dimen/twenty_sp" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edt_permit_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/ten_dp"
+                            android:hint="@string/permit_number"
+                            android:textSize="@dimen/twenty_sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_permit_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/edt_permit_reg_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/reg_date"
+                                android:textSize="@dimen/twenty_sp" />
+
+                            <EditText
+                                android:id="@+id/edt_permit_exp_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/exp_date"
+                                android:textSize="@dimen/twenty_sp" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edt_fitness_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/ten_dp"
+                            android:hint="@string/fitness_number"
+                            android:textSize="@dimen/twenty_sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_fitness_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/edt_fitness_reg_num"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/reg_date"
+                                android:textSize="@dimen/twenty_sp" />
+
+                            <EditText
+                                android:id="@+id/edt_fitness_exp_num"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/exp_date"
+                                android:textSize="@dimen/twenty_sp" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edt_insurance_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/ten_dp"
+                            android:hint="@string/insurence_number"
+                            android:textSize="@dimen/twenty_sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_insurance_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/edt_insurance_reg_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/reg_date"
+                                android:textSize="@dimen/twenty_sp" />
+
+                            <EditText
+                                android:id="@+id/edt_insurance_exp_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/exp_date"
+                                android:textSize="@dimen/twenty_sp" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edt_population_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/ten_dp"
+                            android:hint="@string/pollution_number"
+                            android:textSize="@dimen/twenty_sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_population_num"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/edt_population_reg_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/reg_date"
+                                android:textSize="@dimen/twenty_sp" />
+
+                            <EditText
+                                android:id="@+id/edt_population_exp_date"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="@dimen/_5dp"
+                                android:layout_weight=".5"
+                                android:hint="@string/exp_date"
+                                android:textSize="@dimen/twenty_sp" />
+                        </LinearLayout>
+                        <Button
+                            android:id="@+id/btn_submit"
+                            android:layout_width="@dimen/_180dp"
+                            android:layout_height="@dimen/_50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:background="@drawable/home_image"
+                            android:text="@string/next"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/twenty_sp" />
+                    </LinearLayout>
+
+                </android.support.v4.widget.NestedScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/car_icon_gray" />
+</RelativeLayout>
