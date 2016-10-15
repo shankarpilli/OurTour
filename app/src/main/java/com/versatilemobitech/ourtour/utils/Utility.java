@@ -93,4 +93,13 @@ public class Utility {
         return "";
 
     }
+
+    public static String getResourcesString(Context context, int id) {
+        String value = null;
+        if (context != null && id != -1) {
+            value = context.getResources().getString(id);
+        }
+        return value;
+    }
+
 }
