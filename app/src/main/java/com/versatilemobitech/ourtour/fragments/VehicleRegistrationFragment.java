@@ -3,6 +3,7 @@ package com.versatilemobitech.ourtour.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private EditText edt_population_reg_date;
     private EditText edt_population_exp_date;
 
-    private ScrollView scroll;
+    private NestedScrollView scroll;
 
     private ImageView iv_bg;
     private Button btn_submit;
@@ -82,7 +83,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
 
     private void initUI() {
 
-        scroll = (ScrollView)rootView.findViewById(R.id.scroll);
+        scroll = (NestedScrollView)rootView.findViewById(R.id.scroll);
         edt_vehicla_make = (EditText)rootView.findViewById(R.id.edt_vehicla_make);
         edt_vehicle_model = (EditText)rootView.findViewById(R.id.edt_vehicle_model);
         edt_seaters = (EditText)rootView.findViewById(R.id.edt_seaters);
