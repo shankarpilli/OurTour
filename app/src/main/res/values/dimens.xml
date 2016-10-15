@@ -63,5 +63,5 @@
     <dimen name="_19sp">19sp</dimen>
     <dimen name="_20sp">20sp</dimen>
 
-    <dimen name="_25sp">25dp</dimen>
+    <dimen name="_25sp">25sp</dimen>
 </resources>

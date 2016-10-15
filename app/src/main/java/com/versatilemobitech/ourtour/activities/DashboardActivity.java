@@ -1,6 +1,7 @@
 package com.versatilemobitech.ourtour.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -86,22 +87,22 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     private void navigateScreens(int position) {
         switch (position) {
-            case 0:
+            case 1:
                 Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, null, DashboardActivity.this);
                 break;
-            case 1:
+            case 2:
                 Utility.navigateDashBoardFragment(new AboutUsFragment(), AboutUsFragment.TAG, null, DashboardActivity.this);
                 break;
-            case 2:
+            case 3:
                 Utility.navigateDashBoardFragment(new ContctUsFragment(), ContctUsFragment.TAG, null, DashboardActivity.this);
                 break;
-            case 3:
+            case 4:
                 Utility.navigateDashBoardFragment(new TermsAndConditionsFragment(), TermsAndConditionsFragment.TAG, null, DashboardActivity.this);
                 break;
-            case 4:
+            case 5:
                 Utility.navigateDashBoardFragment(new DiclaimerFragment(), DiclaimerFragment.TAG, null, DashboardActivity.this);
                 break;
-            case 5:
+            case 6:
                 Utility.navigateDashBoardFragment(new HelpFragment(), HelpFragment.TAG, null, DashboardActivity.this);
                 break;
         }
@@ -121,6 +122,21 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         LinearLayout layout_list_header = (LinearLayout) getLayoutInflater().inflate(R.layout.
                 layout_list_header, null);
         list_view.addHeaderView(layout_list_header);
+    }
 
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            FragmentManager.BackStackEntry backEntry = getSupportFragmentManager()
+                    .getBackStackEntryAt(
+                            getSupportFragmentManager()
+                                    .getBackStackEntryCount() - 1);
+            String tagName = backEntry.getName();
+            if (tagName.equals(HomeFragment.TAG)) {
+                finishAffinity();
+            } else {
+                super.onBackPressed();
+            }
+        }
     }
 }

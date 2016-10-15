@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -19,21 +19,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/_3dp"
+        android:layout_below="@+id/iv_home"
         android:paddingRight="@dimen/_3dp"
         android:text="@string/txt_home_content" />
 
     <TextView
         android:id="@+id/tv_add_your_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="@dimen/_180dp"
+        android:layout_height="@dimen/_60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_20dp"
         android:layout_marginTop="@dimen/_15dp"
-        android:background="@color/themeColor"
+        android:background="@drawable/home_image"
         android:gravity="center"
         android:paddingBottom="@dimen/_10dp"
-        android:paddingLeft="@dimen/_3dp"
-        android:paddingRight="@dimen/_3dp"
+        android:paddingLeft="@dimen/_5dp"
+        android:paddingRight="@dimen/_5dp"
         android:paddingTop="@dimen/_10dp"
-        android:text="@string/txt_add_you_car"
-        android:textSize="@dimen/_20sp" />
-</LinearLayout>
+        android:text="@string/txt_add_your_car"
+        android:textSize="@dimen/_25sp" />
+</RelativeLayout>
