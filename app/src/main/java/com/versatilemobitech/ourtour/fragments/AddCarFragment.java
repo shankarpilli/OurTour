@@ -28,8 +28,8 @@ public class AddCarFragment extends Fragment {
     private DashboardActivity mParent;
     private Toolbar mToolbar;
     private View rootView;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    public static TabLayout tabLayout;
+    public static ViewPager viewPager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

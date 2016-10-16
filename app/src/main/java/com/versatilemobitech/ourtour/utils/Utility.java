@@ -148,7 +148,7 @@ public class Utility {
         SnackBar snackBarIconTitle = new SnackBar();
         snackBarIconTitle.view(mView)
                 .text(message, "OK")
-                .textColors(Color.WHITE, Color.BLACK)
+                .textColors(Color.BLACK, Color.BLACK)
                 .backgroundColor(parent.getResources().getColor(R.color.themeColor))
                 .duration(SnackBar.SnackBarDuration.LONG);
         snackBarIconTitle.show();
