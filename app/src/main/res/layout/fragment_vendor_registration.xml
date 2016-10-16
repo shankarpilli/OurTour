@@ -22,7 +22,7 @@
 
                 <EditText
                     android:id="@+id/et_vendor"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/ten_dp"
@@ -31,7 +31,7 @@
 
                 <EditText
                     android:id="@+id/et_email"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -42,6 +42,7 @@
                     android:id="@+id/et_phone_number"
                     android:layout_width="match_parent"
                     android:inputType="phone"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/et_email"
                     android:hint="@string/phone_number"
@@ -49,7 +50,7 @@
 
                 <EditText
                     android:id="@+id/et_owner"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,7 +59,7 @@
 
                 <EditText
                     android:id="@+id/et_registration_number"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/et_owner"
@@ -66,7 +67,7 @@
                     android:textSize="@dimen/twenty_sp" />
                 <EditText
                     android:id="@+id/et_bank"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/bank_name"
@@ -74,7 +75,7 @@
 
                 <EditText
                     android:id="@+id/et_bank_acc"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,7 +84,7 @@
 
                 <EditText
                     android:id="@+id/et_branch"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/branch"
@@ -91,7 +92,7 @@
 
                 <EditText
                     android:id="@+id/et_ifsc"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ifsc_code"
@@ -99,7 +100,7 @@
 
                 <EditText
                     android:id="@+id/et_area_name"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/area_name"
@@ -107,7 +108,7 @@
 
                 <EditText
                     android:id="@+id/et_guarage"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/guarage_name"
@@ -115,7 +116,7 @@
 
                 <EditText
                     android:id="@+id/et_district"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/district"
@@ -123,7 +124,7 @@
 
                 <EditText
                     android:id="@+id/et_state"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/state"

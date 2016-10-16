@@ -26,7 +26,7 @@
                 <EditText
                     android:id="@+id/edt_vehicla_make"
                     android:layout_width="match_parent"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:focusable="false"
                     android:drawableRight="@drawable/down_arrow"
                     android:layout_height="@dimen/_0dp"
@@ -34,7 +34,7 @@
                     android:hint="@string/vehicle_make" />
 
                 <EditText
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:id="@+id/edt_vehicle_model"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_0dp"
@@ -42,7 +42,7 @@
                     android:hint="@string/vehicle_model" />
 
                 <EditText
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:id="@+id/edt_seaters"
                     android:layout_width="match_parent"
                     android:focusable="false"
@@ -53,7 +53,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:singleLine="true"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_0dp"
                 android:layout_weight=".69"
@@ -75,7 +75,7 @@
                         android:paddingRight="@dimen/five_dp">
 
                         <EditText
-                            android:singleLine="true"
+                            android:maxLines="1"
                             android:id="@+id/edt_vendor_reg_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:id="@+id/edt_vendor_reg_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:focusable="false"
@@ -103,7 +103,7 @@
                                 android:textSize="@dimen/twenty_sp" />
 
                             <EditText
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:id="@+id/edt_vendor_exp_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:focusable="false"
@@ -116,7 +116,7 @@
                         </LinearLayout>
 
                         <EditText
-                            android:singleLine="true"
+                            android:maxLines="1"
                             android:id="@+id/edt_permit_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:focusable="false"
                                 android:id="@+id/edt_permit_reg_date"
                                 android:layout_width="@dimen/_0dp"
@@ -144,7 +144,7 @@
                                 android:textSize="@dimen/twenty_sp" />
 
                             <EditText
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:focusable="false"
                                 android:id="@+id/edt_permit_exp_date"
                                 android:layout_width="@dimen/_0dp"
@@ -157,7 +157,7 @@
                         </LinearLayout>
 
                         <EditText
-                            android:singleLine="true"
+                            android:maxLines="1"
                             android:id="@+id/edt_fitness_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:focusable="false"
                                 android:id="@+id/edt_fitness_reg_num"
                                 android:layout_width="@dimen/_0dp"
@@ -185,7 +185,7 @@
                                 android:textSize="@dimen/twenty_sp" />
 
                             <EditText
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:focusable="false"
                                 android:id="@+id/edt_fitness_exp_num"
                                 android:layout_width="@dimen/_0dp"
@@ -198,7 +198,7 @@
                         </LinearLayout>
 
                         <EditText
-                            android:singleLine="true"
+                            android:maxLines="1"
                             android:id="@+id/edt_insurance_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
 
                             <EditText
                                 android:focusable="false"
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:id="@+id/edt_insurance_reg_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -227,7 +227,7 @@
 
                             <EditText
                                 android:focusable="false"
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:id="@+id/edt_insurance_exp_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
                         </LinearLayout>
 
                         <EditText
-                            android:singleLine="true"
+                            android:maxLines="1"
                             android:id="@+id/edt_population_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -260,7 +260,7 @@
                                 android:id="@+id/edt_population_reg_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:layout_marginRight="@dimen/_5dp"
                                 android:layout_weight=".5"
                                 android:hint="@string/reg_date"
@@ -268,7 +268,7 @@
 
                             <EditText
                                 android:focusable="false"
-                                android:singleLine="true"
+                                android:maxLines="1"
                                 android:id="@+id/edt_population_exp_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
