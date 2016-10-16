@@ -38,9 +38,15 @@
                         android:layout_weight="1"
                         android:drawableRight="@drawable/down_arrow"
                         android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/vehicle_make"
                         android:inputType="text"
                         android:maxLines="1" />
+
+                    <Spinner
+                        android:id="@+id/spinner_vehicle_make"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_0dp"/>
 
                     <EditText
                         android:id="@+id/edt_vehicle_model"
@@ -58,9 +64,16 @@
                         android:layout_weight="1"
                         android:drawableRight="@drawable/down_arrow"
                         android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/seaters"
                         android:inputType="text"
                         android:maxLines="1" />
+
+                    <Spinner
+                        android:id="@+id/spinner_seaters"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_0dp"></Spinner>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -81,11 +94,11 @@
                         android:paddingRight="@dimen/five_dp">
 
                         <EditText
-                            android:id="@+id/edt_vendor_reg_number"
+                            android:id="@+id/edt_vehicle_reg_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/ten_dp"
-                            android:hint="@string/txt_vehicla_reg_num"
+                            android:hint="@string/txt_vehicle_reg_num"
                             android:inputType="text"
                             android:maxLines="1"
                             android:textSize="@dimen/twenty_sp" />
@@ -99,7 +112,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:id="@+id/edt_vendor_reg_date"
+                                android:id="@+id/edt_vehicle_reg_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="@dimen/_5dp"
@@ -111,7 +124,7 @@
                                 android:textSize="@dimen/twenty_sp" />
 
                             <EditText
-                                android:id="@+id/edt_vendor_exp_date"
+                                android:id="@+id/edt_vehicle_exp_date"
                                 android:layout_width="@dimen/_0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"

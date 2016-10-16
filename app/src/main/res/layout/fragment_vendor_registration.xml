@@ -137,7 +137,7 @@
                 <Spinner
                     android:id="@+id/spinner_district"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_0dp"></Spinner>
+                    android:layout_height="@dimen/_0dp"/>
 
                 <EditText
                     android:id="@+id/et_state"
@@ -154,7 +154,7 @@
                 <Spinner
                     android:id="@+id/spinner_state"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_0dp"></Spinner>
+                    android:layout_height="@dimen/_0dp"/>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 

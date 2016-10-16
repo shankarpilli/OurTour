@@ -51,7 +51,7 @@
     <string name="txt_vehicla_make">Vehicle Make</string>
     <string name="txt_vehicla_model">Vehicle Model</string>
 
-    <string name="txt_vehicla_reg_num">Vehicle Reg Number</string>
+    <string name="txt_vehicle_reg_num">Vehicle Reg Number</string>
 
     <string name="alert_dialog_ok">OK</string>
     <string name="alert_dialog_cancel">Cancel</string>
