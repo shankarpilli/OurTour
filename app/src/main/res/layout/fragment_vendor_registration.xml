@@ -15,119 +15,129 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/three_dp"
+                android:layout_margin="@dimen/ten_dp"
+                android:layout_marginBottom="@dimen/_7dp"
                 android:background="@color/white"
-                android:orientation="vertical"
-                android:layout_margin="@dimen/ten_dp">
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/et_vendor"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/ten_dp"
                     android:hint="@string/vendor_firm"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_email"
-                    android:maxLines="1"
-                    android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_phone_number"
                     android:layout_width="match_parent"
-                    android:inputType="phone"
-                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/et_email"
                     android:hint="@string/phone_number"
+                    android:inputType="phone"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_owner"
-                    android:maxLines="1"
-                    android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/owner_name"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_registration_number"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/et_owner"
                     android:hint="@string/registration_Number"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
+
                 <EditText
                     android:id="@+id/et_bank"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/bank_name"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_bank_acc"
-                    android:maxLines="1"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/bank_acc_no"
+                    android:inputType="number"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_branch"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/branch"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_ifsc"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ifsc_code"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_area_name"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/area_name"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_guarage"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/guarage_name"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_district"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/district"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_state"
-                    android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/state"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
@@ -138,8 +148,8 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/ten_dp"
-            android:layout_marginBottom="@dimen/ten_dp"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginTop="@dimen/_5dp"
             android:background="@drawable/home_image"
             android:text="@string/next"
             android:textAllCaps="false"
@@ -153,6 +163,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:contentDescription="@string/app_name"
-        android:background="@drawable/car_icon_gray" />
+        android:background="@drawable/car_icon_gray"
+        android:contentDescription="@string/app_name" />
 </RelativeLayout>
