@@ -1,4 +1,7 @@
-#Fri Oct 14 11:20:46 IST 2016
-base.0=F\:\\Projects\\ManiShankar\\ourtour\\OurTour\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Sun Oct 16 00:37:44 IST 2016
+base.0=F\:\\OurTour\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f0c4cbb1f93a924805a7a828b50d8c2975a65c9a
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=F\:\\Projects\\ManiShankar\\ourtour\\OurTour\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.1=F\:\\OurTour\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_afa88324849d88825ba70700512027950377a478\\classes.dex
+base.1=F\:\\OurTour\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_afa88324849d88825ba70700512027950377a478
+file.0=F\:\\OurTour\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f0c4cbb1f93a924805a7a828b50d8c2975a65c9a\\classes.dex

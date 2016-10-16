@@ -9,7 +9,7 @@
     <string name="owner_name">Owner Name</string>
     <string name="registration_Number">Registration Number</string>
     <string name="bank_name">Bank Name</string>
-    <string name="bank_acc_no">Bamk A/c No</string>
+    <string name="bank_acc_no">Bank A/c No</string>
     <string name="branch">Branch</string>
     <string name="ifsc_code">IFSC Code</string>
     <string name="area_name">Area Name</string>
@@ -20,6 +20,7 @@
     <string name="next">Next</string>
     <string name="vehicle_make">Vehicle Make</string>
     <string name="vehicle_model">Vehicle Model</string>
+    <string name="kms_price">Km\'s Price</string>
     <string name="seaters">Seaters</string>
     <string name="vehicle_reg_number">Vehicle Register Number</string>
     <string name="reg_date">Reg Date</string>
@@ -28,6 +29,10 @@
     <string name="fitness_number">Fitness Number</string>
     <string name="insurence_number">Insurence Number</string>
     <string name="pollution_number">Pollution Number</string>
+    <string name="driver_owner_name">Driver/Owner Name</string>
+    <string name="mobile_number">Mobile Number</string>
+
+
 
 
     <string name="txt_hoem">Home</string>

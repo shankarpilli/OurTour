@@ -1,13 +1,81 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/fifteen_dp"
     tools:context="com.versatilemobitech.ourtour.fragments.VendorPriceFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/ll_vendor_price"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/ten_dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:focusable="false"
+            android:drawableRight="@drawable/down_arrow"
+            android:textSize="@dimen/twenty_sp"
+            android:hint="@string/vehicle_make"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:focusable="false"
+            android:drawableRight="@drawable/down_arrow"
+            android:textSize="@dimen/twenty_sp"
+            android:hint="@string/seaters"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:focusable="false"
+            android:hint="@string/kms_price"
+            android:drawableRight="@drawable/down_arrow"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:textSize="@dimen/twenty_sp"
+            android:hint="@string/driver_owner_name"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:hint="@string/mobile_number"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_height="wrap_content" />
 
-</FrameLayout>
+
+
+    </LinearLayout>
+        <Button
+            android:id="@+id/et_submit"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@id/ll_vendor_price"
+            android:background="@drawable/home_image"
+            android:text="@string/submit"
+            android:textAllCaps="false"
+            android:textSize="@dimen/twenty_sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/car_icon_gray" />
+
+</RelativeLayout>

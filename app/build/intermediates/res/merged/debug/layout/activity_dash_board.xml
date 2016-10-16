@@ -21,6 +21,15 @@
         <FrameLayout
             android:id="@+id/content_frame"
             style="@style/match" />
-<include layout="@layout/menu_drawer_layout"/>
+
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_home_left_drawer"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start"
+        android:background="@android:color/white"
+        android:choiceMode="singleChoice" />
+
 </android.support.v4.widget.DrawerLayout>

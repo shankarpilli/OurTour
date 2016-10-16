@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.httpversatilemobitech.ourtour.test" >
+    package="com.versatilemobitech.ourtour.test" >
 
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="16"
         android:targetSdkVersion="23" />
 
     <instrumentation
         android:name="android.support.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.httpversatilemobitech.ourtour"
-        android:targetPackage="com.httpversatilemobitech.ourtour" />
+        android:label="Tests for com.versatilemobitech.ourtour"
+        android:targetPackage="com.versatilemobitech.ourtour" />
 
     <application>
         <uses-library android:name="android.test.runner" />

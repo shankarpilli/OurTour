@@ -5,12 +5,12 @@
     android:orientation="vertical">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/_150dp"
         android:background="@color/themeColor">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="15dp"
+            android:padding="@dimen/_15dp"
             android:src="@drawable/side_menu_head_bg_two"/>
     </FrameLayout>
     <include layout="@layout/left_drawer_items"/>
