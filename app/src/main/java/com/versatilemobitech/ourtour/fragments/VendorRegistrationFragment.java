@@ -10,19 +10,33 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
+import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
+import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
+import com.versatilemobitech.ourtour.models.DistrictModel;
+import com.versatilemobitech.ourtour.models.Model;
+import com.versatilemobitech.ourtour.models.StateModel;
 import com.versatilemobitech.ourtour.models.VendorModel;
+import com.versatilemobitech.ourtour.parsers.DistrictsParser;
+import com.versatilemobitech.ourtour.parsers.StatesParser;
+import com.versatilemobitech.ourtour.utils.APIConstants;
 import com.versatilemobitech.ourtour.utils.Utility;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  * Created by Shankar Pilli.
  */
-public class VendorRegistrationFragment extends Fragment implements View.OnClickListener {
+public class VendorRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller, AdapterView.OnItemSelectedListener {
     private EditText et_vendor;
     private EditText et_email;
     private EditText et_phone_number;
@@ -37,6 +51,9 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private EditText et_district;
     private EditText et_state;
 
+    private Spinner spinner_district;
+    private Spinner spinner_state;
+
     private Button btn_next;
     private NestedScrollView scroll;
 
@@ -45,13 +62,14 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private DashboardActivity mParent;
     private View rootView;
     public static VendorModel vendorModel;
+    private DistrictModel districtModel;
+    private StateModel stateModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
     }
 
 
@@ -84,13 +102,39 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_state = (EditText) rootView.findViewById(R.id.et_state);
         btn_next = (Button) rootView.findViewById(R.id.btn_next);
 
-        btn_next.setOnClickListener(this);
+        spinner_district = (Spinner) rootView.findViewById(R.id.spinner_district);
+        spinner_state = (Spinner) rootView.findViewById(R.id.spinner_state);
 
+        getDistrictData();
+
+        btn_next.setOnClickListener(this);
+        et_district.setOnClickListener(this);
+        et_state.setOnClickListener(this);
+
+        spinner_district.setOnItemSelectedListener(this);
+        spinner_state.setOnItemSelectedListener(this);
+
+    }
+
+    private void getDistrictData() {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        DistrictsParser mParser = new DistrictsParser();
+        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                R.string.please_wait), false,
+                APIConstants.DISTRICTS, paramMap,
+                APIConstants.REQUEST_TYPE.GET, this, mParser);
+        Utility.execute(serverIntractorAsync);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.et_district:
+                spinner_district.performClick();
+                break;
+            case R.id.et_state:
+                spinner_state.performClick();
+                break;
             case R.id.btn_next:
                 if (isValidFields()) {
                     vendorModel = new VendorModel();
@@ -121,7 +165,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         } else if (Utility.isValueNullOrEmpty(et_email.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_email, "Please enter email");
             et_email.requestFocus();
-        }  else if (!et_email.getText().toString().trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z]+)*(\\.[A-Za-z]{2,})$")) {
+        } else if (!et_email.getText().toString().trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z]+)*(\\.[A-Za-z]{2,})$")) {
             Utility.setSnackBarEnglish(mParent, et_email, "Please enter valid email");
             et_email.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_phone_number.getText().toString().trim())) {
@@ -165,6 +209,71 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         }
         return isValidated;
 
+
+    }
+
+    @Override
+    public void onComplete(Model model) {
+        if (model != null) {
+            if (model.isStatus()) {
+                if (model instanceof DistrictModel) {
+                    districtModel = (DistrictModel) model;
+                    setDistrictData();
+                    getStatesData();
+                } else if (model instanceof StateModel) {
+                    stateModel = (StateModel) model;
+                    setStatesData();
+                }
+            }
+        }
+    }
+
+    private void setStatesData() {
+        ArrayList<String> spinnerArray = new ArrayList<>();
+        for (int i = 0; i < stateModel.getStateModels().size(); i++) {
+            spinnerArray.add(stateModel.getStateModels().get(i).getState());
+        }
+        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item,
+                spinnerArray);
+        spinner_state.setAdapter(spinnerArrayAdapter);
+    }
+
+    private void getStatesData() {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        StatesParser mParser = new StatesParser();
+        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                R.string.please_wait), false,
+                APIConstants.STATES, paramMap,
+                APIConstants.REQUEST_TYPE.GET, this, mParser);
+        Utility.execute(serverIntractorAsync);
+    }
+
+    private void setDistrictData() {
+        ArrayList<String> spinnerArray = new ArrayList<>();
+        for (int i = 0; i < districtModel.getDistrictModels().size(); i++) {
+            spinnerArray.add(districtModel.getDistrictModels().get(i).getDistrict());
+        }
+        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item,
+                spinnerArray);
+        spinner_district.setAdapter(spinnerArrayAdapter);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()) {
+            case R.id.spinner_district:
+                et_district.setText(districtModel.getDistrictModels().get(position).getDistrict());
+                break;
+            case R.id.spinner_state:
+                et_state.setText(stateModel.getStateModels().get(position).getState());
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

@@ -59,5 +59,6 @@
     <string name="no_internet_msg">This feature requires internet connection. Please check your internet settings and try again.</string>
     <string name="no_internet_msg_main">This Application required internet connection. Please check your internet setting and try again.</string>
     <string name="no_internet_title">No internet</string>
+    <string name="please_wait">Please Wait</string>
 
 </resources>

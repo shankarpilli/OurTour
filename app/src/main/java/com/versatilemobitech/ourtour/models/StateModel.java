@@ -1,12 +1,15 @@
 package com.versatilemobitech.ourtour.models;
 
+import java.util.ArrayList;
+
 /**
  * Created by mydu on 16-Oct-16.
  */
 
-public class StateModel {
+public class StateModel extends Model{
     private String  state_id;
     private String state;
+    private ArrayList<StateModel> stateModels;
 
     public String getState_id() {
         return state_id;
@@ -24,7 +27,11 @@ public class StateModel {
         this.state = state;
     }
 
+    public ArrayList<StateModel> getStateModels() {
+        return stateModels;
+    }
 
-
-
+    public void setStateModels(ArrayList<StateModel> stateModels) {
+        this.stateModels = stateModels;
+    }
 }

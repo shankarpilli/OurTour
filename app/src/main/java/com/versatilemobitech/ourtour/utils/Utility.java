@@ -1,5 +1,6 @@
 package com.versatilemobitech.ourtour.utils;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -379,5 +381,19 @@ public class Utility {
                                 }
                             }
                         }).create();
+    }
+
+    public static <P, T extends AsyncTask<P, ?, ?>> void execute(T task) {
+        execute(task, (P[]) null);
+    }
+
+    @SuppressLint("NewApi")
+    public static <P, T extends AsyncTask<P, ?, ?>> void execute(T task,
+                                                                 P... params) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
+        } else {
+            task.execute(params);
+        }
     }
 }

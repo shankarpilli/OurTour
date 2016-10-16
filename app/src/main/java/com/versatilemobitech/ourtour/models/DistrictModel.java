@@ -1,13 +1,16 @@
 package com.versatilemobitech.ourtour.models;
 
+import java.util.ArrayList;
+
 /**
- * Created by mydu on 16-Oct-16.
+ * Created by Madhu on 16-Oct-16.
  */
 
-public class DistrictModel {
+public class DistrictModel extends Model {
     private String district_id;
-    private String  state_id;
-    private String  district;
+    private String state_id;
+    private String district;
+    private ArrayList<DistrictModel> districtModels;
 
     public String getDistrict_id() {
         return district_id;
@@ -31,5 +34,13 @@ public class DistrictModel {
 
     public void setDistrict(String district) {
         this.district = district;
+    }
+
+    public ArrayList<DistrictModel> getDistrictModels() {
+        return districtModels;
+    }
+
+    public void setDistrictModels(ArrayList<DistrictModel> districtModels) {
+        this.districtModels = districtModels;
     }
 }

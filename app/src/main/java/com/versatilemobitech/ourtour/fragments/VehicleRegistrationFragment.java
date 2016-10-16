@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Shankar Pilli.
  */
 public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener {
 
@@ -37,7 +37,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private Toolbar mToolbar;
     private View rootView;
 
-    private EditText edt_vehicla_make;
+    private EditText edt_vehicle_make;
     private EditText edt_vehicle_model;
     private EditText edt_seaters;
 
@@ -66,9 +66,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private ImageView iv_bg;
     private Button btn_submit;
 
-    public VehicleRegistrationFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,7 +90,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private void initUI() {
 
         scroll = (NestedScrollView) rootView.findViewById(R.id.scroll);
-        edt_vehicla_make = (EditText) rootView.findViewById(R.id.edt_vehicla_make);
+        edt_vehicle_make = (EditText) rootView.findViewById(R.id.edt_vehicla_make);
         edt_vehicle_model = (EditText) rootView.findViewById(R.id.edt_vehicle_model);
         edt_seaters = (EditText) rootView.findViewById(R.id.edt_seaters);
         edt_vendor_reg_number = (EditText) rootView.findViewById(R.id.edt_vendor_reg_number);
@@ -179,7 +176,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             case R.id.btn_submit:
                 if (validation()) {
                     Utility.showToastMessage(mParent, "" + validation());
-                }else {
+                } else {
                     Utility.showToastMessage(mParent, "validation fail");
                 }
                 break;
@@ -188,79 +185,79 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
 
     private boolean validation() {
         boolean isValidated = false;
-        if (Utility.isValueNullOrEmpty(edt_vehicla_make.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_vehicla_make,"Please enter the vehicle make");
-            edt_vehicla_make.requestFocus();
+        if (Utility.isValueNullOrEmpty(edt_vehicle_make.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, edt_vehicle_make, "Please enter the vehicle make");
+            edt_vehicle_make.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_vehicle_model.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_vehicle_model,"Please enter the vehicle model");
+            Utility.setSnackBarEnglish(mParent, edt_vehicle_model, "Please enter the vehicle model");
             edt_vehicle_model.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_seaters.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_seaters,"Please enter the seaters");
+            Utility.setSnackBarEnglish(mParent, edt_seaters, "Please enter the seaters");
             edt_seaters.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_vendor_reg_number.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_vendor_reg_number,"Please enter the vendor registration number");
+            Utility.setSnackBarEnglish(mParent, edt_vendor_reg_number, "Please enter the vendor registration number");
             edt_vendor_reg_number.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_vendor_reg_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_vendor_reg_date,"Please enter the vendor registration date");
+            Utility.setSnackBarEnglish(mParent, edt_vendor_reg_date, "Please enter the vendor registration date");
             edt_vendor_reg_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_vendor_exp_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_vendor_exp_date,"Please enter the vendor expair date");
+            Utility.setSnackBarEnglish(mParent, edt_vendor_exp_date, "Please enter the vendor expair date");
             edt_vendor_exp_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_permit_number.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_permit_number,"Please enter the permit number");
+            Utility.setSnackBarEnglish(mParent, edt_permit_number, "Please enter the permit number");
             edt_permit_number.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_permit_reg_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_permit_reg_date,"Please enter the permit registration date");
+            Utility.setSnackBarEnglish(mParent, edt_permit_reg_date, "Please enter the permit registration date");
             edt_permit_reg_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_permit_exp_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_permit_exp_date,"Please enter the permit expair date");
+            Utility.setSnackBarEnglish(mParent, edt_permit_exp_date, "Please enter the permit expair date");
             edt_permit_exp_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_fitness_number.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_fitness_number,"Please enter the fitness number");
+            Utility.setSnackBarEnglish(mParent, edt_fitness_number, "Please enter the fitness number");
             edt_fitness_number.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_fitness_reg_num.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_fitness_reg_num,"Please enter the fitness registration date");
+            Utility.setSnackBarEnglish(mParent, edt_fitness_reg_num, "Please enter the fitness registration date");
             edt_fitness_reg_num.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_fitness_exp_num.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_fitness_exp_num,"Please enter the fitness expair date");
+            Utility.setSnackBarEnglish(mParent, edt_fitness_exp_num, "Please enter the fitness expair date");
             edt_fitness_exp_num.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_insurance_number.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_insurance_number,"Please enter the insurance number");
+            Utility.setSnackBarEnglish(mParent, edt_insurance_number, "Please enter the insurance number");
             edt_insurance_number.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_insurance_reg_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_insurance_reg_date,"Please enter the insurance registration date");
+            Utility.setSnackBarEnglish(mParent, edt_insurance_reg_date, "Please enter the insurance registration date");
             edt_insurance_reg_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_insurance_exp_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_insurance_exp_date,"Please enter the insurance expair date");
-            edt_vehicla_make.requestFocus();
+            Utility.setSnackBarEnglish(mParent, edt_insurance_exp_date, "Please enter the insurance expair date");
+            edt_insurance_exp_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_population_number.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_population_number,"Please enter the population number");
+            Utility.setSnackBarEnglish(mParent, edt_population_number, "Please enter the population number");
             edt_population_number.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_population_reg_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_population_reg_date,"Please enter the population registration date");
+            Utility.setSnackBarEnglish(mParent, edt_population_reg_date, "Please enter the population registration date");
             edt_population_reg_date.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_population_exp_date.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent,edt_population_exp_date,"Please enter the population expair date");
+            Utility.setSnackBarEnglish(mParent, edt_population_exp_date, "Please enter the population expair date");
             edt_population_exp_date.requestFocus();
 
-        }else {
+        } else {
             isValidated = true;
         }
         return isValidated;
@@ -273,6 +270,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         public SelectDateFragment(EditText mEditText) {
             this.editText = mEditText;
         }
+
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Calendar calendar = Calendar.getInstance();

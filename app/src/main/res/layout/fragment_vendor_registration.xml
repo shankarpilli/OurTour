@@ -126,19 +126,35 @@
                     android:id="@+id/et_district"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/district"
-                    android:inputType="text"
+                    android:inputType="textNoSuggestions"
                     android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_district"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_0dp"></Spinner>
 
                 <EditText
                     android:id="@+id/et_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/state"
-                    android:inputType="text"
+                    android:inputType="textNoSuggestions"
                     android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_0dp"></Spinner>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 
