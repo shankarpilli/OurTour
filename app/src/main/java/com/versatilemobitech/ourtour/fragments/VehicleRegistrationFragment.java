@@ -1,8 +1,11 @@
 package com.versatilemobitech.ourtour.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -17,12 +20,17 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
+import com.versatilemobitech.ourtour.adapters.SpinnerAdapter;
 import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
 import com.versatilemobitech.ourtour.models.Model;
+import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.VehicleRegistration;
 import com.versatilemobitech.ourtour.utils.Utility;
 
@@ -32,7 +40,7 @@ import java.util.Calendar;
 /**
  * Created by Shankar Pilli.
  */
-public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller, AdapterView.OnItemSelectedListener {
+public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller{
 
     public static final String TAG = "VehicleRegistrationFragment";
     private DashboardActivity mParent;
@@ -64,8 +72,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private EditText edt_population_reg_date;
     private EditText edt_population_exp_date;
 
-    private Spinner spinner_vehicle_make;
-    private Spinner spinner_seaters;
+    ArrayList<SpinnerModel> mDialodList;
 
     private NestedScrollView scroll;
 
@@ -119,11 +126,8 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         iv_bg = (ImageView) rootView.findViewById(R.id.iv_bg);
         btn_submit = (Button) rootView.findViewById(R.id.btn_submit);
 
-        spinner_vehicle_make = (Spinner) rootView.findViewById(R.id.spinner_vehicle_make);
-        spinner_seaters = (Spinner) rootView.findViewById(R.id.spinner_seaters);
 
-        spinner_vehicle_make.setOnItemSelectedListener(this);
-        spinner_seaters.setOnItemSelectedListener(this);
+
         btn_submit.setOnClickListener(this);
 
         edt_vehicle_reg_date.setOnClickListener(this);
@@ -149,19 +153,12 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         for (int i = 0; i < getBrands().size(); i++) {
             spinnerArray.add(getBrands().get(i));
         }
-        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item,
-                spinnerArray);
-        spinner_vehicle_make.setAdapter(spinnerArrayAdapter);
 
         spinnerSeater = new ArrayList<>();
         for (int i = 1; i < 10; i++) {
             spinnerSeater.add("" + i);
         }
-        ArrayAdapter spinnerSeaterArray = new ArrayAdapter(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item,
-                spinnerSeater);
-        spinner_seaters.setAdapter(spinnerSeaterArray);
+
     }
 
     private ArrayList<String> getBrands() {
@@ -253,10 +250,16 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 }
                 break;
             case R.id.edt_vehicla_make:
-                spinner_vehicle_make.performClick();
+                /*final Context context, String title, final EditText et_spinner,
+                ArrayList<SpinnerModel> itemsList, final int id
+                ) {*/
+
+                mDialodList = Utility.dialogList(mParent,null,"vehicle");
+                Utility.showSpinnerDialog(mParent,"Vehicle",edt_vehicle_make,mDialodList,1);
                 break;
             case R.id.edt_seaters:
-                spinner_seaters.performClick();
+                mDialodList = Utility.dialogList(mParent,null,"seaters");
+                Utility.showSpinnerDialog(mParent,"Vehicle",edt_seaters,mDialodList,1);
                 break;
         }
     }
@@ -342,23 +345,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId()) {
-            case R.id.spinner_vehicle_make:
-                edt_vehicle_make.setText(getBrands().get(position));
-                break;
-            case R.id.spinner_seaters:
-                edt_seaters.setText(spinnerSeater.get(position));
-                break;
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    @Override
     public void onComplete(Model model) {
         if (model != null) {
             if (model.isStatus()) {
@@ -394,4 +380,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             editText.setText(month + "/" + day + "/" + year);
         }
     }
+
+
 }

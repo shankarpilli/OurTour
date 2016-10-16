@@ -23,6 +23,7 @@ import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
 import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
 import com.versatilemobitech.ourtour.models.DistrictModel;
 import com.versatilemobitech.ourtour.models.Model;
+import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.StateModel;
 import com.versatilemobitech.ourtour.models.VendorModel;
 import com.versatilemobitech.ourtour.parsers.DistrictsParser;
@@ -36,7 +37,7 @@ import java.util.LinkedHashMap;
 /**
  * Created by Shankar Pilli.
  */
-public class VendorRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller, AdapterView.OnItemSelectedListener {
+public class VendorRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
     private EditText et_vendor;
     private EditText et_email;
     private EditText et_phone_number;
@@ -51,8 +52,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private EditText et_district;
     private EditText et_state;
 
-    private Spinner spinner_district;
-    private Spinner spinner_state;
+
 
     private Button btn_next;
     private NestedScrollView scroll;
@@ -65,6 +65,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private DistrictModel districtModel;
     private StateModel stateModel;
 
+    private ArrayList<SpinnerModel> mDialogList;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,8 +103,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_state = (EditText) rootView.findViewById(R.id.et_state);
         btn_next = (Button) rootView.findViewById(R.id.btn_next);
 
-        spinner_district = (Spinner) rootView.findViewById(R.id.spinner_district);
-        spinner_state = (Spinner) rootView.findViewById(R.id.spinner_state);
+
 
         getDistrictData();
 
@@ -111,8 +111,6 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_district.setOnClickListener(this);
         et_state.setOnClickListener(this);
 
-        spinner_district.setOnItemSelectedListener(this);
-        spinner_state.setOnItemSelectedListener(this);
 
     }
 
@@ -130,10 +128,12 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.et_district:
-                spinner_district.performClick();
+                mDialogList = Utility.dialogList(mParent,districtModel,"districts");
+                Utility.showSpinnerDialog(mParent,"Vehicle",et_district,mDialogList,1);
                 break;
             case R.id.et_state:
-                spinner_state.performClick();
+                mDialogList = Utility.dialogList(mParent,stateModel,"states");
+                Utility.showSpinnerDialog(mParent,"Vehicle",et_state,mDialogList,1);
                 break;
             case R.id.btn_next:
                 if (isValidFields()) {
@@ -218,25 +218,14 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
             if (model.isStatus()) {
                 if (model instanceof DistrictModel) {
                     districtModel = (DistrictModel) model;
-                    setDistrictData();
+
                     getStatesData();
                 } else if (model instanceof StateModel) {
                     stateModel = (StateModel) model;
-                    setStatesData();
+
                 }
             }
         }
-    }
-
-    private void setStatesData() {
-        ArrayList<String> spinnerArray = new ArrayList<>();
-        for (int i = 0; i < stateModel.getStateModels().size(); i++) {
-            spinnerArray.add(stateModel.getStateModels().get(i).getState());
-        }
-        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item,
-                spinnerArray);
-        spinner_state.setAdapter(spinnerArrayAdapter);
     }
 
     private void getStatesData() {
@@ -249,31 +238,5 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         Utility.execute(serverIntractorAsync);
     }
 
-    private void setDistrictData() {
-        ArrayList<String> spinnerArray = new ArrayList<>();
-        for (int i = 0; i < districtModel.getDistrictModels().size(); i++) {
-            spinnerArray.add(districtModel.getDistrictModels().get(i).getDistrict());
-        }
-        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item,
-                spinnerArray);
-        spinner_district.setAdapter(spinnerArrayAdapter);
-    }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId()) {
-            case R.id.spinner_district:
-                et_district.setText(districtModel.getDistrictModels().get(position).getDistrict());
-                break;
-            case R.id.spinner_state:
-                et_state.setText(stateModel.getStateModels().get(position).getState());
-                break;
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

@@ -29,4 +29,5 @@ public class VendorPriceFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_vendor_price, container, false);
     }
 
+
 }

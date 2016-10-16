@@ -12,5 +12,6 @@
     <color name="white">#ffffff</color>
     <color name="error">#ff0202</color>
     <color name="dark_gray_color">#c1bebe</color>
+    <color name="txt_hint_color">#c0c0c0</color>
 
 </resources>

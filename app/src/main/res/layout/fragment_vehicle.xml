@@ -43,11 +43,6 @@
                         android:inputType="text"
                         android:maxLines="1" />
 
-                    <Spinner
-                        android:id="@+id/spinner_vehicle_make"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_0dp"/>
-
                     <EditText
                         android:id="@+id/edt_vehicle_model"
                         android:layout_width="match_parent"
@@ -68,11 +63,6 @@
                         android:hint="@string/seaters"
                         android:inputType="text"
                         android:maxLines="1" />
-
-                    <Spinner
-                        android:id="@+id/spinner_seaters"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_0dp"></Spinner>
 
                 </LinearLayout>
 

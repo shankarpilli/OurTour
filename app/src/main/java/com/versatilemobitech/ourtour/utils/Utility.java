@@ -18,11 +18,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.versatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.adapters.SpinnerAdapter;
 import com.versatilemobitech.ourtour.customviews.SnackBar;
+import com.versatilemobitech.ourtour.models.DistrictModel;
+import com.versatilemobitech.ourtour.models.Model;
+import com.versatilemobitech.ourtour.models.SpinnerModel;
+import com.versatilemobitech.ourtour.models.StateModel;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -395,5 +404,59 @@ public class Utility {
         } else {
             task.execute(params);
         }
+    }
+
+    public static void showSpinnerDialog(final Context context, String title, final EditText et_spinner,
+                                         ArrayList<SpinnerModel> itemsList, final int id
+    ) {
+
+        AlertDialog.Builder builderSingle = new AlertDialog.Builder(context);
+
+        /*CUSTOM TITLE*/
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.layout_alert_dialog_title, null);
+        TextView tv_title = (TextView) view.findViewById(R.id.tv_alert_dialog_title);
+        RelativeLayout dialog_back_ground = (RelativeLayout) view.findViewById(R.id.dialog_back_ground);
+        dialog_back_ground.setBackgroundColor(context.getResources().getColor(R.color.themeColor));
+        tv_title.setText(title);
+        builderSingle.setCustomTitle(view);
+
+
+        final SpinnerAdapter adapter = new SpinnerAdapter(context, itemsList);
+        builderSingle.setAdapter(adapter,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SpinnerModel mData = (SpinnerModel) adapter.getItem(which);
+                        if (id == 1) {
+                            String gender = mData.getTitle();
+                            et_spinner.setText(gender);
+                        }
+                    }
+                });
+        builderSingle.show();
+    }
+
+public static ArrayList<SpinnerModel> dialogList(Context mCon,Model mModel,String mFrom){
+    ArrayList<SpinnerModel> mList = new ArrayList<>();
+    if(!mFrom.equals("districts")&&!mFrom.equals("states")){
+for(int i=1;i<=10;i++){
+    mList.add(new SpinnerModel(""+i));
+}
+    }else {
+        if(mModel instanceof StateModel){
+            StateModel mStateModel = (StateModel)mModel;
+            for (int i = 0; i < mStateModel.getStateModels().size(); i++) {
+                mList.add(new SpinnerModel(mStateModel.getStateModels().get(i).getState()));
+            }
+        }else if(mModel instanceof DistrictModel){
+            DistrictModel mDistrictModel = (DistrictModel)mModel;
+            for (int i = 0; i < mDistrictModel.getDistrictModels().size(); i++) {
+                mList.add(new SpinnerModel(mDistrictModel.getDistrictModels().get(i).getDistrict()));
+            }
+        }
+    }
+        return mList;
+
     }
 }
