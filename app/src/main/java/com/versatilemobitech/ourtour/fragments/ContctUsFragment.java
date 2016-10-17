@@ -17,7 +17,7 @@ public class ContctUsFragment extends Fragment {
 
     public static final String TAG = "ContctUsFragment";
     private DashboardActivity mParent;
-
+    private String mToolBarTitle;
     private Toolbar mToolbar;
     private View rootView;
 
@@ -26,7 +26,7 @@ public class ContctUsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
+        mToolBarTitle = getArguments().getString("ContctUs");
 
     }
 
@@ -38,7 +38,7 @@ public class ContctUsFragment extends Fragment {
             mToolbar.setVisibility(View.VISIBLE);
         }
         rootView = inflater.inflate(R.layout.fragment_contact_us, container, false);
-
+        mParent.txt_our_tour.setText(""+mToolBarTitle);
         return rootView;
     }
 }

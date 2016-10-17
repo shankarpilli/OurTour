@@ -17,7 +17,7 @@ public class DiclaimerFragment extends Fragment {
 
     public static final String TAG = "DiclaimerFragment";
     private DashboardActivity mParent;
-
+    private String mToolBarTitle;
     private Toolbar mToolbar;
     private View rootView;
 
@@ -26,7 +26,7 @@ public class DiclaimerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
+        mToolBarTitle = getArguments().getString("Diclaimer");
 
     }
 
@@ -38,7 +38,7 @@ public class DiclaimerFragment extends Fragment {
             mToolbar.setVisibility(View.VISIBLE);
         }
         rootView = inflater.inflate(R.layout.fragment_diclaimer, container, false);
-
+        mParent.txt_our_tour.setText(""+mToolBarTitle);
         return rootView;
     }
 }

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.adapters.LeftMenuAdapter;
@@ -31,6 +32,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     public DrawerLayout mDrawerLayout;
     private ImageView imgLeftDrawerIcon;
     private ListView lvLeftDrawer;
+    public static TextView txt_our_tour;
+    private  Bundle mBundle;
 
     private ArrayList<String> mSideMenuItemNamesList;
     private int[] mSideMenuItemIconsList = {R.drawable.side_menu_home, R.drawable.side_menu_abou_us,
@@ -45,7 +48,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         setTheme(R.style.AppTheme_NoActionBar);
         setContentView(R.layout.activity_dash_board);
         initUI();
-        Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, null, DashboardActivity.this);
+        mBundle = new Bundle();
+        mBundle.putString("Home","Home");
+        Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, mBundle, DashboardActivity.this);
     }
 
     private void initUI() {
@@ -53,7 +58,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_home_layout);
         imgLeftDrawerIcon = (ImageView) findViewById(R.id.iv_left_drawer_icon);
         lvLeftDrawer = (ListView) findViewById(R.id.list_home_left_drawer);
-
+        txt_our_tour = (TextView)findViewById(R.id.txt_our_tour);
         setData();
 
         imgLeftDrawerIcon.setOnClickListener(this);
@@ -87,24 +92,31 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void navigateScreens(int position) {
+        mBundle = new Bundle();
         switch (position) {
             case 1:
-                Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, null, DashboardActivity.this);
+                mBundle.putString("Home","Home");
+                Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 2:
-                Utility.navigateDashBoardFragment(new AboutUsFragment(), AboutUsFragment.TAG, null, DashboardActivity.this);
+                mBundle.putString("AboutUs","About Us");
+                Utility.navigateDashBoardFragment(new AboutUsFragment(), AboutUsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 3:
-                Utility.navigateDashBoardFragment(new ContctUsFragment(), ContctUsFragment.TAG, null, DashboardActivity.this);
+                mBundle.putString("ContctUs","Contct Us");
+                Utility.navigateDashBoardFragment(new ContctUsFragment(), ContctUsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 4:
-                Utility.navigateDashBoardFragment(new TermsAndConditionsFragment(), TermsAndConditionsFragment.TAG, null, DashboardActivity.this);
+                mBundle.putString("TermsAndConditions","Terms And Conditions");
+                Utility.navigateDashBoardFragment(new TermsAndConditionsFragment(), TermsAndConditionsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 5:
-                Utility.navigateDashBoardFragment(new DiclaimerFragment(), DiclaimerFragment.TAG, null, DashboardActivity.this);
+                mBundle.putString("Diclaimer","Diclaimer");
+                Utility.navigateDashBoardFragment(new DiclaimerFragment(), DiclaimerFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 6:
-                Utility.navigateDashBoardFragment(new HelpFragment(), HelpFragment.TAG, null, DashboardActivity.this);
+                mBundle.putString("Help","Help");
+                Utility.navigateDashBoardFragment(new HelpFragment(), HelpFragment.TAG, mBundle, DashboardActivity.this);
                 break;
         }
     }

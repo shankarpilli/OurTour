@@ -19,7 +19,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     public static final String TAG = "HomeFragment";
     private DashboardActivity mParent;
-
+    private String mToolBarTitle;
     private Toolbar mToolbar;
     private View rootView;
     private TextView txt_add_your_car;
@@ -29,6 +29,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        mToolBarTitle = getArguments().getString("Home");
     }
 
     @Override
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             mToolbar.setVisibility(View.VISIBLE);
         }
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        mParent.txt_our_tour.setText(""+mToolBarTitle);
         initUI();
         return rootView;
     }

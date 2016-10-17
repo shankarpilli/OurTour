@@ -17,7 +17,7 @@ public class TermsAndConditionsFragment extends Fragment {
 
     public static final String TAG = "TermsAndConditionsFragment";
     private DashboardActivity mParent;
-
+    private String mToolBarTitle;
     private Toolbar mToolbar;
     private View rootView;
 
@@ -26,7 +26,7 @@ public class TermsAndConditionsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
+        mToolBarTitle = getArguments().getString("TermsAndConditions");
 
     }
 
@@ -38,7 +38,7 @@ public class TermsAndConditionsFragment extends Fragment {
             mToolbar.setVisibility(View.VISIBLE);
         }
         rootView = inflater.inflate(R.layout.fragment_terms_conditions, container, false);
-
+        mParent.txt_our_tour.setText(""+mToolBarTitle);
         return rootView;
     }
 }

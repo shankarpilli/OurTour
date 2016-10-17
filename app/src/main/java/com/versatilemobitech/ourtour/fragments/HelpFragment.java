@@ -17,6 +17,7 @@ public class HelpFragment extends Fragment {
 
     public static final String TAG = "HelpFragment";
     private DashboardActivity mParent;
+    private String mToolBarTitle;
 
     private Toolbar mToolbar;
     private View rootView;
@@ -26,7 +27,7 @@ public class HelpFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
+        mToolBarTitle = getArguments().getString("Help");
 
     }
 
@@ -39,6 +40,7 @@ public class HelpFragment extends Fragment {
         }
         rootView = inflater.inflate(R.layout.fragment_help, container, false);
 
+        mParent.txt_our_tour.setText(""+mToolBarTitle);
         return rootView;
     }
 }

@@ -419,6 +419,7 @@ public class Utility {
         RelativeLayout dialog_back_ground = (RelativeLayout) view.findViewById(R.id.dialog_back_ground);
         dialog_back_ground.setBackgroundColor(context.getResources().getColor(R.color.themeColor));
         tv_title.setText(title);
+        tv_title.setTextColor(context.getResources().getColor(R.color.blackColor));
         builderSingle.setCustomTitle(view);
 
 
