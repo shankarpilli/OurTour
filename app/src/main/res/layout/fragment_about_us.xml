@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/splash_screen"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_about_us"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/_15dp"
-        android:paddingTop="@dimen/_10dp"
+        android:background="@color/themeColor"
+        android:gravity="center"
         android:paddingBottom="@dimen/_10dp"
         android:paddingLeft="@dimen/_3dp"
         android:paddingRight="@dimen/_3dp"
-        android:background="@color/themeColor"
-        android:textSize="@dimen/_20sp"
-        android:layout_gravity="center"
-        android:text="@string/txt_about_us"/>
+        android:paddingTop="@dimen/_10dp"
+        android:text="@string/txt_about_us"
+        android:textSize="@dimen/_20sp" />
 </LinearLayout>
