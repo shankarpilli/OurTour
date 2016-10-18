@@ -26,7 +26,7 @@ public class ContctUsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        mToolBarTitle = getArguments().getString("ContctUs");
+        mToolBarTitle = getArguments().getString("ContactUs");
 
     }
 

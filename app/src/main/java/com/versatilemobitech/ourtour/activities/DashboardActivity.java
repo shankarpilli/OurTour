@@ -103,7 +103,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 Utility.navigateDashBoardFragment(new AboutUsFragment(), AboutUsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 3:
-                mBundle.putString("ContctUs","Contct Us");
+                mBundle.putString("ContactUs","Contact Us");
                 Utility.navigateDashBoardFragment(new ContctUsFragment(), ContctUsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 4:
