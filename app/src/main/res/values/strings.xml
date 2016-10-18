@@ -31,6 +31,8 @@
     <string name="pollution_number">Pollution Number</string>
     <string name="driver_owner_name">Driver/Owner Name</string>
     <string name="mobile_number">Mobile Number</string>
+    <string name="ok">Ok</string>
+    <string name="you_vehicle_added_successfully">You vehicle added\nsuccessfully</string>
 
 
 

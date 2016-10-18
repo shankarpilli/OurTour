@@ -441,10 +441,19 @@ public class Utility {
     public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         if (!mFrom.equals("districts") && !mFrom.equals("states")) {
-            for (int i = 1; i <= 10; i++) {
-                mList.add(new SpinnerModel("" + i));
+            if(mFrom.equals("kmsprice")) {
+                for (int i = 10; i <= 100; i++) {
+                    if (i%10 == 0) {
+                        mList.add(new SpinnerModel("" + i));
+                    }
+                }
+            }else {
+                for (int i = 1; i <= 10; i++) {
+                    mList.add(new SpinnerModel("" + i));
+                }
             }
-        } else {
+
+        }else {
             if (mModel instanceof StateModel) {
                 StateModel mStateModel = (StateModel) mModel;
                 for (int i = 0; i < mStateModel.getStateModels().size(); i++) {
