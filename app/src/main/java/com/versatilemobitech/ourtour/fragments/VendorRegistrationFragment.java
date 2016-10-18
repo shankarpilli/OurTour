@@ -129,11 +129,11 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         switch (v.getId()) {
             case R.id.et_district:
                 mDialogList = Utility.dialogList(mParent,districtModel,"districts");
-                Utility.showSpinnerDialog(mParent,"Vehicle",et_district,mDialogList,1);
+                Utility.showSpinnerDialog(mParent,"Districts",et_district,mDialogList,1);
                 break;
             case R.id.et_state:
                 mDialogList = Utility.dialogList(mParent,stateModel,"states");
-                Utility.showSpinnerDialog(mParent,"Vehicle",et_state,mDialogList,1);
+                Utility.showSpinnerDialog(mParent,"States",et_state,mDialogList,1);
                 break;
             case R.id.btn_next:
                 if (isValidFields()) {

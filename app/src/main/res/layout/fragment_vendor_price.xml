@@ -61,9 +61,9 @@
 
     </LinearLayout>
         <Button
-            android:id="@+id/et_submit"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/_180dp"
+            android:layout_height="@dimen/_60dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/twenty_dp"
             android:layout_below="@id/ll_vendor_price"

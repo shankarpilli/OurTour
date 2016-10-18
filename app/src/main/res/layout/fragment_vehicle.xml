@@ -313,7 +313,7 @@
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="@dimen/_180dp"
-            android:layout_height="@dimen/_50dp"
+            android:layout_height="@dimen/_60dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
@@ -323,8 +323,6 @@
             android:text="@string/next"
             android:textAllCaps="false"
             android:textSize="@dimen/twenty_sp" />
-
-
     </RelativeLayout>
 
     <ImageView

@@ -259,7 +259,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 break;
             case R.id.edt_seaters:
                 mDialodList = Utility.dialogList(mParent,null,"seaters");
-                Utility.showSpinnerDialog(mParent,"Vehicle",edt_seaters,mDialodList,1);
+                Utility.showSpinnerDialog(mParent,"Seaters",edt_seaters,mDialodList,1);
                 break;
         }
     }
