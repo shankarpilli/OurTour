@@ -438,25 +438,25 @@ public class Utility {
         builderSingle.show();
     }
 
-public static ArrayList<SpinnerModel> dialogList(Context mCon,Model mModel,String mFrom){
-    ArrayList<SpinnerModel> mList = new ArrayList<>();
-    if(!mFrom.equals("districts")&&!mFrom.equals("states")){
-for(int i=1;i<=10;i++){
-    mList.add(new SpinnerModel(""+i));
-}
-    }else {
-        if(mModel instanceof StateModel){
-            StateModel mStateModel = (StateModel)mModel;
-            for (int i = 0; i < mStateModel.getStateModels().size(); i++) {
-                mList.add(new SpinnerModel(mStateModel.getStateModels().get(i).getState()));
+    public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
+        ArrayList<SpinnerModel> mList = new ArrayList<>();
+        if (!mFrom.equals("districts") && !mFrom.equals("states")) {
+            for (int i = 1; i <= 10; i++) {
+                mList.add(new SpinnerModel("" + i));
             }
-        }else if(mModel instanceof DistrictModel){
-            DistrictModel mDistrictModel = (DistrictModel)mModel;
-            for (int i = 0; i < mDistrictModel.getDistrictModels().size(); i++) {
-                mList.add(new SpinnerModel(mDistrictModel.getDistrictModels().get(i).getDistrict()));
+        } else {
+            if (mModel instanceof StateModel) {
+                StateModel mStateModel = (StateModel) mModel;
+                for (int i = 0; i < mStateModel.getStateModels().size(); i++) {
+                    mList.add(new SpinnerModel(mStateModel.getStateModels().get(i).getState()));
+                }
+            } else if (mModel instanceof DistrictModel) {
+                DistrictModel mDistrictModel = (DistrictModel) mModel;
+                for (int i = 0; i < mDistrictModel.getDistrictModels().size(); i++) {
+                    mList.add(new SpinnerModel(mDistrictModel.getDistrictModels().get(i).getDistrict()));
+                }
             }
         }
-    }
         return mList;
 
     }

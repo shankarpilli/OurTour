@@ -25,9 +25,11 @@ import com.versatilemobitech.ourtour.models.DistrictModel;
 import com.versatilemobitech.ourtour.models.Model;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.StateModel;
+import com.versatilemobitech.ourtour.models.VechilemakeModel;
 import com.versatilemobitech.ourtour.models.VendorModel;
 import com.versatilemobitech.ourtour.parsers.DistrictsParser;
 import com.versatilemobitech.ourtour.parsers.StatesParser;
+import com.versatilemobitech.ourtour.parsers.VehicleMakeParser;
 import com.versatilemobitech.ourtour.utils.APIConstants;
 import com.versatilemobitech.ourtour.utils.Utility;
 
@@ -66,6 +68,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private StateModel stateModel;
 
     private ArrayList<SpinnerModel> mDialogList;
+    public static VechilemakeModel vechilemakeModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -218,14 +221,34 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
             if (model.isStatus()) {
                 if (model instanceof DistrictModel) {
                     districtModel = (DistrictModel) model;
-
                     getStatesData();
                 } else if (model instanceof StateModel) {
                     stateModel = (StateModel) model;
-
+                    getVehicleMakeDetails();
+                } else if (model instanceof VechilemakeModel) {
+                    vechilemakeModel = (VechilemakeModel) model;
+                   // setDataToSpinner();
                 }
             }
         }
+    }
+
+    public static ArrayList<SpinnerModel> getDataToSpinner() {
+        ArrayList<SpinnerModel> mList = new ArrayList<>();
+        for (int i = 0; i < vechilemakeModel.getVechilemakeModels().size(); i++) {
+            mList.add(new SpinnerModel(vechilemakeModel.getVechilemakeModels().get(i).getManufacturer()));
+        }
+        return mList;
+    }
+
+    private void getVehicleMakeDetails() {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        VehicleMakeParser mParser = new VehicleMakeParser();
+        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                R.string.please_wait), false,
+                APIConstants.VEHICLE_MANUFACTURER, paramMap,
+                APIConstants.REQUEST_TYPE.GET, this, mParser);
+        Utility.execute(serverIntractorAsync);
     }
 
     private void getStatesData() {

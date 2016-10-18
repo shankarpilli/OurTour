@@ -29,22 +29,29 @@ import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
 import com.versatilemobitech.ourtour.adapters.SpinnerAdapter;
 import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
+import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
 import com.versatilemobitech.ourtour.models.Model;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
+import com.versatilemobitech.ourtour.models.VechilemakeModel;
 import com.versatilemobitech.ourtour.models.VehicleRegistration;
+import com.versatilemobitech.ourtour.parsers.DistrictsParser;
+import com.versatilemobitech.ourtour.parsers.VehicleMakeParser;
+import com.versatilemobitech.ourtour.utils.APIConstants;
 import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedHashMap;
 
 /**
  * Created by Shankar Pilli.
  */
-public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller{
+public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
 
     public static final String TAG = "VehicleRegistrationFragment";
     private DashboardActivity mParent;
 
+    public static boolean isPromoCodeApplied;
     private Toolbar mToolbar;
     private View rootView;
 
@@ -71,14 +78,12 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private EditText edt_population_number;
     private EditText edt_population_reg_date;
     private EditText edt_population_exp_date;
-
-    ArrayList<SpinnerModel> mDialodList;
+    private ArrayList<SpinnerModel> mDialodList;
 
     private NestedScrollView scroll;
 
     private ImageView iv_bg;
     private Button btn_submit;
-    private ArrayList<String> spinnerSeater;
 
     private VehicleRegistration vehicleRegistration;
 
@@ -127,7 +132,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         btn_submit = (Button) rootView.findViewById(R.id.btn_submit);
 
 
-
         btn_submit.setOnClickListener(this);
 
         edt_vehicle_reg_date.setOnClickListener(this);
@@ -148,29 +152,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         edt_vehicle_make.setOnClickListener(this);
         edt_seaters.setOnClickListener(this);
 
-
-        ArrayList<String> spinnerArray = new ArrayList<>();
-        for (int i = 0; i < getBrands().size(); i++) {
-            spinnerArray.add(getBrands().get(i));
-        }
-
-        spinnerSeater = new ArrayList<>();
-        for (int i = 1; i < 10; i++) {
-            spinnerSeater.add("" + i);
-        }
-
-    }
-
-    private ArrayList<String> getBrands() {
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("Maruti");
-        strings.add("Hundai");
-        strings.add("Toyota");
-        strings.add("Honda");
-        strings.add("Tata");
-        strings.add("Ford");
-        strings.add("Chevrolet");
-        return strings;
     }
 
     @Override
@@ -250,16 +231,12 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 }
                 break;
             case R.id.edt_vehicla_make:
-                /*final Context context, String title, final EditText et_spinner,
-                ArrayList<SpinnerModel> itemsList, final int id
-                ) {*/
-
-                mDialodList = Utility.dialogList(mParent,null,"vehicle");
-                Utility.showSpinnerDialog(mParent,"Vehicle",edt_vehicle_make,mDialodList,1);
+                /*mVechicleModels = Utility.dialogList(mParent, null, "vehicle");*/
+                Utility.showSpinnerDialog(mParent, "Vehicle Make", edt_vehicle_make, VendorRegistrationFragment.getDataToSpinner(), 1);
                 break;
             case R.id.edt_seaters:
-                mDialodList = Utility.dialogList(mParent,null,"seaters");
-                Utility.showSpinnerDialog(mParent,"Seaters",edt_seaters,mDialodList,1);
+                mDialodList = Utility.dialogList(mParent, null, "seaters");
+                Utility.showSpinnerDialog(mParent, "Seaters", edt_seaters, mDialodList, 1);
                 break;
         }
     }
@@ -348,14 +325,21 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     public void onComplete(Model model) {
         if (model != null) {
             if (model.isStatus()) {
+                if (model instanceof VechilemakeModel) {
 
+                }
             }
         }
     }
 
+
     public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
         EditText editText;
+
+        public SelectDateFragment() {
+
+        }
 
         public SelectDateFragment(EditText mEditText) {
             this.editText = mEditText;
