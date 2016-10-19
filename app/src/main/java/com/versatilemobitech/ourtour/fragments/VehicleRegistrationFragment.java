@@ -28,7 +28,7 @@ import java.util.Calendar;
 /**
  * Created by Shankar Pilli.
  */
-public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener{
+public class VehicleRegistrationFragment extends Fragment implements View.OnClickListener {
 
     public static final String TAG = "VehicleRegistrationFragment";
     private DashboardActivity mParent;
@@ -67,7 +67,8 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private ImageView iv_bg;
     private Button btn_submit;
 
-    private VehicleRegistration vehicleRegistration;
+    public static VehicleRegistration vehicleRegistration;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -302,8 +303,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         }
         return isValidated;
     }
-
-
 
 
     public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {

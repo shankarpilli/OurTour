@@ -20,7 +20,12 @@ import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
 import com.versatilemobitech.ourtour.models.Model;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.SuccessModel;
+import com.versatilemobitech.ourtour.models.VechicleSuccessModel;
+import com.versatilemobitech.ourtour.models.VehiclePricing;
+import com.versatilemobitech.ourtour.models.VendorPriceSuccessModel;
 import com.versatilemobitech.ourtour.parsers.SuccesParser;
+import com.versatilemobitech.ourtour.parsers.VehicleSuccesParser;
+import com.versatilemobitech.ourtour.parsers.VendorPriceSuccesParser;
 import com.versatilemobitech.ourtour.utils.APIConstants;
 import com.versatilemobitech.ourtour.utils.Utility;
 
@@ -46,7 +51,12 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private EditText et_driver_owner_name;
     private EditText et_mobile;
 
+    private SuccessModel mSuccessModel;
+    private VechicleSuccessModel mVechicleSuccessModel;
+    private VendorPriceSuccessModel mVendorPriceSuccessModel;
+
     private ArrayList<SpinnerModel> mDialodList;
+    private VehiclePricing mVehiclePricing;
 
     public VendorPriceFragment() {
         // Required empty public constructor
@@ -104,14 +114,31 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 break;
             case R.id.btn_submit:
                 if (validation()) {
-                    //showSubmitDialog();
-                    submitAllDetailsToAPI();
+                    mVehiclePricing = new VehiclePricing();
+                    mVehiclePricing.setVehicle_id(getVechileId(et_vehicle_make.getText().toString()));
+                    mVehiclePricing.setAc_price(et_kms_price.getText().toString());
+                    mVehiclePricing.setNon_ac_price(et_kms_price.getText().toString());
+                    mVehiclePricing.setAirport_drop_pick(et_kms_price.getText().toString());
+                    mVehiclePricing.setDriver_name(et_driver_owner_name.getText().toString());
+                    mVehiclePricing.setDriver_bhatta("");
+                    mVehiclePricing.setMobile_number(et_mobile.getText().toString());
+                    postVendorInformation();
                 }
                 break;
         }
     }
 
-    private void submitAllDetailsToAPI() {
+    private String getVechileId(String vechileMake) {
+        String mVechileId = "";
+        for (int i = 0; i < VendorRegistrationFragment.vechilemakeModel.getVechilemakeModels().size(); i++) {
+            if (VendorRegistrationFragment.vechilemakeModel.getVechilemakeModels().get(i).getManufacturer().equals(vechileMake)) {
+                mVechileId = VendorRegistrationFragment.vechilemakeModel.getVechilemakeModels().get(i).getVehicle_make_id();
+            }
+        }
+        return mVechileId;
+    }
+
+    private void postVendorInformation() {
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
         paramMap.put("vendor_name", VendorRegistrationFragment.vendorModel.getVendor_name());
         paramMap.put("vendor_owner", VendorRegistrationFragment.vendorModel.getVendor_owner());
@@ -185,10 +212,66 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         if (model != null) {
             if (model.isStatus()) {
                 if (model instanceof SuccessModel) {
-                    Utility.showToastMessage(getActivity(), "Done");
+                    mSuccessModel = (SuccessModel) model;
+                    Utility.showToastMessage(getActivity(), mSuccessModel.getMessage());
+                    postVehicleInformation();
+                } else if (model instanceof VechicleSuccessModel) {
+                    mVechicleSuccessModel = (VechicleSuccessModel) model;
+                    Utility.showToastMessage(getActivity(), mVechicleSuccessModel.getMessage());
+                    postVendorPrice();
+                } else if (model instanceof VendorPriceSuccessModel) {
+                    mVendorPriceSuccessModel = (VendorPriceSuccessModel) model;
+                    Utility.showToastMessage(getActivity(), mVendorPriceSuccessModel.getMessage());
                 }
             }
         }
+    }
+
+    private void postVendorPrice() {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        paramMap.put("vehicle_id", mVehiclePricing.getVehicle_id());
+        paramMap.put("ac_price", mVehiclePricing.getAc_price());
+        paramMap.put("non_ac_price", mVehiclePricing.getNon_ac_price());
+        paramMap.put("airport_drop_pick", mVehiclePricing.getAirport_drop_pick());
+        paramMap.put("driver_bhatta", mVehiclePricing.getDriver_bhatta());
+        paramMap.put("driver_name", mVehiclePricing.getDriver_name());
+        paramMap.put("mobile_number", mVehiclePricing.getMobile_number());
+        VendorPriceSuccesParser mParser = new VendorPriceSuccesParser();
+        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                R.string.please_wait), false,
+                APIConstants.VEHICLE_PRICING, paramMap,
+                APIConstants.REQUEST_TYPE.POST, this, mParser);
+        Utility.execute(serverIntractorAsync);
+    }
+
+    private void postVehicleInformation() {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        paramMap.put("vendor_id", VehicleRegistrationFragment.vehicleRegistration.getVendor_id());
+        paramMap.put("vehicle_make", VehicleRegistrationFragment.vehicleRegistration.getVehicle_make());
+        paramMap.put("vehicle_model", VehicleRegistrationFragment.vehicleRegistration.getVehicle_model());
+        paramMap.put("vehicle_type", VehicleRegistrationFragment.vehicleRegistration.getVehicle_type());
+        paramMap.put("seater", VehicleRegistrationFragment.vehicleRegistration.getSeater());
+        paramMap.put("vehicle_registration_number", VehicleRegistrationFragment.vehicleRegistration.getVehicle_registration_number());
+        paramMap.put("vehicle_registration_date", VehicleRegistrationFragment.vehicleRegistration.getVehicle_registration_date());
+        paramMap.put("vehicle_registration_expiry", VehicleRegistrationFragment.vehicleRegistration.getVehicle_registration_expiry());
+        paramMap.put("permit_number", VehicleRegistrationFragment.vehicleRegistration.getPermit_number());
+        paramMap.put("permit_date", VehicleRegistrationFragment.vehicleRegistration.getPermit_date());
+        paramMap.put("permit_expiry", VehicleRegistrationFragment.vehicleRegistration.getPermit_expiry());
+        paramMap.put("fitness_number", VehicleRegistrationFragment.vehicleRegistration.getFitness_number());
+        paramMap.put("fitness_date", VehicleRegistrationFragment.vehicleRegistration.getFitness_date());
+        paramMap.put("fitness_expiry", VehicleRegistrationFragment.vehicleRegistration.getFitness_expiry());
+        paramMap.put("insurance_number", VehicleRegistrationFragment.vehicleRegistration.getInsurance_number());
+        paramMap.put("insurance_date", VehicleRegistrationFragment.vehicleRegistration.getInsurance_date());
+        paramMap.put("insurance_expiry", VehicleRegistrationFragment.vehicleRegistration.getInsurance_expiry());
+        paramMap.put("pollution_number", VehicleRegistrationFragment.vehicleRegistration.getPollution_number());
+        paramMap.put("pollution_date", VehicleRegistrationFragment.vehicleRegistration.getPollution_date());
+        paramMap.put("pollution_expiry", VehicleRegistrationFragment.vehicleRegistration.getPollution_expiry());
+        VehicleSuccesParser mParser = new VehicleSuccesParser();
+        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                R.string.please_wait), false,
+                APIConstants.VEHICLE_INFORMATION, paramMap,
+                APIConstants.REQUEST_TYPE.POST, this, mParser);
+        Utility.execute(serverIntractorAsync);
     }
 
 }
