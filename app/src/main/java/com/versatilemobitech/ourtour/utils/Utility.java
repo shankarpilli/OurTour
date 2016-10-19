@@ -442,6 +442,7 @@ public class Utility {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         mList.add(new SpinnerModel("A/C"));
         mList.add(new SpinnerModel("NON A/C"));
+        mList.add(new SpinnerModel("Both"));
         return mList;
     }
 
