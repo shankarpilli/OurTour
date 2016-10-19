@@ -61,6 +61,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private EditText edt_population_reg_date;
     private EditText edt_population_exp_date;
     private ArrayList<SpinnerModel> mDialodList;
+    private ArrayList<SpinnerModel> mVehicleModelList;
 
     private NestedScrollView scroll;
 
@@ -133,6 +134,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         edt_population_exp_date.setOnClickListener(this);
 
         edt_vehicle_make.setOnClickListener(this);
+        edt_vehicle_model.setOnClickListener(this);
         edt_seaters.setOnClickListener(this);
 
     }
@@ -185,7 +187,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 if (validation()) {
                     vehicleRegistration = new VehicleRegistration();
                     vehicleRegistration.setVendor_id("");
-                    vehicleRegistration.setVehicle_make(edt_vehicle_make.getText().toString());
+                    vehicleRegistration.setVehicle_make(VendorRegistrationFragment.getVehicleID(edt_vehicle_make.getText().toString()));
                     vehicleRegistration.setVehicle_model(edt_vehicle_model.getText().toString());
                     vehicleRegistration.setVehicle_type("");
                     vehicleRegistration.setSeater(edt_seaters.getText().toString());
@@ -216,6 +218,10 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             case R.id.edt_vehicla_make:
                 /*mVechicleModels = Utility.dialogList(mParent, null, "vehicle");*/
                 Utility.showSpinnerDialog(mParent, "Vehicle Make", edt_vehicle_make, VendorRegistrationFragment.getDataToSpinner(), 1);
+                break;
+            case R.id.edt_vehicle_model:
+                mVehicleModelList = Utility.dialogVehicleMakeList();
+                Utility.showSpinnerDialog(mParent, "Vehicle Model", edt_vehicle_model, mVehicleModelList, 1);
                 break;
             case R.id.edt_seaters:
                 mDialodList = Utility.dialogList(mParent, null, "seaters");

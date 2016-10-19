@@ -154,7 +154,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         paramMap.put("state", VendorRegistrationFragment.vendorModel.getState());
         SuccesParser mParser = new SuccesParser();
         ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
-                R.string.please_wait), false,
+                R.string.please_wait), true,
                 APIConstants.VENDOR_INFORMATION, paramMap,
                 APIConstants.REQUEST_TYPE.POST, this, mParser);
         Utility.execute(serverIntractorAsync);
@@ -176,6 +176,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 mResetDialog.cancel();
+                mParent.onBackPressed();
             }
         });
 
@@ -221,7 +222,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     postVendorPrice();
                 } else if (model instanceof VendorPriceSuccessModel) {
                     mVendorPriceSuccessModel = (VendorPriceSuccessModel) model;
-                    Utility.showToastMessage(getActivity(), mVendorPriceSuccessModel.getMessage());
+                    showSubmitDialog();
                 }
             }
         }
@@ -238,7 +239,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         paramMap.put("mobile_number", mVehiclePricing.getMobile_number());
         VendorPriceSuccesParser mParser = new VendorPriceSuccesParser();
         ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
-                R.string.please_wait), false,
+                R.string.please_wait), true,
                 APIConstants.VEHICLE_PRICING, paramMap,
                 APIConstants.REQUEST_TYPE.POST, this, mParser);
         Utility.execute(serverIntractorAsync);
@@ -268,7 +269,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         paramMap.put("pollution_expiry", VehicleRegistrationFragment.vehicleRegistration.getPollution_expiry());
         VehicleSuccesParser mParser = new VehicleSuccesParser();
         ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
-                R.string.please_wait), false,
+                R.string.please_wait), true,
                 APIConstants.VEHICLE_INFORMATION, paramMap,
                 APIConstants.REQUEST_TYPE.POST, this, mParser);
         Utility.execute(serverIntractorAsync);

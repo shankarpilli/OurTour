@@ -48,6 +48,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_0dp"
                         android:layout_weight="1"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/vehicle_model"
                         android:inputType="text"
                         android:maxLines="1" />

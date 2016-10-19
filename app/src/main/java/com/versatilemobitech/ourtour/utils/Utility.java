@@ -438,6 +438,13 @@ public class Utility {
         builderSingle.show();
     }
 
+    public static ArrayList<SpinnerModel> dialogVehicleMakeList() {
+        ArrayList<SpinnerModel> mList = new ArrayList<>();
+        mList.add(new SpinnerModel("A/C"));
+        mList.add(new SpinnerModel("NON A/C"));
+        return mList;
+    }
+
     public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         if (!mFrom.equals("districts") && !mFrom.equals("states")) {

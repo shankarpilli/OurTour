@@ -65,9 +65,10 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     public static VendorModel vendorModel;
     private DistrictModel districtModel;
     private StateModel stateModel;
+    public static VechilemakeModel vechilemakeModel;
 
     private ArrayList<SpinnerModel> mDialogList;
-    public static VechilemakeModel vechilemakeModel;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -174,6 +175,16 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         for (int i = 0; i < stateModel.getStateModels().size(); i++) {
             if (stateModel.getStateModels().get(i).getState().equals(state)) {
                 mStateID = stateModel.getStateModels().get(i).getState_id();
+            }
+        }
+        return mStateID;
+    }
+
+    public static String getVehicleID(String vehicle) {
+        String mStateID = "";
+        for (int i = 0; i < vechilemakeModel.getVechilemakeModels().size(); i++) {
+            if (vechilemakeModel.getVechilemakeModels().get(i).getManufacturer().equals(vehicle)) {
+                mStateID = vechilemakeModel.getVechilemakeModels().get(i).getVehicle_make_id();
             }
         }
         return mStateID;
