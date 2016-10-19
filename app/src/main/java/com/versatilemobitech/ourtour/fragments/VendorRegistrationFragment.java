@@ -55,7 +55,6 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private EditText et_state;
 
 
-
     private Button btn_next;
     private NestedScrollView scroll;
 
@@ -69,6 +68,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
 
     private ArrayList<SpinnerModel> mDialogList;
     public static VechilemakeModel vechilemakeModel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +107,6 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         btn_next = (Button) rootView.findViewById(R.id.btn_next);
 
 
-
         getDistrictData();
 
         btn_next.setOnClickListener(this);
@@ -131,12 +130,12 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.et_district:
-                mDialogList = Utility.dialogList(mParent,districtModel,"districts");
-                Utility.showSpinnerDialog(mParent,"Districts",et_district,mDialogList,1);
+                mDialogList = Utility.dialogList(mParent, districtModel, "districts");
+                Utility.showSpinnerDialog(mParent, "Districts", et_district, mDialogList, 1);
                 break;
             case R.id.et_state:
-                mDialogList = Utility.dialogList(mParent,stateModel,"states");
-                Utility.showSpinnerDialog(mParent,"States",et_state,mDialogList,1);
+                mDialogList = Utility.dialogList(mParent, stateModel, "states");
+                Utility.showSpinnerDialog(mParent, "States", et_state, mDialogList, 1);
                 break;
             case R.id.btn_next:
                 if (isValidFields()) {
@@ -151,13 +150,33 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     vendorModel.setIfsc_code(et_ifsc.getText().toString());
                     vendorModel.setArea_name(et_area_name.getText().toString());
                     vendorModel.setGarage_name(et_guarage.getText().toString());
-                    vendorModel.setDistrict(et_district.getText().toString());
-                    vendorModel.setState(et_state.getText().toString());
+                    vendorModel.setDistrict(getDistrictId(et_district.getText().toString()));
+                    vendorModel.setState(getStateID(et_state.getText().toString()));
 
                     AddCarFragment.tabLayout.getTabAt(1).select();
                 }
                 break;
         }
+    }
+
+    private String getDistrictId(String district) {
+        String mDistrictId = "";
+        for (int i = 0; i < districtModel.getDistrictModels().size(); i++) {
+            if (districtModel.getDistrictModels().get(i).getDistrict().equals(district)) {
+                mDistrictId = districtModel.getDistrictModels().get(i).getDistrict_id();
+            }
+        }
+        return mDistrictId;
+    }
+
+    private String getStateID(String state) {
+        String mStateID = "";
+        for (int i = 0; i < stateModel.getStateModels().size(); i++) {
+            if (stateModel.getStateModels().get(i).getState().equals(state)) {
+                mStateID = stateModel.getStateModels().get(i).getState_id();
+            }
+        }
+        return mStateID;
     }
 
     public boolean isValidFields() {
@@ -227,7 +246,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     getVehicleMakeDetails();
                 } else if (model instanceof VechilemakeModel) {
                     vechilemakeModel = (VechilemakeModel) model;
-                   // setDataToSpinner();
+                    // setDataToSpinner();
                 }
             }
         }

@@ -15,15 +15,22 @@ import android.widget.EditText;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
+import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
+import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
+import com.versatilemobitech.ourtour.models.Model;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
+import com.versatilemobitech.ourtour.models.SuccessModel;
+import com.versatilemobitech.ourtour.parsers.SuccesParser;
+import com.versatilemobitech.ourtour.utils.APIConstants;
 import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class VendorPriceFragment extends Fragment implements View.OnClickListener{
+public class VendorPriceFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
     public static final String TAG = "VendorPriceFragment";
     private DashboardActivity mParent;
 
@@ -40,6 +47,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private EditText et_mobile;
 
     private ArrayList<SpinnerModel> mDialodList;
+
     public VendorPriceFragment() {
         // Required empty public constructor
     }
@@ -65,13 +73,13 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
 
     private void initUI() {
 
-        btn_submit = (Button)rootView.findViewById(R.id.btn_submit);
+        btn_submit = (Button) rootView.findViewById(R.id.btn_submit);
 
-        et_vehicle_make = (EditText)rootView.findViewById(R.id.et_vehicle_make);
-        et_seaters = (EditText)rootView.findViewById(R.id.et_seaters);
-        et_kms_price = (EditText)rootView.findViewById(R.id.et_kms_price);
-        et_driver_owner_name = (EditText)rootView.findViewById(R.id.et_driver_owner_name);
-        et_mobile = (EditText)rootView.findViewById(R.id.et_mobile);
+        et_vehicle_make = (EditText) rootView.findViewById(R.id.et_vehicle_make);
+        et_seaters = (EditText) rootView.findViewById(R.id.et_seaters);
+        et_kms_price = (EditText) rootView.findViewById(R.id.et_kms_price);
+        et_driver_owner_name = (EditText) rootView.findViewById(R.id.et_driver_owner_name);
+        et_mobile = (EditText) rootView.findViewById(R.id.et_mobile);
 
         btn_submit.setOnClickListener(this);
         et_vehicle_make.setOnClickListener(this);
@@ -82,7 +90,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.et_vehicle_make:
                 Utility.showSpinnerDialog(mParent, "Vehicle Make", et_vehicle_make, VendorRegistrationFragment.getDataToSpinner(), 1);
                 break;
@@ -95,14 +103,39 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 Utility.showSpinnerDialog(mParent, "kmsprice", et_kms_price, mDialodList, 1);
                 break;
             case R.id.btn_submit:
-                if(validation()){
-                    showSubmitDialog();
+                if (validation()) {
+                    //showSubmitDialog();
+                    submitAllDetailsToAPI();
                 }
                 break;
         }
     }
+
+    private void submitAllDetailsToAPI() {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        paramMap.put("vendor_name", VendorRegistrationFragment.vendorModel.getVendor_name());
+        paramMap.put("vendor_owner", VendorRegistrationFragment.vendorModel.getVendor_owner());
+        paramMap.put("mobile_number", VendorRegistrationFragment.vendorModel.getMobile_number());
+        paramMap.put("email_id", VendorRegistrationFragment.vendorModel.getEmail_id());
+        paramMap.put("vendor_registration_number", VendorRegistrationFragment.vendorModel.getVendor_registration_number());
+        paramMap.put("bank_name", VendorRegistrationFragment.vendorModel.getBank_name());
+        paramMap.put("bank_number", VendorRegistrationFragment.vendorModel.getBank_number());
+        paramMap.put("ifsc_code", VendorRegistrationFragment.vendorModel.getIfsc_code());
+        paramMap.put("area_name", VendorRegistrationFragment.vendorModel.getArea_name());
+        paramMap.put("garage_name", VendorRegistrationFragment.vendorModel.getGarage_name());
+        paramMap.put("District", VendorRegistrationFragment.vendorModel.getDistrict());
+        paramMap.put("state", VendorRegistrationFragment.vendorModel.getState());
+        SuccesParser mParser = new SuccesParser();
+        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                R.string.please_wait), false,
+                APIConstants.VENDOR_INFORMATION, paramMap,
+                APIConstants.REQUEST_TYPE.POST, this, mParser);
+        Utility.execute(serverIntractorAsync);
+
+    }
+
     private void showSubmitDialog() {
-       final Dialog mResetDialog = new Dialog(getActivity());
+        final Dialog mResetDialog = new Dialog(getActivity());
         mResetDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mResetDialog.setContentView(R.layout.dialog_submit);
         mResetDialog.getWindow().setBackgroundDrawable(
@@ -146,4 +179,16 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         }
         return isValidated;
     }
+
+    @Override
+    public void onComplete(Model model) {
+        if (model != null) {
+            if (model.isStatus()) {
+                if (model instanceof SuccessModel) {
+                    Utility.showToastMessage(getActivity(), "Done");
+                }
+            }
+        }
+    }
+
 }
