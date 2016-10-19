@@ -15,11 +15,15 @@ import android.widget.TextView;
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.adapters.LeftMenuAdapter;
 import com.versatilemobitech.ourtour.fragments.AboutUsFragment;
+import com.versatilemobitech.ourtour.fragments.AddCarFragment;
 import com.versatilemobitech.ourtour.fragments.ContctUsFragment;
 import com.versatilemobitech.ourtour.fragments.DiclaimerFragment;
 import com.versatilemobitech.ourtour.fragments.HelpFragment;
 import com.versatilemobitech.ourtour.fragments.HomeFragment;
 import com.versatilemobitech.ourtour.fragments.TermsAndConditionsFragment;
+import com.versatilemobitech.ourtour.fragments.VehicleRegistrationFragment;
+import com.versatilemobitech.ourtour.fragments.VendorPriceFragment;
+import com.versatilemobitech.ourtour.fragments.VendorRegistrationFragment;
 import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
@@ -33,7 +37,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private ImageView imgLeftDrawerIcon;
     private ListView lvLeftDrawer;
     public static TextView txt_our_tour;
-    private  Bundle mBundle;
+    private Bundle mBundle;
 
     private ArrayList<String> mSideMenuItemNamesList;
     private int[] mSideMenuItemIconsList = {R.drawable.side_menu_home, R.drawable.side_menu_abou_us,
@@ -49,7 +53,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_dash_board);
         initUI();
         mBundle = new Bundle();
-        mBundle.putString("Home","Home");
+        mBundle.putString("Home", "Home");
         Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, mBundle, DashboardActivity.this);
     }
 
@@ -58,7 +62,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_home_layout);
         imgLeftDrawerIcon = (ImageView) findViewById(R.id.iv_left_drawer_icon);
         lvLeftDrawer = (ListView) findViewById(R.id.list_home_left_drawer);
-        txt_our_tour = (TextView)findViewById(R.id.txt_our_tour);
+        txt_our_tour = (TextView) findViewById(R.id.txt_our_tour);
         setData();
 
         imgLeftDrawerIcon.setOnClickListener(this);
@@ -95,27 +99,27 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mBundle = new Bundle();
         switch (position) {
             case 1:
-                mBundle.putString("Home","Home");
+                mBundle.putString("Home", "Home");
                 Utility.navigateDashBoardFragment(new HomeFragment(), HomeFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 2:
-                mBundle.putString("AboutUs","About Us");
+                mBundle.putString("AboutUs", "About Us");
                 Utility.navigateDashBoardFragment(new AboutUsFragment(), AboutUsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 3:
-                mBundle.putString("ContactUs","Contact Us");
+                mBundle.putString("ContactUs", "Contact Us");
                 Utility.navigateDashBoardFragment(new ContctUsFragment(), ContctUsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 4:
-                mBundle.putString("TermsAndConditions","Terms And Conditions");
+                mBundle.putString("TermsAndConditions", "Terms And Conditions");
                 Utility.navigateDashBoardFragment(new TermsAndConditionsFragment(), TermsAndConditionsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 5:
-                mBundle.putString("Diclaimer","Diclaimer");
+                mBundle.putString("Diclaimer", "Diclaimer");
                 Utility.navigateDashBoardFragment(new DiclaimerFragment(), DiclaimerFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 6:
-                mBundle.putString("Help","Help");
+                mBundle.putString("Help", "Help");
                 Utility.navigateDashBoardFragment(new HelpFragment(), HelpFragment.TAG, mBundle, DashboardActivity.this);
                 break;
         }
@@ -139,7 +143,6 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
-
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             FragmentManager.BackStackEntry backEntry = getSupportFragmentManager()
                     .getBackStackEntryAt(
@@ -148,6 +151,12 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             String tagName = backEntry.getName();
             if (tagName.equals(HomeFragment.TAG)) {
                 finishAffinity();
+            }
+            if (tagName.equals(AddCarFragment.TAG)) {
+                VendorRegistrationFragment.vendorModel = null;
+                VehicleRegistrationFragment.vehicleRegistration = null;
+                VendorPriceFragment.mVehiclePricing = null;
+                super.onBackPressed();
             } else {
                 super.onBackPressed();
             }

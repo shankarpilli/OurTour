@@ -104,10 +104,23 @@ public class AddCarFragment extends Fragment {
                     viewPager.setCurrentItem(0);
                 } else if (tab.getPosition() == 1) {
                     img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
-                    viewPager.setCurrentItem(1);
+                    if (VendorRegistrationFragment.vendorModel == null){
+                        tabLayout.getTabAt(0).select();
+                        Utility.showToastMessage(getActivity(), "Please fill Vendor Registration");
+                    } else {
+                        viewPager.setCurrentItem(1);
+                    }
                 } else {
                     img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
-                    viewPager.setCurrentItem(2);
+                    if (VendorRegistrationFragment.vendorModel == null){
+                        tabLayout.getTabAt(0).select();
+                        Utility.showToastMessage(getActivity(), "Please fill Vendor Registration");
+                    } else if (VehicleRegistrationFragment.vehicleRegistration == null){
+                        tabLayout.getTabAt(1).select();
+                        Utility.showToastMessage(getActivity(), "Please fill Vehicle Registration");
+                    } else {
+                        viewPager.setCurrentItem(2);
+                    }
                 }
                 textview.setTextColor(getResources().getColor(R.color.blackColor));
             }
