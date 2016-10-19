@@ -56,7 +56,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private VendorPriceSuccessModel mVendorPriceSuccessModel;
 
     private ArrayList<SpinnerModel> mDialodList;
-    private VehiclePricing mVehiclePricing;
+    public static VehiclePricing mVehiclePricing;
 
     public VendorPriceFragment() {
         // Required empty public constructor
