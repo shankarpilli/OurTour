@@ -204,6 +204,9 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         } else if (Utility.isValueNullOrEmpty(et_phone_number.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_phone_number, "Please enter phone number");
             et_phone_number.requestFocus();
+        } else if (et_phone_number.getText().toString().trim().length() != 10) {
+            Utility.setSnackBarEnglish(mParent, et_phone_number, "Phone number must me 10 characteristics");
+            et_phone_number.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_owner.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_owner, "Please enter owner name");
             et_phone_number.requestFocus();

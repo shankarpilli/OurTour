@@ -201,7 +201,9 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
             et_mobile.requestFocus();
-
+        } else if (et_mobile.getText().toString().trim().length() != 10) {
+            Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+            et_mobile.requestFocus();
         } else {
             isValidated = true;
         }
