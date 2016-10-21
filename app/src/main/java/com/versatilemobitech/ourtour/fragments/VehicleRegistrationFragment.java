@@ -24,6 +24,7 @@ import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Shankar Pilli.
@@ -69,6 +70,27 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private Button btn_submit;
 
     public static VehicleRegistration vehicleRegistration;
+
+    private static int mRegVclYear;
+    private static int mRegVclMonth;
+    private static int mRegVclDay;
+
+    private static int mRegPerYear;
+    private static int mRegPerMonth;
+    private static int mRegPerDay;
+
+    private static int mRegFitYear;
+    private static int mRegFitMonth;
+    private static int mRegFitDay;
+
+    private static int mRegIncYear;
+    private static int mRegIncMonth;
+    private static int mRegIncDay;
+
+    private static int mRegPolYear;
+    private static int mRegPolMonth;
+    private static int mRegPolDay;
+    private static long mPastDate;
 
 
     @Override
@@ -144,50 +166,73 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         DialogFragment newFragment = null;
         switch (v.getId()) {
             case R.id.edt_vehicle_reg_date:
-                newFragment = new SelectDateFragment(edt_vehicle_reg_date);
+                newFragment = new SelectDateFragment(edt_vehicle_reg_date, "vehicle_reg_date");
                 newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
                 break;
             case R.id.edt_vehicle_exp_date:
-                newFragment = new SelectDateFragment(edt_vehicle_exp_date);
-                newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                if(!edt_vehicle_reg_date.getText().toString().equals("")){
+                    newFragment = new SelectDateFragment(edt_vehicle_exp_date, "vehicle_exp_date");
+                    newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                }else {
+                    Utility.setSnackBarEnglish(mParent, edt_vehicle_reg_date, "Please enter the vehicle registration date");
+                }
                 break;
             case R.id.edt_permit_reg_date:
-                newFragment = new SelectDateFragment(edt_permit_reg_date);
+                newFragment = new SelectDateFragment(edt_permit_reg_date, "permit_reg_date");
                 newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
                 break;
             case R.id.edt_permit_exp_date:
-                newFragment = new SelectDateFragment(edt_permit_exp_date);
-                newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                if(!edt_permit_reg_date.getText().toString().equals("")){
+                    newFragment = new SelectDateFragment(edt_permit_exp_date, "permit_exp_date");
+                    newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                }else {
+                    Utility.setSnackBarEnglish(mParent, edt_vehicle_reg_date, "Please enter the permit registration date");
+                }
                 break;
             case R.id.edt_fitness_exp_num:
-                newFragment = new SelectDateFragment(edt_fitness_exp_num);
-                newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                if(!edt_fitness_reg_num.getText().toString().equals("")){
+                    newFragment = new SelectDateFragment(edt_fitness_exp_num, "fitness_exp_num");
+                    newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                }else {
+                    Utility.setSnackBarEnglish(mParent, edt_vehicle_reg_date, "Please enter the fitness registration date");
+                }
+
                 break;
             case R.id.edt_fitness_reg_num:
-                newFragment = new SelectDateFragment(edt_fitness_reg_num);
+                newFragment = new SelectDateFragment(edt_fitness_reg_num, "fitness_reg_num");
                 newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
                 break;
             case R.id.edt_insurance_reg_date:
-                newFragment = new SelectDateFragment(edt_insurance_reg_date);
+                newFragment = new SelectDateFragment(edt_insurance_reg_date, "insurance_reg_date");
                 newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
                 break;
             case R.id.edt_insurance_exp_date:
-                newFragment = new SelectDateFragment(edt_insurance_exp_date);
-                newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                if(!edt_insurance_reg_date.getText().toString().equals("")){
+                    newFragment = new SelectDateFragment(edt_insurance_exp_date, "insurance_exp_date");
+                    newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                }else {
+                    Utility.setSnackBarEnglish(mParent, edt_insurance_reg_date, "Please enter the insurance registration date");
+                }
+
                 break;
             case R.id.edt_population_reg_date:
-                newFragment = new SelectDateFragment(edt_population_reg_date);
+                newFragment = new SelectDateFragment(edt_population_reg_date, "population_reg_date");
                 newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
                 break;
             case R.id.edt_population_exp_date:
-                newFragment = new SelectDateFragment(edt_population_exp_date);
-                newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                if(!edt_population_reg_date.getText().toString().equals("")){
+                    newFragment = new SelectDateFragment(edt_population_exp_date, "population_exp_date");
+                    newFragment.show(mParent.getSupportFragmentManager(), "DatePicker");
+                }else {
+                    Utility.setSnackBarEnglish(mParent, edt_population_reg_date, "Please enter the pollution registration date");
+                }
+
                 break;
             case R.id.btn_submit:
                 if (validation()) {
                     vehicleRegistration = new VehicleRegistration();
                     vehicleRegistration.setVendor_id("");
-                    vehicleRegistration.setVehicle_make(VendorRegistrationFragment.getVehicleID(edt_vehicle_make.getText().toString()));
+                    vehicleRegistration.setVehicle_make(edt_vehicle_make.getText().toString());
                     vehicleRegistration.setVehicle_model(edt_vehicle_model.getText().toString());
                     vehicleRegistration.setVehicle_type("");
                     vehicleRegistration.setSeater(edt_seaters.getText().toString());
@@ -218,10 +263,6 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             case R.id.edt_vehicla_make:
                 /*mVechicleModels = Utility.dialogList(mParent, null, "vehicle");*/
                 Utility.showSpinnerDialog(mParent, "Vehicle Make", edt_vehicle_make, VendorRegistrationFragment.getDataToSpinner(), 1);
-                break;
-            case R.id.edt_vehicle_model:
-                mVehicleModelList = Utility.dialogVehicleMakeList();
-                Utility.showSpinnerDialog(mParent, "Vehicle Model", edt_vehicle_model, mVehicleModelList, 1);
                 break;
             case R.id.edt_seaters:
                 mDialodList = Utility.dialogList(mParent, null, "seaters");
@@ -314,14 +355,14 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
         EditText editText;
+        String mFrom;
 
-        public SelectDateFragment() {
 
-        }
-
-        public SelectDateFragment(EditText mEditText) {
+        public SelectDateFragment(EditText mEditText, String mFrom) {
             this.editText = mEditText;
+            this.mFrom = mFrom;
         }
+
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -330,6 +371,56 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             int mm = calendar.get(Calendar.MONTH);
             int dd = calendar.get(Calendar.DAY_OF_MONTH);
             DatePickerDialog mDatePickerDialog = new DatePickerDialog(getActivity(), this, yy, mm, dd);
+            if (mFrom.equals("population_reg_date") || mFrom.equals("insurance_reg_date") ||
+                    mFrom.equals("fitness_reg_num") || mFrom.equals("permit_reg_date") ||
+                    mFrom.equals("vehicle_reg_date")) {
+                mDatePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+            }
+            Calendar mCalendar = Calendar.getInstance();
+            if (mFrom.equals("vehicle_exp_date")) {
+                mCalendar.set(Calendar.YEAR, mRegVclYear);
+                mCalendar.set(Calendar.MONTH, mRegVclMonth);
+                mCalendar.set(Calendar.DAY_OF_MONTH, mRegVclDay);
+                mCalendar.set(Calendar.HOUR_OF_DAY, 0);
+                mCalendar.set(Calendar.MINUTE, 0);
+                mCalendar.set(Calendar.SECOND, 0);
+                mDatePickerDialog.getDatePicker().setMinDate(mCalendar.getTimeInMillis());
+            }else if(mFrom.equals("permit_exp_date")){
+                mCalendar.set(Calendar.YEAR, mRegPerYear);
+                mCalendar.set(Calendar.MONTH, mRegPerMonth);
+                mCalendar.set(Calendar.DAY_OF_MONTH, mRegPerDay);
+                mCalendar.set(Calendar.HOUR_OF_DAY, 0);
+                mCalendar.set(Calendar.MINUTE, 0);
+                mCalendar.set(Calendar.SECOND, 0);
+                mDatePickerDialog.getDatePicker().setMinDate(mCalendar.getTimeInMillis());
+            }
+            else if(mFrom.equals("fitness_exp_num")){
+                mCalendar.set(Calendar.YEAR, mRegFitYear);
+                mCalendar.set(Calendar.MONTH, mRegFitMonth);
+                mCalendar.set(Calendar.DAY_OF_MONTH, mRegFitDay);
+                mCalendar.set(Calendar.HOUR_OF_DAY, 0);
+                mCalendar.set(Calendar.MINUTE, 0);
+                mCalendar.set(Calendar.SECOND, 0);
+                mDatePickerDialog.getDatePicker().setMinDate(mCalendar.getTimeInMillis());
+            }
+            else if(mFrom.equals("insurance_exp_date")){
+                mCalendar.set(Calendar.YEAR, mRegIncYear);
+                mCalendar.set(Calendar.MONTH, mRegIncMonth);
+                mCalendar.set(Calendar.DAY_OF_MONTH, mRegIncDay);
+                mCalendar.set(Calendar.HOUR_OF_DAY, 0);
+                mCalendar.set(Calendar.MINUTE, 0);
+                mCalendar.set(Calendar.SECOND, 0);
+                mDatePickerDialog.getDatePicker().setMinDate(mCalendar.getTimeInMillis());
+            }
+            else if(mFrom.equals("population_exp_date")){
+                mCalendar.set(Calendar.YEAR, mRegPolYear);
+                mCalendar.set(Calendar.MONTH, mRegPolMonth);
+                mCalendar.set(Calendar.DAY_OF_MONTH, mRegPolDay);
+                mCalendar.set(Calendar.HOUR_OF_DAY, 0);
+                mCalendar.set(Calendar.MINUTE, 0);
+                mCalendar.set(Calendar.SECOND, 0);
+                mDatePickerDialog.getDatePicker().setMinDate(mCalendar.getTimeInMillis());
+            }
             return mDatePickerDialog;
         }
 
@@ -339,7 +430,30 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
 
         public void populateSetDate(int year, int month, int day) {
             //dob.setText(month+"/"+day+"/"+year);
+
+            if (mFrom.equals("vehicle_reg_date")) {
+                mRegVclDay =  day ;
+                mRegVclYear = year;
+                mRegVclMonth = month-1;
+            }else if(mFrom.equals("permit_reg_date") ){
+                mRegPerDay =  day ;
+                mRegPerYear = year;
+                mRegPerMonth = month-1;
+            }else if(mFrom.equals("fitness_reg_num") ){
+                mRegFitDay =  day ;
+                mRegFitYear = year;
+                mRegFitMonth = month-1;
+            }else if(mFrom.equals("insurance_reg_date") ){
+                mRegIncDay =  day ;
+                mRegIncYear = year;
+                mRegIncMonth = month-1;
+            }else if(mFrom.equals("permit_reg_date") ){
+                mRegPolDay =  day ;
+                mRegPolYear = year;
+                mRegPolMonth = month-1;
+            }
             editText.setText(month + "/" + day + "/" + year);
+
         }
     }
 
