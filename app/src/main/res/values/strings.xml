@@ -7,7 +7,7 @@
     <string name="email">e-Mail</string>
     <string name="phone_number">Phone Number</string>
     <string name="owner_name">Owner Name</string>
-    <string name="registration_Number">Registration Number</string>
+    <string name="registration_Number">Firm Registration Number</string>
     <string name="bank_name">Bank Name</string>
     <string name="bank_acc_no">Bank A/c No</string>
     <string name="branch">Branch</string>
@@ -33,7 +33,7 @@
     <string name="driver_owner_name">Driver/Owner Name</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="ok">OK</string>
-    <string name="you_vehicle_added_successfully">Your vehicle added\nsuccessfully</string>
+    <string name="you_vehicle_added_successfully">Your vehicle added \n successfully</string>
 
 
     <string name="txt_hoem">Home</string>
