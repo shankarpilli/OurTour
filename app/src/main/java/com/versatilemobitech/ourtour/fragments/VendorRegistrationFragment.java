@@ -198,8 +198,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         if (Utility.isValueNullOrEmpty(et_firm_individual.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_firm_individual, "Please select the vendor type");
             et_firm_individual.requestFocus();
-        }
-       else if (Utility.isValueNullOrEmpty(et_vendor.getText().toString().trim())) {
+        } else if (Utility.isValueNullOrEmpty(et_vendor.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_vendor, "Please enter the vendor firm name");
             et_vendor.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_email.getText().toString().trim())) {
@@ -261,13 +260,13 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
             if (model.isStatus()) {
                 if (model instanceof DistrictModel) {
                     districtModel = (DistrictModel) model;
-                    ArrayList<String> mList = Utility.dialogList(mParent,districtModel);
-                    autoComplete(mList,"district");
+                    ArrayList<String> mList = Utility.dialogList(mParent, districtModel);
+                    autoComplete(mList, "district");
                     getStatesData();
                 } else if (model instanceof StateModel) {
                     stateModel = (StateModel) model;
-                    ArrayList<String> mList = Utility.dialogList(mParent,stateModel);
-                    autoComplete(mList,"state");
+                    ArrayList<String> mList = Utility.dialogList(mParent, stateModel);
+                    autoComplete(mList, "state");
                     getVehicleMakeDetails();
                 } else if (model instanceof VechilemakeModel) {
                     vechilemakeModel = (VechilemakeModel) model;
@@ -305,16 +304,16 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         Utility.execute(serverIntractorAsync);
     }
 
-private void autoComplete(ArrayList<String> mList,String mFrom){
-    if(mList != null&& mList.size()>0){
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(mParent, android.R.layout.simple_list_item_1, mList);
-        if(mFrom.equalsIgnoreCase("state")){
-            et_state.setAdapter(adapter);
-        }else {
-            et_district.setAdapter(adapter);
+    private void autoComplete(ArrayList<String> mList, String mFrom) {
+        if (mList != null && mList.size() > 0) {
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(mParent, android.R.layout.simple_list_item_1, mList);
+            if (mFrom.equalsIgnoreCase("state")) {
+                et_state.setAdapter(adapter);
+            } else {
+                et_district.setAdapter(adapter);
+            }
         }
-    }
 
-}
+    }
 }
