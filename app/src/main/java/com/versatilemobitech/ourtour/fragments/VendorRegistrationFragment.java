@@ -1,10 +1,16 @@
 package com.versatilemobitech.ourtour.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
@@ -37,19 +44,19 @@ import java.util.LinkedHashMap;
  */
 public class VendorRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
     public static EditText et_vendor;
-    private EditText et_email;
-    private EditText et_phone_number;
-    private EditText et_owner;
+    private static EditText et_email;
+    private static EditText et_phone_number;
+    private static EditText et_owner;
     public static EditText et_registration_number;
-    private EditText et_bank;
-    private EditText et_bank_acc;
-    private EditText et_branch;
-    private EditText et_ifsc;
-    private EditText et_area_name;
-    private EditText et_guarage;
-    private AutoCompleteTextView et_district;
-    private AutoCompleteTextView et_state;
-    private EditText et_firm_individual;
+    private static EditText et_bank;
+    private static EditText et_bank_acc;
+    private static EditText et_branch;
+    private static EditText et_ifsc;
+    private static EditText et_area_name;
+    private static EditText et_guarage;
+    private static AutoCompleteTextView et_district;
+    private static AutoCompleteTextView et_state;
+    private static EditText et_firm_individual;
 
 
     private Button btn_next;
@@ -60,8 +67,8 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private DashboardActivity mParent;
     private View rootView;
     public static VendorModel vendorModel;
-    private DistrictModel districtModel;
-    private StateModel stateModel;
+    private static DistrictModel districtModel;
+    private static StateModel stateModel;
     public static VechilemakeModel vechilemakeModel;
 
     private ArrayList<SpinnerModel> mDialogList;
@@ -161,27 +168,16 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                 break;
             case R.id.btn_next:
                 if (isValidFields()) {
-                    vendorModel = new VendorModel();
-                    vendorModel.setVendor_name(et_vendor.getText().toString());
-                    vendorModel.setVendor_owner(et_owner.getText().toString());
-                    vendorModel.setMobile_number(et_phone_number.getText().toString());
-                    vendorModel.setEmail_id(et_email.getText().toString());
-                    vendorModel.setVendor_registration_number(et_registration_number.getText().toString());
-                    vendorModel.setBank_name(et_bank.getText().toString());
-                    vendorModel.setBank_number(et_bank_acc.getText().toString());
-                    vendorModel.setIfsc_code(et_ifsc.getText().toString());
-                    vendorModel.setArea_name(et_area_name.getText().toString());
-                    vendorModel.setGarage_name(et_guarage.getText().toString());
-                    vendorModel.setDistrict(getDistrictId(et_district.getText().toString()));
-                    vendorModel.setState(getStateID(et_state.getText().toString()));
-                    vendorModel.setState(getStateID(et_firm_individual.getText().toString()));
-                    AddCarFragment.tabLayout.getTabAt(1).select();
+                    showSearchAgainDialog(getActivity(),
+                            Utility.getResourcesString(getActivity(), R.string.are_you_sure_entered_details_are_correct),
+                            Utility.getResourcesString(getActivity(), R.string.app_name)
+                    );
                 }
                 break;
         }
     }
 
-    private String getDistrictId(String district) {
+    private static String getDistrictId(String district) {
         String mDistrictId = "";
         for (int i = 0; i < districtModel.getDistrictModels().size(); i++) {
             if (districtModel.getDistrictModels().get(i).getDistrict().equals(district)) {
@@ -191,7 +187,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         return mDistrictId;
     }
 
-    private String getStateID(String state) {
+    private static String getStateID(String state) {
         String mStateID = "";
         for (int i = 0; i < stateModel.getStateModels().size(); i++) {
             if (stateModel.getStateModels().get(i).getState().equals(state)) {
@@ -332,6 +328,48 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                 et_district.setAdapter(adapter);
             }
         }
-
     }
+
+    public static void showSearchAgainDialog(final Context context, String msg,
+                                             String title) {
+        SpannableString s = new SpannableString(msg);
+        Linkify.addLinks(s, Linkify.ALL);
+
+        AlertDialog d = new AlertDialog.Builder(context)
+                .setMessage(s)
+                .setTitle(title)
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int whichButton) {
+                                dialog.cancel();
+                            }
+                        })
+                .setPositiveButton(R.string.yes,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int whichButton) {
+                                vendorModel = new VendorModel();
+                                vendorModel.setVendor_name(et_vendor.getText().toString());
+                                vendorModel.setVendor_owner(et_owner.getText().toString());
+                                vendorModel.setMobile_number(et_phone_number.getText().toString());
+                                vendorModel.setEmail_id(et_email.getText().toString());
+                                vendorModel.setVendor_registration_number(et_registration_number.getText().toString());
+                                vendorModel.setBank_name(et_bank.getText().toString());
+                                vendorModel.setBank_number(et_bank_acc.getText().toString());
+                                vendorModel.setIfsc_code(et_ifsc.getText().toString());
+                                vendorModel.setArea_name(et_area_name.getText().toString());
+                                vendorModel.setGarage_name(et_guarage.getText().toString());
+                                vendorModel.setDistrict(getDistrictId(et_district.getText().toString()));
+                                vendorModel.setState(getStateID(et_state.getText().toString()));
+                                vendorModel.setState(getStateID(et_firm_individual.getText().toString()));
+                                AddCarFragment.tabLayout.getTabAt(1).select();
+                            }
+                        }).show();
+
+        ((TextView) d.findViewById(android.R.id.message))
+                .setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
 }

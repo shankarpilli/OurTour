@@ -62,4 +62,9 @@
     <string name="no_internet_title">No internet</string>
     <string name="please_wait">Please Wait</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="are_you_sure_entered_details_are_correct">Are you sure entered vendor details are correct</string>
+    <string name="are_you_sure_entered_details_vehicle_are_correct">Are you sure entered vehicle details are correct</string>
+
 </resources>
