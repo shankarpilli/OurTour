@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
+import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,7 @@ public class SpinnerAdapter extends BaseAdapter {
         SpinnerModel prjctItem = dataList.get(position);
         String name = prjctItem.getTitle();
         holder.tv_title.setText(name);
+        holder.tv_title.setTypeface(Utility.setTypeFace_Roboto_Regular(mContext));
         return convertView;
     }
 

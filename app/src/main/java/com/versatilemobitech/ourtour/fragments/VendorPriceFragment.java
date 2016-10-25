@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
@@ -182,6 +183,8 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
 
 
         final Button btn_ok = (Button) mResetDialog.findViewById(R.id.btn_ok);
+        TextView txt_ss_added = (TextView) mResetDialog.findViewById(R.id.txt_ss_added);
+        txt_ss_added.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
