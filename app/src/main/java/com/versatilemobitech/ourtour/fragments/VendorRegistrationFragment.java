@@ -112,8 +112,26 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
 /*        et_district.setOnClickListener(this);*/
         /*et_state.setOnClickListener(this);*/
         et_firm_individual.setOnClickListener(this);
+        setTypeface();
 
+    }
 
+    private void setTypeface() {
+        et_vendor.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_email.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_phone_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_registration_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_bank.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_bank_acc.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_branch.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_owner.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_ifsc.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_area_name.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_guarage.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_district.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_state.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_firm_individual.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        btn_next.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
     }
 
     private void getDistrictData() {

@@ -11,9 +11,9 @@
         <ImageView
             android:id="@+id/txt_left_drawer_icon"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="44dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="6dp"
             android:src="@drawable/side_menu_home" />
 
         <TextView

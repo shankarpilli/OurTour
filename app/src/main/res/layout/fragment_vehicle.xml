@@ -41,6 +41,7 @@
                         android:focusableInTouchMode="false"
                         android:hint="@string/vehicle_make"
                         android:inputType="text"
+                        android:maxLength="30"
                         android:maxLines="1" />
 
                     <EditText
@@ -53,6 +54,7 @@
                         android:focusableInTouchMode="false"
                         android:hint="@string/vehicle_model"
                         android:inputType="text"
+                        android:maxLength="30"
                         android:maxLines="1" />
 
                     <EditText
@@ -65,6 +67,7 @@
                         android:focusableInTouchMode="false"
                         android:hint="@string/seaters"
                         android:inputType="text"
+                        android:maxLength="30"
                         android:maxLines="1" />
 
                 </LinearLayout>
@@ -93,6 +96,7 @@
                             android:layout_marginTop="@dimen/ten_dp"
                             android:hint="@string/txt_vehicle_reg_num"
                             android:inputType="text"
+                            android:maxLength="30"
                             android:maxLines="1"
                             android:textSize="@dimen/twenty_sp" />
 
@@ -137,6 +141,7 @@
                             android:layout_marginTop="@dimen/ten_dp"
                             android:hint="@string/permit_number"
                             android:inputType="text"
+                            android:maxLength="30"
                             android:maxLines="1"
                             android:textSize="@dimen/twenty_sp" />
 
@@ -181,6 +186,7 @@
                             android:layout_marginTop="@dimen/ten_dp"
                             android:hint="@string/fitness_number"
                             android:inputType="text"
+                            android:maxLength="30"
                             android:maxLines="1"
                             android:textSize="@dimen/twenty_sp" />
 
@@ -225,6 +231,7 @@
                             android:layout_marginTop="@dimen/ten_dp"
                             android:hint="@string/insurence_number"
                             android:inputType="text"
+                            android:maxLength="30"
                             android:maxLines="1"
                             android:textSize="@dimen/twenty_sp" />
 
@@ -269,6 +276,7 @@
                             android:layout_marginTop="@dimen/ten_dp"
                             android:hint="@string/pollution_number"
                             android:inputType="text"
+                            android:maxLength="30"
                             android:maxLines="1"
                             android:textSize="@dimen/twenty_sp" />
 

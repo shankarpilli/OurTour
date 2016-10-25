@@ -95,8 +95,18 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         et_vehicle_make.setOnClickListener(this);
         et_seaters.setOnClickListener(this);
         et_kms_price.setOnClickListener(this);
+        setTypeface();
     }
 
+    private void setTypeface() {
+        btn_submit.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_vehicle_make.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_seaters.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_kms_price.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_driver_owner_name.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_mobile.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+
+    }
 
     @Override
     public void onClick(View v) {

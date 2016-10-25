@@ -74,6 +74,7 @@ public class AddCarFragment extends Fragment {
         TextView textview = (TextView) tabOne.findViewById(R.id.txt_image);
         ImageView img_icon = (ImageView) tabOne.findViewById(R.id.img_icon);
         textview.setText(Utility.getResourcesString(getActivity(), R.string.txt_vendor_registration));
+        textview.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
         tabLayout.getTabAt(0).setCustomView(tabOne);
 
@@ -81,6 +82,7 @@ public class AddCarFragment extends Fragment {
         TextView text_view_two = (TextView) tabTwo.findViewById(R.id.txt_image);
         ImageView img_icon_two = (ImageView) tabTwo.findViewById(R.id.img_icon);
         text_view_two.setText(Utility.getResourcesString(getActivity(), R.string.txt_vehicle_registration));
+        text_view_two.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         img_icon_two.setImageDrawable(getResources().getDrawable(R.drawable.layer_not_selected));
         tabLayout.getTabAt(1).setCustomView(tabTwo);
 
@@ -88,6 +90,7 @@ public class AddCarFragment extends Fragment {
         TextView text_view_three = (TextView) tabThree.findViewById(R.id.txt_image);
         ImageView img_icon_three = (ImageView) tabThree.findViewById(R.id.img_icon);
         text_view_three.setText(Utility.getResourcesString(getActivity(), R.string.txt_vendor_price));
+        text_view_three.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         img_icon_three.setImageDrawable(getResources().getDrawable(R.drawable.layer_not_selected));
         tabLayout.getTabAt(2).setCustomView(tabThree);
 

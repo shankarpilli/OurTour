@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -418,6 +419,7 @@ public class Utility {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.layout_alert_dialog_title, null);
         TextView tv_title = (TextView) view.findViewById(R.id.tv_alert_dialog_title);
+        tv_title = (TextView) view.findViewById(R.id.tv_alert_dialog_title);
         RelativeLayout dialog_back_ground = (RelativeLayout) view.findViewById(R.id.dialog_back_ground);
         dialog_back_ground.setBackgroundColor(context.getResources().getColor(R.color.themeColor));
         tv_title.setText(title);
@@ -515,5 +517,18 @@ public class Utility {
             }
         }
         return mList;
+    }
+
+
+    public static Typeface setTypeFace_Roboto_Bold(Context context) {
+        return Typeface.createFromAsset(context.getAssets(), "Roboto-Bold.ttf");
+    }
+
+    public static Typeface setTypeFace_Roboto_Italic(Context context) {
+        return Typeface.createFromAsset(context.getAssets(), "Roboto-Italic.ttf");
+    }
+
+    public static Typeface setTypeFace_Roboto_Regular(Context context) {
+        return Typeface.createFromAsset(context.getAssets(), "Roboto-Regular.ttf");
     }
 }

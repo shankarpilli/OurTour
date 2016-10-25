@@ -161,6 +161,29 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         edt_vehicle_model.setOnClickListener(this);
         edt_seaters.setOnClickListener(this);
 
+        setTypeface();
+    }
+
+    private void setTypeface() {
+        edt_vehicle_make.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_vehicle_model.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_seaters.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_vehicle_reg_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_vehicle_reg_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_vehicle_exp_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_permit_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_permit_reg_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_permit_exp_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_fitness_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_fitness_reg_num.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_fitness_exp_num.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_insurance_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_insurance_reg_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_insurance_exp_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_population_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_population_reg_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_population_exp_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        btn_submit.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
     }
 
     @Override

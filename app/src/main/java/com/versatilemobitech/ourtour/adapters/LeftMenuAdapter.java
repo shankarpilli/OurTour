@@ -10,11 +10,13 @@ import android.widget.TextView;
 
 
 import com.versatilemobitech.ourtour.R;
+import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
 
 /**
  * Created by Rev's Nani on 14-10-2016.
+ *  Edited by Shankar Pilli 25-10-2016
  */
 
 public class LeftMenuAdapter extends BaseAdapter {
@@ -57,6 +59,7 @@ public class LeftMenuAdapter extends BaseAdapter {
             mLeftMenuItemHolder = new LeftMenuItemHolder();
             mLeftMenuItemHolder.txt_left_drawer_text = (TextView) convertView.findViewById(R.id.txt_left_drawer_text);
             mLeftMenuItemHolder.iv_left_drawer_icon = (ImageView) convertView.findViewById(R.id.txt_left_drawer_icon);
+            mLeftMenuItemHolder.txt_left_drawer_text.setTypeface(Utility.setTypeFace_Roboto_Regular(mContext));
             convertView.setTag(mLeftMenuItemHolder);
         } else {
             mLeftMenuItemHolder = (LeftMenuItemHolder) convertView.getTag();
