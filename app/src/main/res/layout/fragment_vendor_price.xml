@@ -47,6 +47,7 @@
             android:layout_width="match_parent"
             android:singleLine="true"
             android:textSize="@dimen/twenty_sp"
+            android:maxLength="30"
             android:hint="@string/driver_owner_name"
             android:layout_height="wrap_content" />
         <EditText
