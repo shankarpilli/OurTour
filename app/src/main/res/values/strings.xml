@@ -35,8 +35,6 @@
     <string name="you_vehicle_added_successfully">Your vehicle added\nsuccessfully</string>
 
 
-
-
     <string name="txt_hoem">Home</string>
     <string name="txt_about_us">About Us</string>
     <string name="txt_contact_us">Contact us</string>
@@ -47,7 +45,7 @@
     <string name="txt_home_content">Loerm Ompusm is simply dummy text of printing and typesetting industry. Loerm Impusm has been the industry\'s standerd dummy text ever sinse 1500s when an unknown printer took a galley of type and scrambled it to make \type specimen it has servived not only five countries but also the leap into \n\n scrambled it to make \type specimen it has servived not only five countries but also the leap into </string>
 
     <string name="txt_vendor_registration">Vendor Registration</string>
-    <string name="txt_vendor_price">Vendor Price</string>
+    <string name="txt_vendor_price">Vendor \nPrice  </string>
     <string name="txt_vehicle_registration">Vehicle Registration</string>
 
     <string name="txt_vehicla_make">Vehicle Make</string>

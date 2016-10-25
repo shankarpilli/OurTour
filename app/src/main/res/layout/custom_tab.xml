@@ -10,9 +10,12 @@
         android:id="@+id/txt_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_7dp"
+        android:layout_marginBottom="@dimen/_5dp"
         android:text="@string/txt_vendor_registration"
+        android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/_12sp" />
+        android:textSize="@dimen/_14sp" />
 
     <ImageView
         android:id="@+id/img_icon"

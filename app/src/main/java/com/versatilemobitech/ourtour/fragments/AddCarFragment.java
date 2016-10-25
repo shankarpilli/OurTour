@@ -95,8 +95,8 @@ public class AddCarFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 LinearLayout selectedTab = (LinearLayout) tab.getCustomView();
-                selectedTab.setLayoutParams(new
-                        LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                /*selectedTab.setLayoutParams(new
+                        LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 45));*/
                 TextView textview = (TextView) selectedTab.findViewById(R.id.txt_image);
                 ImageView img_icon = (ImageView) selectedTab.findViewById(R.id.img_icon);
                 if (tab.getPosition() == 0) {
@@ -128,8 +128,8 @@ public class AddCarFragment extends Fragment {
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 LinearLayout selectedTab = (LinearLayout) tab.getCustomView();
-                selectedTab.setLayoutParams(new
-                        LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                /*selectedTab.setLayoutParams(new
+                        LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 45));*/
                 TextView textview = (TextView) selectedTab.findViewById(R.id.txt_image);
                 ImageView img_icon = (ImageView) selectedTab.findViewById(R.id.img_icon);
                 if (tab.getPosition() == 0) {
