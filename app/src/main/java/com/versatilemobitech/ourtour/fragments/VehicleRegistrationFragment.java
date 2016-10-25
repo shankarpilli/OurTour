@@ -268,6 +268,10 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 mDialodList = Utility.dialogList(mParent, null, "seaters");
                 Utility.showSpinnerDialog(mParent, "Seaters", edt_seaters, mDialodList, 1);
                 break;
+            case R.id.edt_vehicle_model:
+                mDialodList = Utility.dialogVehicleModelList();
+                Utility.showSpinnerDialog(mParent, "Vehicle Model", edt_vehicle_model, mDialodList, 1);
+                break;
         }
     }
 

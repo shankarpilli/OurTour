@@ -59,6 +59,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -447,11 +448,15 @@ public class Utility {
         builderSingle.show();
     }
 
-    public static ArrayList<SpinnerModel> dialogVehicleMakeList() {
+    public static ArrayList<SpinnerModel> dialogVehicleModelList() {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
-        mList.add(new SpinnerModel("A/C"));
-        mList.add(new SpinnerModel("NON A/C"));
-        mList.add(new SpinnerModel("Both"));
+        Calendar mCal = Calendar.getInstance();
+        int Year = mCal.get(Calendar.YEAR);
+        for(int i=1;i<=25;i++){
+            mList.add(new SpinnerModel(""+Year));
+            Year--;
+        }
+
         return mList;
     }
 
