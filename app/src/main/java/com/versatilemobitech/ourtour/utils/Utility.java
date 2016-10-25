@@ -433,10 +433,10 @@ public class Utility {
                         if (id == 1) {
                             String gender = mData.getTitle();
                             et_spinner.setText(gender);
-                            if(title.equalsIgnoreCase("vendor type")){
-                                if(et_spinner.getText().toString().equalsIgnoreCase("Individual")){
+                            if (title.equalsIgnoreCase("vendor type")) {
+                                if (et_spinner.getText().toString().equalsIgnoreCase("Individual")) {
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.GONE);
-                                }else {
+                                } else {
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.VISIBLE);
                                 }
                             }
@@ -454,6 +454,7 @@ public class Utility {
         mList.add(new SpinnerModel("Both"));
         return mList;
     }
+
     public static ArrayList<SpinnerModel> dialogVendorTypeList() {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         mList.add(new SpinnerModel("Vendor Firm"));
@@ -464,19 +465,19 @@ public class Utility {
     public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         if (!mFrom.equals("districts") && !mFrom.equals("states")) {
-            if(mFrom.equals("kmsprice")) {
+            if (mFrom.equals("kmsprice")) {
                 for (int i = 10; i <= 100; i++) {
-                    if (i%10 == 0) {
+                    if (i % 10 == 0) {
                         mList.add(new SpinnerModel("" + i));
                     }
                 }
-            }else {
+            } else {
                 for (int i = 1; i <= 10; i++) {
                     mList.add(new SpinnerModel("" + i));
                 }
             }
 
-        }else {
+        } else {
             if (mModel instanceof StateModel) {
                 StateModel mStateModel = (StateModel) mModel;
                 for (int i = 0; i < mStateModel.getStateModels().size(); i++) {
@@ -491,5 +492,21 @@ public class Utility {
         }
         return mList;
 
+    }
+
+    public static ArrayList<String> dialogList(Context mCon, Model mModel) {
+        ArrayList<String> mList = new ArrayList<>();
+        if (mModel instanceof StateModel) {
+            StateModel mStateModel = (StateModel) mModel;
+            for (int i = 0; i < mStateModel.getStateModels().size(); i++) {
+                mList.add(mStateModel.getStateModels().get(i).getState());
+            }
+        } else if (mModel instanceof DistrictModel) {
+            DistrictModel mDistrictModel = (DistrictModel) mModel;
+            for (int i = 0; i < mDistrictModel.getDistrictModels().size(); i++) {
+                mList.add(mDistrictModel.getDistrictModels().get(i).getDistrict());
+            }
+        }
+        return mList;
     }
 }

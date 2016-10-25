@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -45,8 +47,8 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private EditText et_ifsc;
     private EditText et_area_name;
     private EditText et_guarage;
-    private EditText et_district;
-    private EditText et_state;
+    private AutoCompleteTextView et_district;
+    private AutoCompleteTextView et_state;
     private EditText et_firm_individual;
 
 
@@ -98,8 +100,8 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_ifsc = (EditText) rootView.findViewById(R.id.et_ifsc);
         et_area_name = (EditText) rootView.findViewById(R.id.et_area_name);
         et_guarage = (EditText) rootView.findViewById(R.id.et_guarage);
-        et_district = (EditText) rootView.findViewById(R.id.et_district);
-        et_state = (EditText) rootView.findViewById(R.id.et_state);
+        et_district = (AutoCompleteTextView) rootView.findViewById(R.id.et_district);
+        et_state = (AutoCompleteTextView) rootView.findViewById(R.id.et_state);
         et_firm_individual = (EditText) rootView.findViewById(R.id.et_firm_individual);
         btn_next = (Button) rootView.findViewById(R.id.btn_next);
 
@@ -107,8 +109,8 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         getDistrictData();
 
         btn_next.setOnClickListener(this);
-        et_district.setOnClickListener(this);
-        et_state.setOnClickListener(this);
+/*        et_district.setOnClickListener(this);*/
+        /*et_state.setOnClickListener(this);*/
         et_firm_individual.setOnClickListener(this);
 
 
@@ -259,9 +261,13 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
             if (model.isStatus()) {
                 if (model instanceof DistrictModel) {
                     districtModel = (DistrictModel) model;
+                    ArrayList<String> mList = Utility.dialogList(mParent,districtModel);
+                    autoComplete(mList,"district");
                     getStatesData();
                 } else if (model instanceof StateModel) {
                     stateModel = (StateModel) model;
+                    ArrayList<String> mList = Utility.dialogList(mParent,stateModel);
+                    autoComplete(mList,"state");
                     getVehicleMakeDetails();
                 } else if (model instanceof VechilemakeModel) {
                     vechilemakeModel = (VechilemakeModel) model;
@@ -299,5 +305,16 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         Utility.execute(serverIntractorAsync);
     }
 
+private void autoComplete(ArrayList<String> mList,String mFrom){
+    if(mList != null&& mList.size()>0){
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(mParent, android.R.layout.simple_list_item_1, mList);
+        if(mFrom.equalsIgnoreCase("state")){
+            et_state.setAdapter(adapter);
+        }else {
+            et_district.setAdapter(adapter);
+        }
+    }
 
+}
 }

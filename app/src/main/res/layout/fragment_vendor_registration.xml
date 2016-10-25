@@ -142,7 +142,16 @@
                     android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
-                <EditText
+                <AutoCompleteTextView
+                    android:id="@+id/et_district"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/district"
+                    android:maxLines="1"
+                    android:focusable="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <!--<EditText
                     android:id="@+id/et_district"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,9 +161,16 @@
                     android:hint="@string/district"
                     android:inputType="textNoSuggestions"
                     android:maxLines="1"
+                    android:textSize="@dimen/twenty_sp" />-->
+                <AutoCompleteTextView
+                    android:id="@+id/et_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/state"
+                    android:maxLines="1"
+                    android:focusable="true"
                     android:textSize="@dimen/twenty_sp" />
-
-                <EditText
+        <!--        <EditText
                     android:id="@+id/et_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,7 +180,7 @@
                     android:hint="@string/state"
                     android:inputType="textNoSuggestions"
                     android:maxLines="1"
-                    android:textSize="@dimen/twenty_sp" />
+                    android:textSize="@dimen/twenty_sp" />-->
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
