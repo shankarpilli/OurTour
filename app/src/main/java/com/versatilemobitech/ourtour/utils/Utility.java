@@ -437,8 +437,10 @@ public class Utility {
                             if (title.equalsIgnoreCase("vendor type")) {
                                 if (et_spinner.getText().toString().equalsIgnoreCase("Individual")) {
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.GONE);
+                                    VendorRegistrationFragment.et_vendor.requestFocus();
                                 } else {
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.VISIBLE);
+                                    VendorRegistrationFragment.et_vendor.requestFocus();
                                 }
                             }
 

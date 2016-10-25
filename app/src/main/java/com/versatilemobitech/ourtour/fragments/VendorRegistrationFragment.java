@@ -36,7 +36,7 @@ import java.util.LinkedHashMap;
  * Created by Shankar Pilli.
  */
 public class VendorRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
-    private EditText et_vendor;
+    public static EditText et_vendor;
     private EditText et_email;
     private EditText et_phone_number;
     private EditText et_owner;

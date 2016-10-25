@@ -8,6 +8,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,6 +121,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         edt_vehicle_model = (EditText) rootView.findViewById(R.id.edt_vehicle_model);
         edt_seaters = (EditText) rootView.findViewById(R.id.edt_seaters);
         edt_vehicle_reg_number = (EditText) rootView.findViewById(R.id.edt_vehicle_reg_number);
+        edt_vehicle_reg_number.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
         edt_vehicle_reg_date = (EditText) rootView.findViewById(R.id.edt_vehicle_reg_date);
         edt_vehicle_exp_date = (EditText) rootView.findViewById(R.id.edt_vehicle_exp_date);
         edt_permit_number = (EditText) rootView.findViewById(R.id.edt_permit_number);
