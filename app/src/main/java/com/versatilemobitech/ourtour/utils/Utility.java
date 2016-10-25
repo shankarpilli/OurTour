@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.adapters.SpinnerAdapter;
 import com.versatilemobitech.ourtour.customviews.SnackBar;
+import com.versatilemobitech.ourtour.fragments.VendorRegistrationFragment;
 import com.versatilemobitech.ourtour.models.DistrictModel;
 import com.versatilemobitech.ourtour.models.Model;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
@@ -406,7 +407,7 @@ public class Utility {
         }
     }
 
-    public static void showSpinnerDialog(final Context context, String title, final EditText et_spinner,
+    public static void showSpinnerDialog(final Context context, final String title, final EditText et_spinner,
                                          ArrayList<SpinnerModel> itemsList, final int id
     ) {
 
@@ -432,6 +433,14 @@ public class Utility {
                         if (id == 1) {
                             String gender = mData.getTitle();
                             et_spinner.setText(gender);
+                            if(title.equalsIgnoreCase("vendor type")){
+                                if(et_spinner.getText().toString().equalsIgnoreCase("Individual")){
+                                    VendorRegistrationFragment.et_registration_number.setVisibility(View.GONE);
+                                }else {
+                                    VendorRegistrationFragment.et_registration_number.setVisibility(View.VISIBLE);
+                                }
+                            }
+
                         }
                     }
                 });

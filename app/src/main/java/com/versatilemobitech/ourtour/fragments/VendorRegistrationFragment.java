@@ -45,7 +45,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private EditText et_email;
     private EditText et_phone_number;
     private EditText et_owner;
-    private EditText et_registration_number;
+    public static EditText et_registration_number;
     private EditText et_bank;
     private EditText et_bank_acc;
     private EditText et_branch;
@@ -144,7 +144,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                 break;
             case R.id.et_firm_individual:
                 mDialogList = Utility.dialogVendorTypeList();
-                Utility.showSpinnerDialog(mParent, "vendor type", et_firm_individual, mDialogList, 1);
+                Utility.showSpinnerDialog(mParent, "Vendor Type", et_firm_individual, mDialogList, 1);
                 break;
             case R.id.btn_next:
                 if (isValidFields()) {
@@ -162,7 +162,6 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     vendorModel.setDistrict(getDistrictId(et_district.getText().toString()));
                     vendorModel.setState(getStateID(et_state.getText().toString()));
                     vendorModel.setState(getStateID(et_firm_individual.getText().toString()));
-
                     AddCarFragment.tabLayout.getTabAt(1).select();
                 }
                 break;
@@ -223,7 +222,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         } else if (Utility.isValueNullOrEmpty(et_owner.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_owner, "Please enter owner name");
             et_phone_number.requestFocus();
-        } else if (Utility.isValueNullOrEmpty(et_registration_number.getText().toString().trim())) {
+        } else if (et_registration_number.getVisibility() == View.VISIBLE && Utility.isValueNullOrEmpty(et_registration_number.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_registration_number, "Please enter the registration number");
             et_registration_number.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_bank.getText().toString().trim())) {
