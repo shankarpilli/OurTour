@@ -474,14 +474,14 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         AlertDialog d = new AlertDialog.Builder(context)
                 .setMessage(s)
                 .setTitle(title)
-                .setNegativeButton(R.string.alert_dialog_cancel,
+                .setNegativeButton(R.string.no,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int whichButton) {
                                 dialog.cancel();
                             }
                         })
-                .setPositiveButton(R.string.alert_dialog_ok,
+                .setPositiveButton(R.string.yes,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog,

@@ -28,6 +28,7 @@ import com.versatilemobitech.ourtour.parsers.SuccesParser;
 import com.versatilemobitech.ourtour.parsers.VehicleSuccesParser;
 import com.versatilemobitech.ourtour.parsers.VendorPriceSuccesParser;
 import com.versatilemobitech.ourtour.utils.APIConstants;
+import com.versatilemobitech.ourtour.utils.Constants;
 import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
@@ -237,6 +238,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     postVendorPrice();
                 } else if (model instanceof VendorPriceSuccessModel) {
                     mVendorPriceSuccessModel = (VendorPriceSuccessModel) model;
+                    //Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_TYPE, );
                     showSubmitDialog();
                 }
             }
