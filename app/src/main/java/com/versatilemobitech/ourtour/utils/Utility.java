@@ -445,6 +445,12 @@ public class Utility {
         mList.add(new SpinnerModel("Both"));
         return mList;
     }
+    public static ArrayList<SpinnerModel> dialogVendorTypeList() {
+        ArrayList<SpinnerModel> mList = new ArrayList<>();
+        mList.add(new SpinnerModel("Vendor Firm"));
+        mList.add(new SpinnerModel("Individual"));
+        return mList;
+    }
 
     public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
         ArrayList<SpinnerModel> mList = new ArrayList<>();

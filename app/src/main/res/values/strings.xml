@@ -13,8 +13,9 @@
     <string name="branch">Branch</string>
     <string name="ifsc_code">IFSC Code</string>
     <string name="area_name">Area Name</string>
-    <string name="guarage_name">Guarage Name</string>
+    <string name="guarage_name">Garage Name</string>
     <string name="district">District</string>
+    <string name="vendor_type">Vendor Type</string>
     <string name="state">State</string>
     <string name="submit">Submit</string>
     <string name="next">Next</string>
@@ -27,7 +28,7 @@
     <string name="exp_date">Exp Date</string>
     <string name="permit_number">Permit Number</string>
     <string name="fitness_number">Fitness Number</string>
-    <string name="insurence_number">Insurence Number</string>
+    <string name="insurence_number">Insurance Number</string>
     <string name="pollution_number">Pollution Number</string>
     <string name="driver_owner_name">Driver/Owner Name</string>
     <string name="mobile_number">Mobile Number</string>

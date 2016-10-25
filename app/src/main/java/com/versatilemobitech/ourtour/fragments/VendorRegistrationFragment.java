@@ -27,6 +27,7 @@ import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.StateModel;
 import com.versatilemobitech.ourtour.models.VechilemakeModel;
 import com.versatilemobitech.ourtour.models.VendorModel;
+import com.versatilemobitech.ourtour.models.VendorTypeModel;
 import com.versatilemobitech.ourtour.parsers.DistrictsParser;
 import com.versatilemobitech.ourtour.parsers.StatesParser;
 import com.versatilemobitech.ourtour.parsers.VehicleMakeParser;
@@ -53,6 +54,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private EditText et_guarage;
     private EditText et_district;
     private EditText et_state;
+    private EditText et_firm_individual;
 
 
     private Button btn_next;
@@ -105,6 +107,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_guarage = (EditText) rootView.findViewById(R.id.et_guarage);
         et_district = (EditText) rootView.findViewById(R.id.et_district);
         et_state = (EditText) rootView.findViewById(R.id.et_state);
+        et_firm_individual = (EditText) rootView.findViewById(R.id.et_firm_individual);
         btn_next = (Button) rootView.findViewById(R.id.btn_next);
 
 
@@ -113,6 +116,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         btn_next.setOnClickListener(this);
         et_district.setOnClickListener(this);
         et_state.setOnClickListener(this);
+        et_firm_individual.setOnClickListener(this);
 
 
     }
@@ -138,6 +142,10 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                 mDialogList = Utility.dialogList(mParent, stateModel, "states");
                 Utility.showSpinnerDialog(mParent, "States", et_state, mDialogList, 1);
                 break;
+            case R.id.et_firm_individual:
+                mDialogList = Utility.dialogVendorTypeList();
+                Utility.showSpinnerDialog(mParent, "vendor type", et_firm_individual, mDialogList, 1);
+                break;
             case R.id.btn_next:
                 if (isValidFields()) {
                     vendorModel = new VendorModel();
@@ -153,6 +161,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     vendorModel.setGarage_name(et_guarage.getText().toString());
                     vendorModel.setDistrict(getDistrictId(et_district.getText().toString()));
                     vendorModel.setState(getStateID(et_state.getText().toString()));
+                    vendorModel.setState(getStateID(et_firm_individual.getText().toString()));
 
                     AddCarFragment.tabLayout.getTabAt(1).select();
                 }
@@ -192,7 +201,11 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
 
     public boolean isValidFields() {
         boolean isValidated = false;
-        if (Utility.isValueNullOrEmpty(et_vendor.getText().toString().trim())) {
+        if (Utility.isValueNullOrEmpty(et_firm_individual.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, et_firm_individual, "Please select the vendor type");
+            et_firm_individual.requestFocus();
+        }
+       else if (Utility.isValueNullOrEmpty(et_vendor.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_vendor, "Please enter the vendor firm name");
             et_vendor.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_email.getText().toString().trim())) {

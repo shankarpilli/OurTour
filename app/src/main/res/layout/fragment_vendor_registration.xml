@@ -23,6 +23,19 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/et_firm_individual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:focusable="false"
+                    android:layout_marginTop="@dimen/_5dp"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/vendor_type"
+                    android:inputType="textNoSuggestions"
+                    android:maxLines="1"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
                     android:id="@+id/et_vendor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
