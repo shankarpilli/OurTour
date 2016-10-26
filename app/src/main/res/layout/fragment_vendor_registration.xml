@@ -1,14 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@android:color/transparent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@android:color/transparent"
         android:layout_height="match_parent">
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:layout_above="@+id/btn_next">
 
             <LinearLayout
@@ -19,7 +22,7 @@
                 android:layout_marginLeft="@dimen/ten_dp"
                 android:layout_marginRight="@dimen/ten_dp"
                 android:layout_marginStart="@dimen/ten_dp"
-                android:background="@color/white"
+                android:background="@android:color/transparent"
                 android:orientation="vertical">
 
                 <EditText
@@ -199,13 +202,14 @@
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="@dimen/_180dp"
-            android:layout_height="@dimen/_60dp"
+            android:layout_width="@dimen/_130dp"
+            android:layout_height="@dimen/_45dp"
             android:layout_alignParentBottom="true"
             android:layout_below="@id/ll_vendor_price"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/_5dp"
             android:layout_marginTop="@dimen/_5dp"
+            android:textColor="@color/blackColor"
             android:background="@drawable/home_image"
             android:text="@string/next"
             android:textAllCaps="false"

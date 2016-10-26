@@ -1,20 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/fifteen_dp"
-    tools:context="com.versatilemobitech.ourtour.fragments.VendorPriceFragment">
+    android:background="@android:color/transparent">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
 
         <LinearLayout
             android:id="@+id/ll_vendor_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/ten_dp"
+            android:background="@android:color/transparent"
             android:orientation="vertical">
 
             <EditText
@@ -74,13 +75,14 @@
 
         <Button
             android:id="@+id/btn_submit"
-            android:layout_width="@dimen/_180dp"
-            android:layout_height="@dimen/_60dp"
+            android:layout_width="@dimen/_130dp"
+            android:layout_height="@dimen/_45dp"
             android:layout_below="@id/ll_vendor_price"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/twenty_dp"
             android:background="@drawable/home_image"
             android:text="@string/submit"
+            android:textColor="@color/blackColor"
             android:textAllCaps="false"
             android:textSize="@dimen/twenty_sp" />
     </RelativeLayout>

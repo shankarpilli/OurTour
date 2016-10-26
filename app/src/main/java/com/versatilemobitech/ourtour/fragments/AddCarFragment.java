@@ -103,25 +103,31 @@ public class AddCarFragment extends Fragment {
                 TextView textview = (TextView) selectedTab.findViewById(R.id.txt_image);
                 ImageView img_icon = (ImageView) selectedTab.findViewById(R.id.img_icon);
                 if (tab.getPosition() == 0) {
+                    mParent.txt_our_tour.setText("Vendor Registration");
                     img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
                     viewPager.setCurrentItem(0);
                 } else if (tab.getPosition() == 1) {
                     img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
-                    if (VendorRegistrationFragment.vendorModel == null){
+                    if (VendorRegistrationFragment.vendorModel == null) {
+                        mParent.txt_our_tour.setText("Vendor Registration");
                         tabLayout.getTabAt(0).select();
                         Utility.showToastMessage(getActivity(), "Please fill Vendor Registration");
                     } else {
+                        mParent.txt_our_tour.setText("Vehicle Registration");
                         viewPager.setCurrentItem(1);
                     }
                 } else {
                     img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
-                    if (VendorRegistrationFragment.vendorModel == null){
+                    if (VendorRegistrationFragment.vendorModel == null) {
+                        mParent.txt_our_tour.setText("Vendor Registration");
                         tabLayout.getTabAt(0).select();
                         Utility.showToastMessage(getActivity(), "Please fill Vendor Registration");
-                    } else if (VehicleRegistrationFragment.vehicleRegistration == null){
+                    } else if (VehicleRegistrationFragment.vehicleRegistration == null) {
+                        mParent.txt_our_tour.setText("Vehicle Registration");
                         tabLayout.getTabAt(1).select();
                         Utility.showToastMessage(getActivity(), "Please fill Vehicle Registration");
                     } else {
+                        mParent.txt_our_tour.setText("Vendor Price");
                         viewPager.setCurrentItem(2);
                     }
                 }

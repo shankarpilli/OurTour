@@ -3,6 +3,7 @@
     android:id="@+id/linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -10,10 +11,10 @@
         android:id="@+id/txt_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_7dp"
         android:layout_marginBottom="@dimen/_5dp"
-        android:text="@string/txt_vendor_registration"
+        android:layout_marginTop="@dimen/_7dp"
         android:gravity="center"
+        android:text="@string/txt_vendor_registration"
         android:textColor="@android:color/black"
         android:textSize="@dimen/_14sp" />
 

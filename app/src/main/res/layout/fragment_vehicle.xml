@@ -1,19 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.versatilemobitech.ourtour.fragments.VehicleRegistrationFragment">
+    android:background="@android:color/transparent">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
 
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btn_submit">
+            android:layout_above="@+id/btn_submit"
+            android:background="@android:color/transparent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                     android:layout_height="@dimen/_0dp"
                     android:layout_marginBottom="@dimen/_5dp"
                     android:layout_weight=".32"
-                    android:background="@color/white"
+                    android:background="@android:color/transparent"
                     android:orientation="vertical"
                     android:weightSum="3">
 
@@ -84,7 +85,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/three_dp"
-                        android:background="@color/white"
+                        android:background="@android:color/transparent"
                         android:orientation="vertical"
                         android:paddingLeft="@dimen/five_dp"
                         android:paddingRight="@dimen/five_dp">
@@ -323,12 +324,13 @@
 
         <Button
             android:id="@+id/btn_submit"
-            android:layout_width="@dimen/_180dp"
-            android:layout_height="@dimen/_60dp"
+            android:layout_width="@dimen/_130dp"
+            android:layout_height="@dimen/_45dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/_10dp"
+            android:textColor="@color/blackColor"
             android:layout_marginTop="@dimen/_10dp"
             android:background="@drawable/home_image"
             android:text="@string/next"
