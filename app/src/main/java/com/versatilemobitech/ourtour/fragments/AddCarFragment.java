@@ -44,6 +44,9 @@ public class AddCarFragment extends Fragment {
         if (mToolbar != null) {
             mToolbar.setVisibility(View.VISIBLE);
         }
+        if (rootView != null) {
+            return rootView;
+        }
         rootView = inflater.inflate(R.layout.fragment_add_car, container, false);
         initUI();
         return rootView;

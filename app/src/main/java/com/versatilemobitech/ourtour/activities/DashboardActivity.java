@@ -38,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private ImageView imgLeftDrawerIcon;
     private ListView lvLeftDrawer;
     public static TextView txt_our_tour;
-    private  TextView txt_vendor_id;
+    private TextView txt_vendor_id;
     private Bundle mBundle;
 
     private ArrayList<String> mSideMenuItemNamesList;
