@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.adapters.SpinnerAdapter;
 import com.versatilemobitech.ourtour.customviews.SnackBar;
+import com.versatilemobitech.ourtour.fragments.VendorPriceFragment;
 import com.versatilemobitech.ourtour.fragments.VendorRegistrationFragment;
 import com.versatilemobitech.ourtour.models.DistrictModel;
 import com.versatilemobitech.ourtour.models.Model;
@@ -444,6 +445,14 @@ public class Utility {
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.VISIBLE);
                                     VendorRegistrationFragment.et_vendor.requestFocus();
                                 }
+                            } else if (title.equalsIgnoreCase("Tour Packages")) {
+                                if (et_spinner.getText().toString().equalsIgnoreCase("Outstation")) {
+                                    VendorPriceFragment.et_extra_km.setVisibility(View.VISIBLE);
+                                    VendorPriceFragment.et_extra_km.setHint("Driver bhatta");
+                                } else {
+                                    VendorPriceFragment.et_extra_km.setVisibility(View.VISIBLE);
+                                    VendorPriceFragment.et_extra_km.setHint("Extra km charge");
+                                }
                             }
 
                         }
@@ -456,8 +465,8 @@ public class Utility {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         Calendar mCal = Calendar.getInstance();
         int Year = mCal.get(Calendar.YEAR);
-        for(int i=1;i<=25;i++){
-            mList.add(new SpinnerModel(""+Year));
+        for (int i = 1; i <= 25; i++) {
+            mList.add(new SpinnerModel("" + Year));
             Year--;
         }
 
@@ -474,12 +483,11 @@ public class Utility {
     public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         if (!mFrom.equals("districts") && !mFrom.equals("states")) {
-            if (mFrom.equals("kmsprice")) {
-                for (int i = 10; i <= 100; i++) {
-                    if (i % 10 == 0) {
-                        mList.add(new SpinnerModel("" + i));
-                    }
-                }
+            if (mFrom.equals("Tour Packages")) {
+                mList.add(new SpinnerModel("Outstation"));
+                mList.add(new SpinnerModel("2 hrs -- 20 kms"));
+                mList.add(new SpinnerModel("4 hrs -- 40 kms"));
+                mList.add(new SpinnerModel("8 hrs -- 80 kms"));
             } else {
                 for (int i = 1; i <= 10; i++) {
                     mList.add(new SpinnerModel("" + i));

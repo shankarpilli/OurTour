@@ -38,6 +38,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private ImageView imgLeftDrawerIcon;
     private ListView lvLeftDrawer;
     public static TextView txt_our_tour;
+    private  TextView txt_vendor_id;
     private Bundle mBundle;
 
     private ArrayList<String> mSideMenuItemNamesList;
@@ -139,6 +140,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private void setHeaderFooterToListView(ListView list_view) {
         LinearLayout layout_list_header = (LinearLayout) getLayoutInflater().inflate(R.layout.
                 layout_list_header, null);
+        txt_vendor_id = (TextView) layout_list_header.findViewById(R.id.txt_vendor_id);
+        txt_vendor_id.setTypeface(Utility.setTypeFace_Roboto_Bold(this));
         list_view.addHeaderView(layout_list_header);
     }
 

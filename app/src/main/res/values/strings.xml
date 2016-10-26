@@ -34,6 +34,9 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="ok">OK</string>
     <string name="you_vehicle_added_successfully">Your vehicle added \n successfully</string>
+    <string name="tour_packages">Tour Packages</string>
+    <string name="amount">Amount</string>
+    <string name="extra_km_charge">Extra km charge</string>
 
 
     <string name="txt_hoem">Home</string>
@@ -66,5 +69,7 @@
     <string name="no">No</string>
     <string name="are_you_sure_entered_details_are_correct">Are you sure entered vendor details are correct</string>
     <string name="are_you_sure_entered_details_vehicle_are_correct">Are you sure entered vehicle details are correct</string>
+    <string name="vendor_id">VENDOR ID</string>
+    <string name="vendor_id_number">VT0001</string>
 
 </resources>

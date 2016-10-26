@@ -41,15 +41,37 @@
                 android:textSize="@dimen/twenty_sp" />
 
             <EditText
-                android:id="@+id/et_kms_price"
+                android:id="@+id/et_tour_packages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/down_arrow"
                 android:focusable="false"
-                android:hint="@string/kms_price"
+                android:hint="@string/tour_packages"
+                android:inputType="textNoSuggestions"
                 android:maxLength="30"
                 android:singleLine="true"
                 android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/amount"
+                android:inputType="number"
+                android:maxLength="10"
+                android:singleLine="true"
+                android:textSize="@dimen/twenty_sp" />
+
+            <EditText
+                android:id="@+id/et_extra_km"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/extra_km_charge"
+                android:inputType="number"
+                android:maxLength="10"
+                android:singleLine="true"
+                android:textSize="@dimen/twenty_sp"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/et_driver_owner_name"
@@ -82,8 +104,8 @@
             android:layout_marginTop="@dimen/twenty_dp"
             android:background="@drawable/home_image"
             android:text="@string/submit"
-            android:textColor="@color/blackColor"
             android:textAllCaps="false"
+            android:textColor="@color/blackColor"
             android:textSize="@dimen/twenty_sp" />
     </RelativeLayout>
 
