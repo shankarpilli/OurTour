@@ -513,6 +513,8 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                                 vehicleRegistration.setPollution_date(edt_population_reg_date.getText().toString());
                                 vehicleRegistration.setPollution_expiry(edt_population_exp_date.getText().toString());
 
+                                VendorPriceFragment.getInstance().sendData(edt_vehicle_make.getText().toString(), edt_seaters.getText().toString());
+
                                 AddCarFragment.tabLayout.getTabAt(2).select();
                             }
                         }).show();

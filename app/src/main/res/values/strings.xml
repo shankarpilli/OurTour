@@ -35,7 +35,7 @@
     <string name="ok">OK</string>
     <string name="you_vehicle_added_successfully">Your vehicle added \n successfully</string>
     <string name="tour_packages">Tour Packages</string>
-    <string name="amount">Amount</string>
+    <string name="amount">Per km amount</string>
     <string name="extra_km_charge">Extra km charge</string>
 
 

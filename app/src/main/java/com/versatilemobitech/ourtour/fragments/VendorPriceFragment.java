@@ -18,6 +18,7 @@ import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
 import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
 import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
+import com.versatilemobitech.ourtour.interfaces.communicate;
 import com.versatilemobitech.ourtour.models.Model;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.SuccessModel;
@@ -37,7 +38,7 @@ import java.util.LinkedHashMap;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class VendorPriceFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
+public class VendorPriceFragment extends Fragment implements View.OnClickListener, IAsyncCaller, communicate {
     public static final String TAG = "VendorPriceFragment";
     private DashboardActivity mParent;
 
@@ -61,9 +62,14 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
 
     private ArrayList<SpinnerModel> mDialodList;
     public static VehiclePricing mVehiclePricing;
+    private static communicate iCommunicate;
 
     public VendorPriceFragment() {
         // Required empty public constructor
+    }
+
+    public static communicate getInstance() {
+        return iCommunicate;
     }
 
     @Override
@@ -71,6 +77,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        iCommunicate = this;
     }
 
     @Override
@@ -99,13 +106,14 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         et_extra_km = (EditText) rootView.findViewById(R.id.et_extra_km);
 
         btn_submit.setOnClickListener(this);
-        et_vehicle_make.setOnClickListener(this);
-        et_seaters.setOnClickListener(this);
+        //et_vehicle_make.setOnClickListener(this);
+        //et_seaters.setOnClickListener(this);
         et_tour_packages.setOnClickListener(this);
         setTypeface();
     }
 
     private void setTypeface() {
+
         btn_submit.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_vehicle_make.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_seaters.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
@@ -296,4 +304,11 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         Utility.execute(serverIntractorAsync);
     }
 
+    @Override
+    public void sendData(String make, String seaters) {
+        if (VehicleRegistrationFragment.vehicleRegistration != null) {
+            et_vehicle_make.setText("" + VehicleRegistrationFragment.vehicleRegistration.getVehicle_make());
+            et_seaters.setText("" + VehicleRegistrationFragment.vehicleRegistration.getSeater());
+        }
+    }
 }

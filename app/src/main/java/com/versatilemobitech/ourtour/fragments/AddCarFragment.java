@@ -120,9 +120,9 @@ public class AddCarFragment extends Fragment {
                         viewPager.setCurrentItem(1);
                     }
                 } else {
-                    viewPager.setCurrentItem(2);
+                    //viewPager.setCurrentItem(2);
                     img_icon.setImageDrawable(getResources().getDrawable(R.drawable.layer_selected));
-                    /*if (VendorRegistrationFragment.vendorModel == null) {
+                    if (VendorRegistrationFragment.vendorModel == null) {
                         mParent.txt_our_tour.setText("Vendor Registration");
                         tabLayout.getTabAt(0).select();
                         Utility.showToastMessage(getActivity(), "Please fill Vendor Registration");
@@ -133,7 +133,7 @@ public class AddCarFragment extends Fragment {
                     } else {
                         mParent.txt_our_tour.setText("Vendor Price");
                         viewPager.setCurrentItem(2);
-                    }*/
+                    }
                 }
                 textview.setTextColor(getResources().getColor(R.color.blackColor));
             }

@@ -19,6 +19,7 @@
         android:layout_height="@dimen/_1dp"
         android:layout_marginLeft="@dimen/_10dp"
         android:layout_marginRight="@dimen/_10dp"
+        android:visibility="gone"
         android:background="@color/txt_hint_color" />
 
 </LinearLayout>

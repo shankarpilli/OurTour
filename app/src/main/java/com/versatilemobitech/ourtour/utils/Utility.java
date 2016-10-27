@@ -449,9 +449,11 @@ public class Utility {
                                 if (et_spinner.getText().toString().equalsIgnoreCase("Outstation")) {
                                     VendorPriceFragment.et_extra_km.setVisibility(View.VISIBLE);
                                     VendorPriceFragment.et_extra_km.setHint("Driver bhatta");
+                                    VendorPriceFragment.et_amount.setHint("Per km amount");
                                 } else {
                                     VendorPriceFragment.et_extra_km.setVisibility(View.VISIBLE);
                                     VendorPriceFragment.et_extra_km.setHint("Extra km charge");
+                                    VendorPriceFragment.et_amount.setHint("Package Amount");
                                 }
                             }
 
@@ -489,7 +491,7 @@ public class Utility {
                 mList.add(new SpinnerModel("4 hrs -- 40 kms"));
                 mList.add(new SpinnerModel("8 hrs -- 80 kms"));
             } else {
-                for (int i = 1; i <= 10; i++) {
+                for (int i = 5; i <= 20; i++) {
                     mList.add(new SpinnerModel("" + i));
                 }
             }
