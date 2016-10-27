@@ -8,41 +8,43 @@ import java.io.Serializable;
 
 public class VendorModel implements Serializable {
 
-    private String vendor_name;
-    private String vendor_owner;
-    private String mobile_number;
+    private String vendor_firm_type;
+    private String vendor_firm_name;
     private String email_id;
-    private String vendor_registration_number;
+    private String owner_name;
+    private String phone_number;
+    private String vendor_firm_registration_number;
     private String bank_name;
     private String bank_number;
+    private String bank_branch;
     private String ifsc_code;
     private String area_name;
     private String garage_name;
     private String District;
     private String state;
 
-    public String getVendor_name() {
-        return vendor_name;
+    public String getVendor_firm_name() {
+        return vendor_firm_name;
     }
 
-    public void setVendor_name(String vendor_name) {
-        this.vendor_name = vendor_name;
+    public void setVendor_firm_name(String vendor_firm_name) {
+        this.vendor_firm_name = vendor_firm_name;
     }
 
-    public String getVendor_owner() {
-        return vendor_owner;
+    public String getOwner_name() {
+        return owner_name;
     }
 
-    public void setVendor_owner(String vendor_owner) {
-        this.vendor_owner = vendor_owner;
+    public void setOwner_name(String owner_name) {
+        this.owner_name = owner_name;
     }
 
-    public String getMobile_number() {
-        return mobile_number;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setMobile_number(String mobile_number) {
-        this.mobile_number = mobile_number;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getEmail_id() {
@@ -53,12 +55,12 @@ public class VendorModel implements Serializable {
         this.email_id = email_id;
     }
 
-    public String getVendor_registration_number() {
-        return vendor_registration_number;
+    public String getVendor_firm_registration_number() {
+        return vendor_firm_registration_number;
     }
 
-    public void setVendor_registration_number(String vendor_registration_number) {
-        this.vendor_registration_number = vendor_registration_number;
+    public void setVendor_firm_registration_number(String vendor_firm_registration_number) {
+        this.vendor_firm_registration_number = vendor_firm_registration_number;
     }
 
     public String getBank_name() {
@@ -115,5 +117,21 @@ public class VendorModel implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getVendor_firm_type() {
+        return vendor_firm_type;
+    }
+
+    public void setVendor_firm_type(String vendor_firm_type) {
+        this.vendor_firm_type = vendor_firm_type;
+    }
+
+    public String getBank_branch() {
+        return bank_branch;
+    }
+
+    public void setBank_branch(String bank_branch) {
+        this.bank_branch = bank_branch;
     }
 }

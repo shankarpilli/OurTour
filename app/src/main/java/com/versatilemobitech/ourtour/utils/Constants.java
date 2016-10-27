@@ -10,11 +10,11 @@ public class Constants {
 
     public static final boolean logMessageOnOrOff = true;
 
-    public static final String VENDOR_TYPE = "VENDOR_TYPE";
+    public static final String VENDOR_FIRM_TYPE = "VENDOR_FIRM_TYPE";
     public static final String VENDOR_FIRM_NAME = "VENDOR_FIRM_NAME";
     public static final String VENDOR_E_MAIL = "VENDOR_E_MAIL";
-    public static final String VENDOR_PHONE_NUMBER = "VENDOR_PHONE_NUMBER";
     public static final String VENDOR_OWNER_NAME = "VENDOR_OWNER_NAME";
+    public static final String VENDOR_PHONE_NUMBER = "VENDOR_PHONE_NUMBER";
     public static final String VENDOR_FIRM_REGISTRATION_NUMBER = "VENDOR_FIRM_REGISTRATION_NUMBER";
     public static final String VENDOR_BANK_NAME = "VENDOR_BANK_NAME";
     public static final String VENDOR_BANK_AC = "VENDOR_BANK_AC";

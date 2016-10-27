@@ -351,11 +351,11 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                             public void onClick(DialogInterface dialog,
                                                 int whichButton) {
                                 vendorModel = new VendorModel();
-                                vendorModel.setVendor_name(et_vendor.getText().toString());
-                                vendorModel.setVendor_owner(et_owner.getText().toString());
-                                vendorModel.setMobile_number(et_phone_number.getText().toString());
+                                vendorModel.setVendor_firm_name(et_vendor.getText().toString());
+                                vendorModel.setOwner_name(et_owner.getText().toString());
+                                vendorModel.setPhone_number(et_phone_number.getText().toString());
                                 vendorModel.setEmail_id(et_email.getText().toString());
-                                vendorModel.setVendor_registration_number(et_registration_number.getText().toString());
+                                vendorModel.setVendor_firm_registration_number(et_registration_number.getText().toString());
                                 vendorModel.setBank_name(et_bank.getText().toString());
                                 vendorModel.setBank_number(et_bank_acc.getText().toString());
                                 vendorModel.setIfsc_code(et_ifsc.getText().toString());

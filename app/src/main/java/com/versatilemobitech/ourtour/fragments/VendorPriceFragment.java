@@ -164,11 +164,12 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
 
     private void postVendorInformation() {
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
-        paramMap.put("vendor_name", VendorRegistrationFragment.vendorModel.getVendor_name());
-        paramMap.put("vendor_owner", VendorRegistrationFragment.vendorModel.getVendor_owner());
-        paramMap.put("mobile_number", VendorRegistrationFragment.vendorModel.getMobile_number());
+        paramMap.put("vendor_type", VendorRegistrationFragment.vendorModel.getVendor_firm_type());
+        paramMap.put("vendor_name", VendorRegistrationFragment.vendorModel.getVendor_firm_name());
+        paramMap.put("vendor_owner", VendorRegistrationFragment.vendorModel.getOwner_name());
+        paramMap.put("mobile_number", VendorRegistrationFragment.vendorModel.getPhone_number());
         paramMap.put("email_id", VendorRegistrationFragment.vendorModel.getEmail_id());
-        paramMap.put("vendor_registration_number", VendorRegistrationFragment.vendorModel.getVendor_registration_number());
+        paramMap.put("vendor_registration_number", VendorRegistrationFragment.vendorModel.getVendor_firm_registration_number());
         paramMap.put("bank_name", VendorRegistrationFragment.vendorModel.getBank_name());
         paramMap.put("bank_number", VendorRegistrationFragment.vendorModel.getBank_number());
         paramMap.put("ifsc_code", VendorRegistrationFragment.vendorModel.getIfsc_code());
@@ -243,6 +244,21 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 if (model instanceof SuccessModel) {
                     mSuccessModel = (SuccessModel) model;
                     Utility.showToastMessage(getActivity(), mSuccessModel.getMessage());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_FIRM_TYPE, VendorRegistrationFragment.vendorModel.getVendor_firm_type());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_FIRM_NAME, VendorRegistrationFragment.vendorModel.getVendor_firm_name());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_E_MAIL, VendorRegistrationFragment.vendorModel.getEmail_id());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_OWNER_NAME, VendorRegistrationFragment.vendorModel.getOwner_name());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_PHONE_NUMBER, VendorRegistrationFragment.vendorModel.getPhone_number());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_FIRM_REGISTRATION_NUMBER,
+                            VendorRegistrationFragment.vendorModel.getVendor_firm_registration_number());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_NAME, VendorRegistrationFragment.vendorModel.getBank_name());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_AC, VendorRegistrationFragment.vendorModel.getBank_number());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_BRANCH, VendorRegistrationFragment.vendorModel.getBank_branch());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_IFSC_CODE, VendorRegistrationFragment.vendorModel.getIfsc_code());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_AREA_NAME, VendorRegistrationFragment.vendorModel.getArea_name());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_GARAGE_NAME, VendorRegistrationFragment.vendorModel.getGarage_name());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_DISTRICT, VendorRegistrationFragment.vendorModel.getDistrict());
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_STATE, VendorRegistrationFragment.vendorModel.getState());
                     postVehicleInformation();
                 } else if (model instanceof VechicleSuccessModel) {
                     mVechicleSuccessModel = (VechicleSuccessModel) model;

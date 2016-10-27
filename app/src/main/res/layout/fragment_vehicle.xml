@@ -41,7 +41,7 @@
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:hint="@string/vehicle_make"
-                        android:inputType="text"
+                        android:inputType="textNoSuggestions"
                         android:maxLength="30"
                         android:maxLines="1" />
 
@@ -343,11 +343,11 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/_10dp"
-            android:textColor="@color/blackColor"
             android:layout_marginTop="@dimen/_10dp"
             android:background="@drawable/home_image"
             android:text="@string/next"
             android:textAllCaps="false"
+            android:textColor="@color/blackColor"
             android:textSize="@dimen/twenty_sp" />
     </RelativeLayout>
 
@@ -356,6 +356,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/car_icon_gray"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/car_icon_gray" />
 </RelativeLayout>
