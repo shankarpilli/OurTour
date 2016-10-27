@@ -41,6 +41,7 @@ public class AddCarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().setTheme(R.style.AppTheme_NoActionBar);
         if (mToolbar != null) {
             mToolbar.setVisibility(View.VISIBLE);
         }

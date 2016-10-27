@@ -100,8 +100,7 @@
                         android:layout_marginBottom="@dimen/three_dp"
                         android:background="@android:color/transparent"
                         android:orientation="vertical"
-                        android:paddingLeft="@dimen/five_dp"
-                        android:paddingRight="@dimen/five_dp">
+                        >
 
                         <EditText
                             android:id="@+id/edt_vehicle_reg_number"

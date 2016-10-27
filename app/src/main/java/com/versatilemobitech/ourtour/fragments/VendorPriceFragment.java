@@ -222,7 +222,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
             Utility.setSnackBarEnglish(mParent, et_tour_packages, "Please select Tour Packages");
 
         } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter the driver or owner name");
+            Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter the driver name");
             et_driver_owner_name.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {

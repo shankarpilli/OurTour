@@ -499,7 +499,7 @@ public class Utility {
                 mList.add(new SpinnerModel("4 hrs -- 40 kms"));
                 mList.add(new SpinnerModel("8 hrs -- 80 kms"));
             } else {
-                for (int i = 4; i <= 60; i++) {
+                for (int i = 1; i <= 60; i++) {
                     mList.add(new SpinnerModel("" + i));
                 }
             }
