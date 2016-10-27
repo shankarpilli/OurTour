@@ -482,6 +482,14 @@ public class Utility {
         return mList;
     }
 
+    public static ArrayList<SpinnerModel> dialogVehicleTypeList() {
+        ArrayList<SpinnerModel> mList = new ArrayList<>();
+        mList.add(new SpinnerModel("AC"));
+        mList.add(new SpinnerModel("NON AC"));
+        mList.add(new SpinnerModel("BOTH"));
+        return mList;
+    }
+
     public static ArrayList<SpinnerModel> dialogList(Context mCon, Model mModel, String mFrom) {
         ArrayList<SpinnerModel> mList = new ArrayList<>();
         if (!mFrom.equals("districts") && !mFrom.equals("states")) {

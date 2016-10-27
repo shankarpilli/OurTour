@@ -48,6 +48,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
 
     private static EditText edt_vehicle_make;
     private static EditText edt_vehicle_model;
+    private static EditText edt_vehicle_type;
     private static EditText edt_seaters;
 
     private static EditText edt_vehicle_reg_number;
@@ -126,6 +127,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         scroll = (NestedScrollView) rootView.findViewById(R.id.scroll);
         edt_vehicle_make = (EditText) rootView.findViewById(R.id.edt_vehicla_make);
         edt_vehicle_model = (EditText) rootView.findViewById(R.id.edt_vehicle_model);
+        edt_vehicle_type = (EditText) rootView.findViewById(R.id.edt_vehicle_type);
         edt_seaters = (EditText) rootView.findViewById(R.id.edt_seaters);
         edt_vehicle_reg_number = (EditText) rootView.findViewById(R.id.edt_vehicle_reg_number);
         edt_vehicle_reg_number.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
@@ -166,6 +168,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
 
         edt_vehicle_make.setOnClickListener(this);
         edt_vehicle_model.setOnClickListener(this);
+        edt_vehicle_type.setOnClickListener(this);
         edt_seaters.setOnClickListener(this);
 
         setTypeface();
@@ -174,6 +177,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private void setTypeface() {
         edt_vehicle_make.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         edt_vehicle_model.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_vehicle_type.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         edt_seaters.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         edt_vehicle_reg_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         edt_vehicle_reg_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
@@ -272,6 +276,10 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 /*mVechicleModels = Utility.dialogList(mParent, null, "vehicle");*/
                 Utility.showSpinnerDialog(mParent, "Vehicle Make", edt_vehicle_make, VendorRegistrationFragment.getDataToSpinner(), 1);
                 break;
+            case R.id.edt_vehicle_type:
+              /*  mVechicleModels = Utility.dialogList(mParent, null, "vehicle");*/
+                Utility.showSpinnerDialog(mParent, "Vehicle Type", edt_vehicle_type, Utility.dialogVehicleTypeList(), 1);
+                break;
             case R.id.edt_seaters:
                 mDialodList = Utility.dialogList(mParent, null, "seaters");
                 Utility.showSpinnerDialog(mParent, "Seaters", edt_seaters, mDialodList, 1);
@@ -291,6 +299,10 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
 
         } else if (Utility.isValueNullOrEmpty(edt_vehicle_model.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, edt_vehicle_model, "Please enter the vehicle model");
+            edt_vehicle_model.requestFocus();
+
+        } else if (Utility.isValueNullOrEmpty(edt_vehicle_model.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, edt_vehicle_model, "Please enter the vehicle type");
             edt_vehicle_model.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_seaters.getText().toString().trim())) {

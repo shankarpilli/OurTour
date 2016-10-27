@@ -21,6 +21,7 @@
     <string name="next">Next</string>
     <string name="vehicle_make">Vehicle Make</string>
     <string name="vehicle_model">Vehicle Model</string>
+    <string name="vehicle_type">Vehicle Type</string>
     <string name="kms_price">Km\'s Price</string>
     <string name="seaters">Seaters</string>
     <string name="vehicle_reg_number">Vehicle Register Number</string>
