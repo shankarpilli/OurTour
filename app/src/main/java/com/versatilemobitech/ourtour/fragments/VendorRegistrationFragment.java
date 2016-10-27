@@ -221,14 +221,14 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         } else if (!et_email.getText().toString().trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z]+)*(\\.[A-Za-z]{2,})$")) {
             Utility.setSnackBarEnglish(mParent, et_email, "Please enter valid email");
             et_email.requestFocus();
+        } else if (Utility.isValueNullOrEmpty(et_owner.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, et_owner, "Please enter owner name");
+            et_owner.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_phone_number.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_phone_number, "Please enter phone number");
             et_phone_number.requestFocus();
         } else if (et_phone_number.getText().toString().trim().length() != 10) {
             Utility.setSnackBarEnglish(mParent, et_phone_number, "Phone number must me 10 characteristics");
-            et_phone_number.requestFocus();
-        } else if (Utility.isValueNullOrEmpty(et_owner.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_owner, "Please enter owner name");
             et_phone_number.requestFocus();
         } else if (et_registration_number.getVisibility() == View.VISIBLE && Utility.isValueNullOrEmpty(et_registration_number.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_registration_number, "Please enter the registration number");

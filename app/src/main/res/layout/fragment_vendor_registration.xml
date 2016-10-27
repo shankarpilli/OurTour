@@ -1,18 +1,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@android:color/transparent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:layout_above="@+id/btn_next">
+            android:layout_above="@+id/btn_next"
+            android:background="@android:color/transparent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,16 +59,6 @@
                     android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
-                <EditText
-                    android:id="@+id/et_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/et_email"
-                    android:hint="@string/phone_number"
-                    android:inputType="phone"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_owner"
@@ -77,6 +67,17 @@
                     android:hint="@string/owner_name"
                     android:inputType="text"
                     android:maxLength="30"
+                    android:maxLines="1"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et_email"
+                    android:hint="@string/phone_number"
+                    android:inputType="phone"
+                    android:maxLength="10"
                     android:maxLines="1"
                     android:textSize="@dimen/twenty_sp" />
 
@@ -209,10 +210,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/_5dp"
             android:layout_marginTop="@dimen/_5dp"
-            android:textColor="@color/blackColor"
             android:background="@drawable/home_image"
             android:text="@string/next"
             android:textAllCaps="false"
+            android:textColor="@color/blackColor"
             android:textSize="@dimen/twenty_sp" />
 
     </RelativeLayout>
