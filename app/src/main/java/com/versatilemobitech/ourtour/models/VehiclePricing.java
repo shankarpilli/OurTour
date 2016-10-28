@@ -12,6 +12,10 @@ public class VehiclePricing {
     private String driver_bhatta;
     private String driver_name;
     private String mobile_number;
+    private String tourpackges;
+    private String perkm;
+    private String extra_km_charge;
+    private String package_amount;
 
     public String getVehicle_id() {
         return vehicle_id;
@@ -67,5 +71,37 @@ public class VehiclePricing {
 
     public void setMobile_number(String mobile_number) {
         this.mobile_number = mobile_number;
+    }
+
+    public String getTourpackges() {
+        return tourpackges;
+    }
+
+    public void setTourpackges(String tourpackges) {
+        this.tourpackges = tourpackges;
+    }
+
+    public String getPerkm() {
+        return perkm;
+    }
+
+    public void setPerkm(String perkm) {
+        this.perkm = perkm;
+    }
+
+    public String getExtra_km_charge() {
+        return extra_km_charge;
+    }
+
+    public void setExtra_km_charge(String extra_km_charge) {
+        this.extra_km_charge = extra_km_charge;
+    }
+
+    public String getPackage_amount() {
+        return package_amount;
+    }
+
+    public void setPackage_amount(String package_amount) {
+        this.package_amount = package_amount;
     }
 }

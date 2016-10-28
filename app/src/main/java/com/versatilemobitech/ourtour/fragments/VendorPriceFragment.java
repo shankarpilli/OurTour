@@ -144,8 +144,12 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     mVehiclePricing.setVehicle_id(getVechileId(et_vehicle_make.getText().toString()));
                     mVehiclePricing.setAc_price(et_tour_packages.getText().toString());
                     mVehiclePricing.setDriver_name(et_driver_owner_name.getText().toString());
-                    mVehiclePricing.setDriver_bhatta("");
+                    mVehiclePricing.setDriver_bhatta(et_extra_km.getText().toString());
                     mVehiclePricing.setMobile_number(et_mobile.getText().toString());
+                    mVehiclePricing.setPackage_amount(et_amount.getText().toString());
+                    mVehiclePricing.setTourpackges(et_tour_packages.getText().toString());
+                    mVehiclePricing.setPerkm(et_amount.getText().toString());
+                    mVehiclePricing.setExtra_km_charge(et_extra_km.getText().toString());
                     postVendorInformation();
                 }
                 break;
@@ -233,18 +237,44 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         } else if (Utility.isValueNullOrEmpty(et_tour_packages.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_tour_packages, "Please select Tour Packages");
 
-        } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter the driver name");
-            et_driver_owner_name.requestFocus();
-
-        } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
-            et_mobile.requestFocus();
-        } else if (et_mobile.getText().toString().trim().length() != 10) {
-            Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
-            et_mobile.requestFocus();
+        } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Outstation")) {
+            if (Utility.isValueNullOrEmpty(et_amount.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_amount, "Please enter Per km amount");
+                et_amount.requestFocus();
+            } else if (Utility.isValueNullOrEmpty(et_extra_km.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_extra_km, "Please enter  Driver bhatta");
+                et_extra_km.requestFocus();
+            } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                et_driver_owner_name.requestFocus();
+            } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                et_mobile.requestFocus();
+            } else if (et_mobile.getText().toString().trim().length() != 10) {
+                Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                et_mobile.requestFocus();
+            } else {
+                isValidated = true;
+            }
         } else {
-            isValidated = true;
+            if (Utility.isValueNullOrEmpty(et_amount.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_amount, "Please enter Package Amount");
+                et_amount.requestFocus();
+            } else if (Utility.isValueNullOrEmpty(et_extra_km.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_extra_km, "Please enter  Extra km charge");
+                et_extra_km.requestFocus();
+            } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                et_driver_owner_name.requestFocus();
+            } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                et_mobile.requestFocus();
+            } else if (et_mobile.getText().toString().trim().length() != 10) {
+                Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                et_mobile.requestFocus();
+            } else {
+                isValidated = true;
+            }
         }
         return isValidated;
     }
@@ -296,6 +326,10 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         paramMap.put("driver_bhatta", mVehiclePricing.getDriver_bhatta());
         paramMap.put("driver_name", mVehiclePricing.getDriver_name());
         paramMap.put("mobile_number", mVehiclePricing.getMobile_number());
+        paramMap.put("tourpackges", mVehiclePricing.getTourpackges());
+        paramMap.put("perkm", mVehiclePricing.getPerkm());
+        paramMap.put("package_amount", mVehiclePricing.getPackage_amount());
+        paramMap.put("extra_km_charge", mVehiclePricing.getExtra_km_charge());
         VendorPriceSuccesParser mParser = new VendorPriceSuccesParser();
         ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
                 R.string.please_wait), true,
