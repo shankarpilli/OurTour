@@ -34,6 +34,7 @@ import com.versatilemobitech.ourtour.parsers.DistrictsParser;
 import com.versatilemobitech.ourtour.parsers.StatesParser;
 import com.versatilemobitech.ourtour.parsers.VehicleMakeParser;
 import com.versatilemobitech.ourtour.utils.APIConstants;
+import com.versatilemobitech.ourtour.utils.Constants;
 import com.versatilemobitech.ourtour.utils.Utility;
 
 import java.util.ArrayList;
@@ -139,16 +140,44 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_state.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_firm_individual.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         btn_next.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        setSharedPrefranceData();
+    }
+
+    private void setSharedPrefranceData() {
+        et_firm_individual.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_FIRM_TYPE));
+        et_vendor.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_FIRM_NAME));
+        et_email.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_E_MAIL));
+        et_owner.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_OWNER_NAME));
+        et_phone_number.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_PHONE_NUMBER));
+        et_registration_number.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_FIRM_REGISTRATION_NUMBER));
+        et_bank.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_NAME));
+        et_bank_acc.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_AC));
+        et_branch.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_BRANCH));
+        et_ifsc.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_BANK_IFSC_CODE));
+        et_area_name.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_AREA_NAME));
+        et_guarage.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_GARAGE_NAME));
+        et_district.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_DISTRICT));
+        et_state.setText("" + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_STATE));
     }
 
     private void getDistrictData() {
-        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
-        DistrictsParser mParser = new DistrictsParser();
-        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
-                R.string.please_wait), false,
-                APIConstants.DISTRICTS, paramMap,
-                APIConstants.REQUEST_TYPE.GET, this, mParser);
-        Utility.execute(serverIntractorAsync);
+        if(Utility.isNetworkAvailable(getActivity())) {
+            LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+            DistrictsParser mParser = new DistrictsParser();
+            ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                    R.string.please_wait), false,
+                    APIConstants.DISTRICTS, paramMap,
+                    APIConstants.REQUEST_TYPE.GET, this, mParser);
+            Utility.execute(serverIntractorAsync);
+        } else {
+            Utility.showSettingDialog(
+                    getActivity(),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_msg),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_title),
+                    Utility.NO_INTERNET_CONNECTION).show();
+        }
     }
 
     @Override
@@ -351,6 +380,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                             public void onClick(DialogInterface dialog,
                                                 int whichButton) {
                                 vendorModel = new VendorModel();
+                                vendorModel.setVendor_firm_type(et_firm_individual.getText().toString());
                                 vendorModel.setVendor_firm_name(et_vendor.getText().toString());
                                 vendorModel.setOwner_name(et_owner.getText().toString());
                                 vendorModel.setPhone_number(et_phone_number.getText().toString());
@@ -358,12 +388,12 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                                 vendorModel.setVendor_firm_registration_number(et_registration_number.getText().toString());
                                 vendorModel.setBank_name(et_bank.getText().toString());
                                 vendorModel.setBank_number(et_bank_acc.getText().toString());
+                                vendorModel.setBank_branch(et_branch.getText().toString());
                                 vendorModel.setIfsc_code(et_ifsc.getText().toString());
                                 vendorModel.setArea_name(et_area_name.getText().toString());
                                 vendorModel.setGarage_name(et_guarage.getText().toString());
-                                vendorModel.setDistrict(getDistrictId(et_district.getText().toString()));
-                                vendorModel.setState(getStateID(et_state.getText().toString()));
-                                vendorModel.setState(getStateID(et_firm_individual.getText().toString()));
+                                vendorModel.setDistrict(et_district.getText().toString());
+                                vendorModel.setState(et_state.getText().toString());
                                 AddCarFragment.tabLayout.getTabAt(1).select();
                             }
                         }).show();

@@ -165,12 +165,14 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private void postVendorInformation() {
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
         paramMap.put("vendor_type", VendorRegistrationFragment.vendorModel.getVendor_firm_type());
-        paramMap.put("vendor_name", VendorRegistrationFragment.vendorModel.getVendor_firm_name());
+        paramMap.put("vendor_firm_name", VendorRegistrationFragment.vendorModel.getVendor_firm_name());
+       /* paramMap.put("vendor_name", VendorRegistrationFragment.vendorModel.getVendor_firm_name());*/
         paramMap.put("vendor_owner", VendorRegistrationFragment.vendorModel.getOwner_name());
         paramMap.put("mobile_number", VendorRegistrationFragment.vendorModel.getPhone_number());
         paramMap.put("email_id", VendorRegistrationFragment.vendorModel.getEmail_id());
         paramMap.put("vendor_registration_number", VendorRegistrationFragment.vendorModel.getVendor_firm_registration_number());
         paramMap.put("bank_name", VendorRegistrationFragment.vendorModel.getBank_name());
+        paramMap.put("bank_branch", VendorRegistrationFragment.vendorModel.getBank_branch());
         paramMap.put("bank_number", VendorRegistrationFragment.vendorModel.getBank_number());
         paramMap.put("ifsc_code", VendorRegistrationFragment.vendorModel.getIfsc_code());
         paramMap.put("area_name", VendorRegistrationFragment.vendorModel.getArea_name());
@@ -178,11 +180,21 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         paramMap.put("District", VendorRegistrationFragment.vendorModel.getDistrict());
         paramMap.put("state", VendorRegistrationFragment.vendorModel.getState());
         SuccesParser mParser = new SuccesParser();
-        ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
-                R.string.please_wait), true,
-                APIConstants.VENDOR_INFORMATION, paramMap,
-                APIConstants.REQUEST_TYPE.POST, this, mParser);
-        Utility.execute(serverIntractorAsync);
+        if (Utility.isNetworkAvailable(getActivity())) {
+            ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
+                    R.string.please_wait), true,
+                    APIConstants.VENDOR_INFORMATION, paramMap,
+                    APIConstants.REQUEST_TYPE.POST, this, mParser);
+            Utility.execute(serverIntractorAsync);
+        } else {
+            Utility.showSettingDialog(
+                    getActivity(),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_msg),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_title),
+                    Utility.NO_INTERNET_CONNECTION).show();
+        }
 
     }
 
@@ -259,23 +271,25 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_GARAGE_NAME, VendorRegistrationFragment.vendorModel.getGarage_name());
                     Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_DISTRICT, VendorRegistrationFragment.vendorModel.getDistrict());
                     Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_STATE, VendorRegistrationFragment.vendorModel.getState());
-                    postVehicleInformation();
+                    Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_ID, mSuccessModel.getVendor_id());
+                    postVehicleInformation(mSuccessModel.getVendor_id());
                 } else if (model instanceof VechicleSuccessModel) {
                     mVechicleSuccessModel = (VechicleSuccessModel) model;
                     Utility.showToastMessage(getActivity(), mVechicleSuccessModel.getMessage());
-                    postVendorPrice();
+                    postVendorPrice(mVechicleSuccessModel.getVehicleID());
                 } else if (model instanceof VendorPriceSuccessModel) {
                     mVendorPriceSuccessModel = (VendorPriceSuccessModel) model;
                     //Utility.setSharedPrefStringData(getActivity(), Constants.VENDOR_TYPE, );
+                    mParent.txt_vendor_id.setText("VENDOR ID: " + Utility.getSharedPrefStringData(getActivity(), Constants.VENDOR_ID));
                     showSubmitDialog();
                 }
             }
         }
     }
 
-    private void postVendorPrice() {
+    private void postVendorPrice(String vehicle_id) {
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
-        paramMap.put("vehicle_id", mVehiclePricing.getVehicle_id());
+        paramMap.put("vehicle_id", vehicle_id);
         paramMap.put("ac_price", mVehiclePricing.getAc_price());
         paramMap.put("non_ac_price", mVehiclePricing.getNon_ac_price());
         paramMap.put("airport_drop_pick", mVehiclePricing.getAirport_drop_pick());
@@ -290,9 +304,9 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         Utility.execute(serverIntractorAsync);
     }
 
-    private void postVehicleInformation() {
+    private void postVehicleInformation(String vendor_id) {
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
-        paramMap.put("vendor_id", VehicleRegistrationFragment.vehicleRegistration.getVendor_id());
+        paramMap.put("vendor_id", vendor_id);
         paramMap.put("vehicle_make", VehicleRegistrationFragment.vehicleRegistration.getVehicle_make());
         paramMap.put("vehicle_model", VehicleRegistrationFragment.vehicleRegistration.getVehicle_model());
         paramMap.put("vehicle_type", VehicleRegistrationFragment.vehicleRegistration.getVehicle_type());

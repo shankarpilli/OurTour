@@ -21,6 +21,8 @@ public class VehicleSuccesParser implements Parser {
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 mVechicleSuccessModel.setMessage(jsonObject.optString("message"));
+                JSONObject jsonDataObject = jsonObject.optJSONObject("data");
+                mVechicleSuccessModel.setVehicleID(jsonDataObject.optString("vehicle_id"));
             } catch (Exception e) {
 
             }

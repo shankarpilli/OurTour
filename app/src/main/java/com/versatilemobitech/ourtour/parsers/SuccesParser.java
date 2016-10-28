@@ -20,14 +20,15 @@ public class SuccesParser implements Parser {
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 successModel.setMessage(jsonObject.optString("message"));
+                JSONObject jsonDataObject = jsonObject.optJSONObject("data");
+                successModel.setVendor_id(jsonDataObject.optString("vendor_id"));
             } catch (Exception e) {
-
+                successModel.setStatus(false);
             }
-
-            successModel.setStatus(true);
+            /*successModel.setStatus(true);*/
         } else {
             successModel.setStatus(false);
-            successModel.setMessage("Opps..! Some problem with loading districts");
+            successModel.setMessage("Opps..! Some problem with loading data");
         }
         return successModel;
     }

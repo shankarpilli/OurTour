@@ -301,9 +301,9 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             Utility.setSnackBarEnglish(mParent, edt_vehicle_model, "Please enter the vehicle model");
             edt_vehicle_model.requestFocus();
 
-        } else if (Utility.isValueNullOrEmpty(edt_vehicle_model.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, edt_vehicle_model, "Please enter the vehicle type");
-            edt_vehicle_model.requestFocus();
+        } else if (Utility.isValueNullOrEmpty(edt_vehicle_type.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, edt_vehicle_type, "Please enter the vehicle type");
+            edt_vehicle_type.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_seaters.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, edt_seaters, "Please enter the seaters");
@@ -398,7 +398,15 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
             if (mFrom.equals("population_reg_date") || mFrom.equals("insurance_reg_date") ||
                     mFrom.equals("fitness_reg_num") || mFrom.equals("permit_reg_date") ||
                     mFrom.equals("vehicle_reg_date")) {
-                mDatePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+                //mDatePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+                Calendar mCalendar = Calendar.getInstance();
+                mCalendar.set(Calendar.YEAR, yy);
+                mCalendar.set(Calendar.MONTH, mm);
+                mCalendar.set(Calendar.DAY_OF_MONTH, dd);
+                mCalendar.set(Calendar.HOUR_OF_DAY, 0);
+                mCalendar.set(Calendar.MINUTE, 0);
+                mCalendar.set(Calendar.SECOND, 0);
+                mDatePickerDialog.getDatePicker().setMaxDate(mCalendar.getTimeInMillis());
             }
             Calendar mCalendar = Calendar.getInstance();
             if (mFrom.equals("vehicle_exp_date")) {
@@ -502,7 +510,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                                 vehicleRegistration.setVendor_id("");
                                 vehicleRegistration.setVehicle_make(edt_vehicle_make.getText().toString());
                                 vehicleRegistration.setVehicle_model(edt_vehicle_model.getText().toString());
-                                vehicleRegistration.setVehicle_type("");
+                                vehicleRegistration.setVehicle_type(edt_vehicle_type.getText().toString());
                                 vehicleRegistration.setSeater(edt_seaters.getText().toString());
 
                                 vehicleRegistration.setVehicle_registration_number(edt_vehicle_reg_number.getText().toString());
