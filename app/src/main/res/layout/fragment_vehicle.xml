@@ -46,6 +46,18 @@
                         android:maxLines="1" />
 
                     <EditText
+                        android:id="@+id/edt_if_other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:hint="@string/other"
+                        android:inputType="text"
+                        android:visibility="gone"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textSize="@dimen/twenty_sp" />
+
+                    <EditText
                         android:id="@+id/edt_vehicle_model"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_0dp"
@@ -99,8 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/three_dp"
                         android:background="@android:color/transparent"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
 
                         <EditText
                             android:id="@+id/edt_vehicle_reg_number"

@@ -161,7 +161,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     }
 
     private void getDistrictData() {
-        if(Utility.isNetworkAvailable(getActivity())) {
+        if (Utility.isNetworkAvailable(getActivity())) {
             LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
             DistrictsParser mParser = new DistrictsParser();
             ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
@@ -324,6 +324,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         for (int i = 0; i < vechilemakeModel.getVechilemakeModels().size(); i++) {
             mList.add(new SpinnerModel(vechilemakeModel.getVechilemakeModels().get(i).getManufacturer()));
         }
+        mList.add(new SpinnerModel("Other"));
         return mList;
     }
 

@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.adapters.SpinnerAdapter;
 import com.versatilemobitech.ourtour.customviews.SnackBar;
+import com.versatilemobitech.ourtour.fragments.VehicleRegistrationFragment;
 import com.versatilemobitech.ourtour.fragments.VendorPriceFragment;
 import com.versatilemobitech.ourtour.fragments.VendorRegistrationFragment;
 import com.versatilemobitech.ourtour.models.DistrictModel;
@@ -455,8 +456,19 @@ public class Utility {
                                     VendorPriceFragment.et_extra_km.setHint("Extra km charge");
                                     VendorPriceFragment.et_amount.setHint("Package Amount");
                                 }
+                            } else if (title.equalsIgnoreCase("Vehicle Make")) {
+                                if (et_spinner.getText().toString().equalsIgnoreCase("Other")) {
+                                    VehicleRegistrationFragment.edt_if_other.setVisibility(View.VISIBLE);
+                                    VehicleRegistrationFragment.edt_if_other.setHint("Other");
+                                    VehicleRegistrationFragment.edt_if_other.setText("");
+                                    VehicleRegistrationFragment.edt_if_other.requestFocus();
+                                } else {
+                                    VehicleRegistrationFragment.edt_if_other.setVisibility(View.GONE);
+                                    VehicleRegistrationFragment.edt_if_other.setHint("Other");
+                                    VehicleRegistrationFragment.edt_if_other.setText("");
+                                    VehicleRegistrationFragment.edt_if_other.clearFocus();
+                                }
                             }
-
                         }
                     }
                 });

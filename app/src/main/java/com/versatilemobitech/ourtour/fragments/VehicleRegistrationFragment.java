@@ -70,6 +70,9 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private static EditText edt_population_number;
     private static EditText edt_population_reg_date;
     private static EditText edt_population_exp_date;
+
+    public static EditText edt_if_other;
+
     private ArrayList<SpinnerModel> mDialodList;
     private ArrayList<SpinnerModel> mVehicleModelList;
 
@@ -145,6 +148,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         edt_population_number = (EditText) rootView.findViewById(R.id.edt_population_number);
         edt_population_reg_date = (EditText) rootView.findViewById(R.id.edt_population_reg_date);
         edt_population_exp_date = (EditText) rootView.findViewById(R.id.edt_population_exp_date);
+        edt_if_other = (EditText) rootView.findViewById(R.id.edt_if_other);
         iv_bg = (ImageView) rootView.findViewById(R.id.iv_bg);
         btn_submit = (Button) rootView.findViewById(R.id.btn_submit);
 
@@ -194,6 +198,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         edt_population_number.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         edt_population_reg_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         edt_population_exp_date.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        edt_if_other.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         btn_submit.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
     }
 
@@ -285,6 +290,7 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                 Utility.showSpinnerDialog(mParent, "Seaters", edt_seaters, mDialodList, 1);
                 break;
             case R.id.edt_vehicle_model:
+                edt_if_other.clearFocus();
                 mDialodList = Utility.dialogVehicleModelList();
                 Utility.showSpinnerDialog(mParent, "Vehicle Model", edt_vehicle_model, mDialodList, 1);
                 break;
@@ -296,6 +302,10 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         if (Utility.isValueNullOrEmpty(edt_vehicle_make.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, edt_vehicle_make, "Please enter the vehicle make");
             edt_vehicle_make.requestFocus();
+
+        } else if (edt_vehicle_make.getText().toString().trim().equalsIgnoreCase("Other") && Utility.isValueNullOrEmpty(edt_if_other.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, edt_if_other, "Please enter Other vehicle make");
+            edt_if_other.requestFocus();
 
         } else if (Utility.isValueNullOrEmpty(edt_vehicle_model.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, edt_vehicle_model, "Please enter the vehicle model");
@@ -508,7 +518,11 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
                                                 int whichButton) {
                                 vehicleRegistration = new VehicleRegistration();
                                 vehicleRegistration.setVendor_id("");
-                                vehicleRegistration.setVehicle_make(edt_vehicle_make.getText().toString());
+                                if (edt_vehicle_make.getText().toString().equalsIgnoreCase("Other")) {
+                                    vehicleRegistration.setVehicle_make(edt_if_other.getText().toString());
+                                } else {
+                                    vehicleRegistration.setVehicle_make(edt_vehicle_make.getText().toString());
+                                }
                                 vehicleRegistration.setVehicle_model(edt_vehicle_model.getText().toString());
                                 vehicleRegistration.setVehicle_type(edt_vehicle_type.getText().toString());
                                 vehicleRegistration.setSeater(edt_seaters.getText().toString());
