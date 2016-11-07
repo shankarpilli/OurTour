@@ -5,5 +5,5 @@ package com.versatilemobitech.ourtour.interfaces;
  */
 
 public interface communicate {
-    public void sendData(String make, String seaters);
+    public void sendData(String make, String seaters, String type);
 }

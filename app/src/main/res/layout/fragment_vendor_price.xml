@@ -4,105 +4,135 @@
     android:layout_margin="@dimen/fifteen_dp"
     android:background="@android:color/transparent">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
-        <LinearLayout
-            android:id="@+id/ll_vendor_price"
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/ten_dp"
-            android:background="@android:color/transparent"
-            android:orientation="vertical">
+            android:layout_above="@+id/btn_submit"
+            android:background="@android:color/transparent">
 
-            <EditText
-                android:id="@+id/et_vehicle_make"
+            <LinearLayout
+                android:id="@+id/ll_vendor_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/down_arrow"
-                android:focusable="false"
-                android:hint="@string/vehicle_make"
-                android:inputType="textNoSuggestions"
-                android:maxLength="30"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp" />
+                android:layout_margin="@dimen/ten_dp"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_seaters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/down_arrow"
-                android:focusable="false"
-                android:hint="@string/seaters"
-                android:maxLength="30"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp" />
+                <EditText
+                    android:id="@+id/et_vehicle_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/vehicle_make"
+                    android:inputType="textNoSuggestions"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
-            <EditText
-                android:id="@+id/et_tour_packages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/down_arrow"
-                android:focusable="false"
-                android:hint="@string/tour_packages"
-                android:inputType="textNoSuggestions"
-                android:maxLength="30"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp" />
+                <EditText
+                    android:id="@+id/et_seaters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/seaters"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
-            <EditText
-                android:id="@+id/et_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/amount"
-                android:inputType="number"
-                android:maxLength="10"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp" />
+                <EditText
+                    android:id="@+id/et_ac_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ac_price"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
-            <EditText
-                android:id="@+id/et_extra_km"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/extra_km_charge"
-                android:inputType="number"
-                android:maxLength="10"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp"
-                android:visibility="gone" />
+                <EditText
+                    android:id="@+id/et_non_ac_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/non_ac_price"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
-            <EditText
-                android:id="@+id/et_driver_owner_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/driver_owner_name"
-                android:maxLength="30"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp" />
+                <EditText
+                    android:id="@+id/et_tour_packages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/tour_packages"
+                    android:inputType="textNoSuggestions"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
-            <EditText
-                android:id="@+id/et_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mobile_number"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:singleLine="true"
-                android:textSize="@dimen/twenty_sp" />
+                <EditText
+                    android:id="@+id/et_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/amount"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/et_extra_km"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/extra_km_charge"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/et_driver_owner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/driver_owner_name"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/et_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mobile_number"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
 
-        </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
 
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="@dimen/_130dp"
             android:layout_height="@dimen/_45dp"
-            android:layout_below="@id/ll_vendor_price"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
             android:background="@drawable/home_image"
             android:text="@string/submit"
             android:textAllCaps="false"

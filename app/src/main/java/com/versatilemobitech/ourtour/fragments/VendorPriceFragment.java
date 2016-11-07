@@ -55,6 +55,8 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private EditText et_mobile;
     public static EditText et_amount;
     public static EditText et_extra_km;
+    public static EditText et_ac_price;
+    public static EditText et_non_ac_price;
 
     private SuccessModel mSuccessModel;
     private VechicleSuccessModel mVechicleSuccessModel;
@@ -101,6 +103,8 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         et_tour_packages = (EditText) rootView.findViewById(R.id.et_tour_packages);
         et_driver_owner_name = (EditText) rootView.findViewById(R.id.et_driver_owner_name);
         et_mobile = (EditText) rootView.findViewById(R.id.et_mobile);
+        et_ac_price = (EditText) rootView.findViewById(R.id.et_ac_price);
+        et_non_ac_price = (EditText) rootView.findViewById(R.id.et_non_ac_price);
 
         et_amount = (EditText) rootView.findViewById(R.id.et_amount);
         et_extra_km = (EditText) rootView.findViewById(R.id.et_extra_km);
@@ -122,6 +126,8 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         et_mobile.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_amount.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_extra_km.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_ac_price.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        et_non_ac_price.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
     }
 
     @Override
@@ -142,7 +148,8 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 if (validation()) {
                     mVehiclePricing = new VehiclePricing();
                     mVehiclePricing.setVehicle_id(getVechileId(et_vehicle_make.getText().toString()));
-                    mVehiclePricing.setAc_price(et_tour_packages.getText().toString());
+                    mVehiclePricing.setAc_price(et_ac_price.getText().toString());
+                    mVehiclePricing.setNon_ac_price(et_non_ac_price.getText().toString());
                     mVehiclePricing.setDriver_name(et_driver_owner_name.getText().toString());
                     mVehiclePricing.setDriver_bhatta(et_extra_km.getText().toString());
                     mVehiclePricing.setMobile_number(et_mobile.getText().toString());
@@ -234,6 +241,22 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         } else if (Utility.isValueNullOrEmpty(et_seaters.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_seaters, "Please select the number of seaters");
 
+        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("AC") &&
+                Utility.isValueNullOrEmpty(et_ac_price.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter AC price");
+            et_ac_price.requestFocus();
+        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("NON AC") &&
+                Utility.isValueNullOrEmpty(et_non_ac_price.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter NON AC price");
+            et_non_ac_price.requestFocus();
+        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("BOTH") &&
+                Utility.isValueNullOrEmpty(et_ac_price.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter AC price");
+            et_ac_price.requestFocus();
+        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("BOTH") &&
+                Utility.isValueNullOrEmpty(et_non_ac_price.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter NON AC price");
+            et_non_ac_price.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_tour_packages.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_tour_packages, "Please select Tour Packages");
 
@@ -369,10 +392,26 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     }
 
     @Override
-    public void sendData(String make, String seaters) {
+    public void sendData(String make, String seaters, String type) {
         if (VehicleRegistrationFragment.vehicleRegistration != null) {
             et_vehicle_make.setText("" + VehicleRegistrationFragment.vehicleRegistration.getVehicle_make());
             et_seaters.setText("" + VehicleRegistrationFragment.vehicleRegistration.getSeater());
+            if (type.equals("AC")) {
+                et_ac_price.setVisibility(View.VISIBLE);
+                et_non_ac_price.setVisibility(View.GONE);
+                et_ac_price.setText("");
+                et_non_ac_price.setText("");
+            } else if (type.equalsIgnoreCase("NON AC")) {
+                et_ac_price.setVisibility(View.GONE);
+                et_non_ac_price.setVisibility(View.VISIBLE);
+                et_ac_price.setText("");
+                et_non_ac_price.setText("");
+            } else if (type.equalsIgnoreCase("BOTH")) {
+                et_ac_price.setVisibility(View.VISIBLE);
+                et_non_ac_price.setVisibility(View.VISIBLE);
+                et_ac_price.setText("");
+                et_non_ac_price.setText("");
+            }
         }
     }
 }

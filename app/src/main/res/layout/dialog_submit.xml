@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/you_vehicle_added_successfully"
+            android:text="@string/if_entered_data_is_correct_our_verification_team_will_reach_you"
             android:textSize="24sp" />
 
         <Button
