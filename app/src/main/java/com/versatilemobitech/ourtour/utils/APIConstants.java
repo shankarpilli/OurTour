@@ -21,5 +21,7 @@ public class APIConstants {
     public static final String VENDOR_INFORMATION = BASE_URL + "vendorinformation";
     public static final String VEHICLE_INFORMATION = BASE_URL + "vehicleinformation";
     public static final String VEHICLE_PRICING = BASE_URL + "vehiclepricing";
+    public static final String SEND_OTP = BASE_URL + "sendotp";
+    public static final String VALIDATE_OTP = BASE_URL + "validateotp";
 
 }

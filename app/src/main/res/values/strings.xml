@@ -69,6 +69,7 @@
     <string name="no_internet_title">No internet</string>
     <string name="please_wait">Please Wait</string>
 
+    <string name="enter_code">Enter Code</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="are_you_sure_entered_details_are_correct">Are you sure entered vendor details are correct</string>
@@ -76,6 +77,6 @@
     <string name="vendor_id">VENDOR ID</string>
     <string name="vendor_id_number">VT0001</string>
     <string name="if_entered_data_is_correct_our_verification_team_will_reach_you">If Entered Data is Correct our verification team will reach you</string>
-
+    <string name="verify">Verify</string>
 
 </resources>

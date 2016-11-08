@@ -2,8 +2,10 @@ package com.versatilemobitech.ourtour.fragments;
 
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
@@ -14,6 +16,7 @@ import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -26,12 +29,17 @@ import com.versatilemobitech.ourtour.asynctask.IAsyncCaller;
 import com.versatilemobitech.ourtour.asynctask.ServerIntractorAsync;
 import com.versatilemobitech.ourtour.models.DistrictModel;
 import com.versatilemobitech.ourtour.models.Model;
+import com.versatilemobitech.ourtour.models.OtpSentModel;
+import com.versatilemobitech.ourtour.models.OtpVerifyModel;
 import com.versatilemobitech.ourtour.models.SpinnerModel;
 import com.versatilemobitech.ourtour.models.StateModel;
 import com.versatilemobitech.ourtour.models.VechilemakeModel;
 import com.versatilemobitech.ourtour.models.VendorModel;
 import com.versatilemobitech.ourtour.parsers.DistrictsParser;
+import com.versatilemobitech.ourtour.parsers.OtpSentParser;
+import com.versatilemobitech.ourtour.parsers.OtpVerifyParser;
 import com.versatilemobitech.ourtour.parsers.StatesParser;
+import com.versatilemobitech.ourtour.parsers.SuccesParser;
 import com.versatilemobitech.ourtour.parsers.VehicleMakeParser;
 import com.versatilemobitech.ourtour.utils.APIConstants;
 import com.versatilemobitech.ourtour.utils.Constants;
@@ -71,8 +79,12 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private static DistrictModel districtModel;
     private static StateModel stateModel;
     public static VechilemakeModel vechilemakeModel;
+    public OtpSentModel mOtpSentModel;
+    public OtpVerifyModel mOtpVerifyModel;
 
     private ArrayList<SpinnerModel> mDialogList;
+
+    private String mMobileNumberForOtp = "";
 
 
     @Override
@@ -314,9 +326,34 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                 } else if (model instanceof VechilemakeModel) {
                     vechilemakeModel = (VechilemakeModel) model;
                     // setDataToSpinner();
+                } else if (model instanceof OtpSentModel) {
+                    mOtpSentModel = (OtpSentModel) model;
+                    showOtpVerificationDialog(getActivity());
+                }else if (model instanceof OtpVerifyModel) {
+                    mOtpVerifyModel = (OtpVerifyModel) model;
+                    gotoNextScreen();
                 }
             }
         }
+    }
+
+    private void gotoNextScreen() {
+        vendorModel = new VendorModel();
+        vendorModel.setVendor_firm_type(et_firm_individual.getText().toString());
+        vendorModel.setVendor_firm_name(et_vendor.getText().toString());
+        vendorModel.setOwner_name(et_owner.getText().toString());
+        vendorModel.setPhone_number(et_phone_number.getText().toString());
+        vendorModel.setEmail_id(et_email.getText().toString());
+        vendorModel.setVendor_firm_registration_number(et_registration_number.getText().toString());
+        vendorModel.setBank_name(et_bank.getText().toString());
+        vendorModel.setBank_number(et_bank_acc.getText().toString());
+        vendorModel.setBank_branch(et_branch.getText().toString());
+        vendorModel.setIfsc_code(et_ifsc.getText().toString());
+        vendorModel.setArea_name(et_area_name.getText().toString());
+        vendorModel.setGarage_name(et_guarage.getText().toString());
+        vendorModel.setDistrict(et_district.getText().toString());
+        vendorModel.setState(et_state.getText().toString());
+        AddCarFragment.tabLayout.getTabAt(1).select();
     }
 
     public static ArrayList<SpinnerModel> getDataToSpinner() {
@@ -360,8 +397,8 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         }
     }
 
-    public static void showSearchAgainDialog(final Context context, String msg,
-                                             String title) {
+    public void showSearchAgainDialog(final Context context, String msg,
+                                      String title) {
         SpannableString s = new SpannableString(msg);
         Linkify.addLinks(s, Linkify.ALL);
 
@@ -380,7 +417,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                             @Override
                             public void onClick(DialogInterface dialog,
                                                 int whichButton) {
-                                vendorModel = new VendorModel();
+                                /*vendorModel = new VendorModel();
                                 vendorModel.setVendor_firm_type(et_firm_individual.getText().toString());
                                 vendorModel.setVendor_firm_name(et_vendor.getText().toString());
                                 vendorModel.setOwner_name(et_owner.getText().toString());
@@ -395,12 +432,89 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                                 vendorModel.setGarage_name(et_guarage.getText().toString());
                                 vendorModel.setDistrict(et_district.getText().toString());
                                 vendorModel.setState(et_state.getText().toString());
-                                AddCarFragment.tabLayout.getTabAt(1).select();
+                                AddCarFragment.tabLayout.getTabAt(1).select();*/
+                                mMobileNumberForOtp = et_phone_number.getText().toString();
+                                sendOtp(et_phone_number.getText().toString(), context);
                             }
                         }).show();
 
         ((TextView) d.findViewById(android.R.id.message))
                 .setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    private void sendOtp(String mobileNumber, Context context) {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        paramMap.put("mobile_number", mobileNumber);
+        OtpSentParser mParser = new OtpSentParser();
+        if (Utility.isNetworkAvailable(context)) {
+            ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(context, Utility.getResourcesString(context,
+                    R.string.please_wait), true,
+                    APIConstants.VENDOR_INFORMATION, paramMap,
+                    APIConstants.REQUEST_TYPE.POST, this, mParser);
+            Utility.execute(serverIntractorAsync);
+        } else {
+            Utility.showSettingDialog(
+                    getActivity(),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_msg),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_title),
+                    Utility.NO_INTERNET_CONNECTION).show();
+        }
+
+    }
+
+    private void showOtpVerificationDialog(final Context context) {
+        final Dialog otpDialog = new Dialog(context);
+        otpDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        otpDialog.setContentView(R.layout.otp_dialog);
+        /*otpDialog.getWindow().setBackgroundDrawable(
+                new ColorDrawable(android.graphics.Color.TRANSPARENT));*/
+        otpDialog.setCanceledOnTouchOutside(false);
+        otpDialog.setCancelable(false);
+
+        final EditText editText = (EditText) otpDialog.findViewById(R.id.edt_pass_code);
+        Button btn_verify = (Button) otpDialog.findViewById(R.id.btn_verify);
+
+        editText.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
+        btn_verify.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
+        btn_verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!Utility.isValueNullOrEmpty(editText.getText().toString())) {
+                    verifyOtp(editText.getText().toString());
+                    otpDialog.cancel();
+                } else {
+                    Utility.setSnackBarEnglish(mParent, editText, "Enter code here");
+                    et_phone_number.requestFocus();
+                }
+            }
+        });
+
+        otpDialog.show();
+    }
+
+    private void verifyOtp(String otp) {
+        LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
+        paramMap.put("mobile_number", mMobileNumberForOtp);
+        paramMap.put("otp", otp);
+
+        OtpVerifyParser mParser = new OtpVerifyParser();
+        if (Utility.isNetworkAvailable(mParent)) {
+            ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(mParent, Utility.getResourcesString(mParent,
+                    R.string.please_wait), true,
+                    APIConstants.VENDOR_INFORMATION, paramMap,
+                    APIConstants.REQUEST_TYPE.POST, this, mParser);
+            Utility.execute(serverIntractorAsync);
+        } else {
+            Utility.showSettingDialog(
+                    getActivity(),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_msg),
+                    getActivity().getResources().getString(
+                            R.string.no_internet_title),
+                    Utility.NO_INTERNET_CONNECTION).show();
+        }
     }
 
 }
