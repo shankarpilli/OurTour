@@ -329,7 +329,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                 } else if (model instanceof OtpSentModel) {
                     mOtpSentModel = (OtpSentModel) model;
                     showOtpVerificationDialog(getActivity());
-                }else if (model instanceof OtpVerifyModel) {
+                } else if (model instanceof OtpVerifyModel) {
                     mOtpVerifyModel = (OtpVerifyModel) model;
                     gotoNextScreen();
                 }
@@ -449,7 +449,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         if (Utility.isNetworkAvailable(context)) {
             ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(context, Utility.getResourcesString(context,
                     R.string.please_wait), true,
-                    APIConstants.VENDOR_INFORMATION, paramMap,
+                    APIConstants.SEND_OTP, paramMap,
                     APIConstants.REQUEST_TYPE.POST, this, mParser);
             Utility.execute(serverIntractorAsync);
         } else {
@@ -475,9 +475,11 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
 
         final EditText editText = (EditText) otpDialog.findViewById(R.id.edt_pass_code);
         Button btn_verify = (Button) otpDialog.findViewById(R.id.btn_verify);
+        Button btn_resend = (Button) otpDialog.findViewById(R.id.btn_resend);
 
         editText.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
         btn_verify.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
+        btn_resend.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
         btn_verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -485,9 +487,15 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     verifyOtp(editText.getText().toString());
                     otpDialog.cancel();
                 } else {
-                    Utility.setSnackBarEnglish(mParent, editText, "Enter code here");
+                    Utility.showToastMessage(mParent, "Please Enter OTP here");
                     et_phone_number.requestFocus();
                 }
+            }
+        });
+        btn_resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendOtp(mMobileNumberForOtp, context);
             }
         });
 
@@ -503,7 +511,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         if (Utility.isNetworkAvailable(mParent)) {
             ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(mParent, Utility.getResourcesString(mParent,
                     R.string.please_wait), true,
-                    APIConstants.VENDOR_INFORMATION, paramMap,
+                    APIConstants.VALIDATE_OTP, paramMap,
                     APIConstants.REQUEST_TYPE.POST, this, mParser);
             Utility.execute(serverIntractorAsync);
         } else {
