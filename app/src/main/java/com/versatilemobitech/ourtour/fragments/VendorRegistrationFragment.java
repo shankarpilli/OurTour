@@ -85,7 +85,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     private ArrayList<SpinnerModel> mDialogList;
 
     private String mMobileNumberForOtp = "";
-
+    private Dialog otpDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -331,8 +331,14 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     showOtpVerificationDialog(getActivity());
                 } else if (model instanceof OtpVerifyModel) {
                     mOtpVerifyModel = (OtpVerifyModel) model;
-                    gotoNextScreen();
+                    if (otpDialog != null) {
+                        otpDialog.cancel();
+                        otpDialog.dismiss();
+                        gotoNextScreen();
+                    }
                 }
+            } else {
+                Utility.showToastMessage(getActivity(), model.getMessage());
             }
         }
     }
@@ -465,7 +471,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
     }
 
     private void showOtpVerificationDialog(final Context context) {
-        final Dialog otpDialog = new Dialog(context);
+        otpDialog = new Dialog(context);
         otpDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         otpDialog.setContentView(R.layout.otp_dialog);
         /*otpDialog.getWindow().setBackgroundDrawable(
@@ -485,7 +491,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
             public void onClick(View v) {
                 if (!Utility.isValueNullOrEmpty(editText.getText().toString())) {
                     verifyOtp(editText.getText().toString());
-                    otpDialog.cancel();
+                    //otpDialog.cancel();
                 } else {
                     Utility.showToastMessage(mParent, "Please Enter OTP here");
                     et_phone_number.requestFocus();

@@ -17,10 +17,15 @@ public class OtpVerifyParser implements Parser {
     public Model parseResponse(String response, Context context) {
         OtpVerifyModel mOtpVerifyModel = new OtpVerifyModel();
         if (response != null) {
-            mOtpVerifyModel.setStatus(true);
+            // mOtpVerifyModel.setStatus(true);
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 mOtpVerifyModel.setMessage(jsonObject.optString("message"));
+                if (jsonObject.optString("status").equalsIgnoreCase("0")) {
+                    mOtpVerifyModel.setStatus(false);
+                } else {
+                    mOtpVerifyModel.setStatus(true);
+                }
             } catch (Exception e) {
                 mOtpVerifyModel.setStatus(false);
             }
