@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
@@ -482,6 +483,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         final EditText editText = (EditText) otpDialog.findViewById(R.id.edt_pass_code);
         Button btn_verify = (Button) otpDialog.findViewById(R.id.btn_verify);
         Button btn_resend = (Button) otpDialog.findViewById(R.id.btn_resend);
+        ImageView image_close = (ImageView) otpDialog.findViewById(R.id.image_close);
 
         editText.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
         btn_verify.setTypeface(Utility.setTypeFace_Roboto_Regular(context));
@@ -494,7 +496,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     //otpDialog.cancel();
                 } else {
                     Utility.showToastMessage(mParent, "Please Enter OTP here");
-                    et_phone_number.requestFocus();
+                    editText.requestFocus();
                 }
             }
         });
@@ -503,6 +505,12 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
             public void onClick(View v) {
                 otpDialog.cancel();
                 sendOtp(mMobileNumberForOtp, context);
+            }
+        });
+        image_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                otpDialog.cancel();
             }
         });
 
