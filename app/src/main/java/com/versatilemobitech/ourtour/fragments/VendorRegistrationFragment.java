@@ -501,6 +501,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         btn_resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                otpDialog.cancel();
                 sendOtp(mMobileNumberForOtp, context);
             }
         });
