@@ -6,16 +6,22 @@ package com.versatilemobitech.ourtour.models;
 
 public class VehiclePricing {
     private String vehicle_id;
-    private String ac_price;
-    private String non_ac_price;
-    private String airport_drop_pick;
-    private String driver_bhatta;
     private String driver_name;
     private String mobile_number;
     private String tourpackges;
-    private String perkm;
-    private String extra_km_charge;
-    private String package_amount;
+    private String perkm_ac;
+    private String perkm_non_ac;
+    private String driver_batta;
+    private String base_price_ac;
+    private String base_price_non_ac;
+    private String extra_km_ac;
+    private String extra_km_non_ac;
+    private String extra_hr_ac;
+    private String extra_hr_non_ac;
+    private String airport_drop_ac;
+    private String airport_drop_non_ac;
+    private String airport_pick_ac;
+    private String airport_pick_non_ac;
 
     public String getVehicle_id() {
         return vehicle_id;
@@ -23,38 +29,6 @@ public class VehiclePricing {
 
     public void setVehicle_id(String vehicle_id) {
         this.vehicle_id = vehicle_id;
-    }
-
-    public String getAc_price() {
-        return ac_price;
-    }
-
-    public void setAc_price(String ac_price) {
-        this.ac_price = ac_price;
-    }
-
-    public String getNon_ac_price() {
-        return non_ac_price;
-    }
-
-    public void setNon_ac_price(String non_ac_price) {
-        this.non_ac_price = non_ac_price;
-    }
-
-    public String getAirport_drop_pick() {
-        return airport_drop_pick;
-    }
-
-    public void setAirport_drop_pick(String airport_drop_pick) {
-        this.airport_drop_pick = airport_drop_pick;
-    }
-
-    public String getDriver_bhatta() {
-        return driver_bhatta;
-    }
-
-    public void setDriver_bhatta(String driver_bhatta) {
-        this.driver_bhatta = driver_bhatta;
     }
 
     public String getDriver_name() {
@@ -81,27 +55,107 @@ public class VehiclePricing {
         this.tourpackges = tourpackges;
     }
 
-    public String getPerkm() {
-        return perkm;
+    public String getPerkm_ac() {
+        return perkm_ac;
     }
 
-    public void setPerkm(String perkm) {
-        this.perkm = perkm;
+    public void setPerkm_ac(String perkm_ac) {
+        this.perkm_ac = perkm_ac;
     }
 
-    public String getExtra_km_charge() {
-        return extra_km_charge;
+    public String getPerkm_non_ac() {
+        return perkm_non_ac;
     }
 
-    public void setExtra_km_charge(String extra_km_charge) {
-        this.extra_km_charge = extra_km_charge;
+    public void setPerkm_non_ac(String perkm_non_ac) {
+        this.perkm_non_ac = perkm_non_ac;
     }
 
-    public String getPackage_amount() {
-        return package_amount;
+    public String getDriver_batta() {
+        return driver_batta;
     }
 
-    public void setPackage_amount(String package_amount) {
-        this.package_amount = package_amount;
+    public void setDriver_batta(String driver_batta) {
+        this.driver_batta = driver_batta;
+    }
+
+    public String getBase_price_ac() {
+        return base_price_ac;
+    }
+
+    public void setBase_price_ac(String base_price_ac) {
+        this.base_price_ac = base_price_ac;
+    }
+
+    public String getBase_price_non_ac() {
+        return base_price_non_ac;
+    }
+
+    public void setBase_price_non_ac(String base_price_non_ac) {
+        this.base_price_non_ac = base_price_non_ac;
+    }
+
+    public String getExtra_km_ac() {
+        return extra_km_ac;
+    }
+
+    public void setExtra_km_ac(String extra_km_ac) {
+        this.extra_km_ac = extra_km_ac;
+    }
+
+    public String getExtra_km_non_ac() {
+        return extra_km_non_ac;
+    }
+
+    public void setExtra_km_non_ac(String extra_km_non_ac) {
+        this.extra_km_non_ac = extra_km_non_ac;
+    }
+
+    public String getExtra_hr_ac() {
+        return extra_hr_ac;
+    }
+
+    public void setExtra_hr_ac(String extra_hr_ac) {
+        this.extra_hr_ac = extra_hr_ac;
+    }
+
+    public String getExtra_hr_non_ac() {
+        return extra_hr_non_ac;
+    }
+
+    public void setExtra_hr_non_ac(String extra_hr_non_ac) {
+        this.extra_hr_non_ac = extra_hr_non_ac;
+    }
+
+    public String getAirport_drop_ac() {
+        return airport_drop_ac;
+    }
+
+    public void setAirport_drop_ac(String airport_drop_ac) {
+        this.airport_drop_ac = airport_drop_ac;
+    }
+
+    public String getAirport_drop_non_ac() {
+        return airport_drop_non_ac;
+    }
+
+    public void setAirport_drop_non_ac(String airport_drop_non_ac) {
+        this.airport_drop_non_ac = airport_drop_non_ac;
+    }
+
+    public String getAirport_pick_ac() {
+        return airport_pick_ac;
+    }
+
+    public void setAirport_pick_ac(String airport_pick_ac) {
+        this.airport_pick_ac = airport_pick_ac;
+    }
+
+    public String getAirport_pick_non_ac() {
+        return airport_pick_non_ac;
+    }
+
+    public void setAirport_pick_non_ac(String airport_pick_non_ac) {
+        this.airport_pick_non_ac = airport_pick_non_ac;
     }
 }

@@ -447,14 +447,118 @@ public class Utility {
                                     VendorRegistrationFragment.et_vendor.requestFocus();
                                 }
                             } else if (title.equalsIgnoreCase("Tour Packages")) {
+                                VendorPriceFragment.per_km_ac_amount.setText("");
+                                VendorPriceFragment.per_km_non_ac_amount.setText("");
+                                VendorPriceFragment.driver_batta.setText("");
+                                VendorPriceFragment.base_price_ac.setText("");
+                                VendorPriceFragment.base_price_non_ac.setText("");
+                                VendorPriceFragment.extra_km_ac.setText("");
+                                VendorPriceFragment.extra_km_non_ac.setText("");
+                                VendorPriceFragment.extra_hr_ac.setText("");
+                                VendorPriceFragment.extra_hr_non_ac.setText("");
+                                VendorPriceFragment.airport_drop_ac.setText("");
+                                VendorPriceFragment.airport_drop_non_ac.setText("");
+                                VendorPriceFragment.airport_pick_non_ac.setText("");
+                                VendorPriceFragment.airport_pick_ac.setText("");
                                 if (et_spinner.getText().toString().equalsIgnoreCase("Outstation")) {
-                                    VendorPriceFragment.et_extra_km.setVisibility(View.VISIBLE);
-                                    VendorPriceFragment.et_extra_km.setHint("Driver bhatta");
-                                    VendorPriceFragment.et_amount.setHint("Per km amount");
-                                } else {
-                                    VendorPriceFragment.et_extra_km.setVisibility(View.VISIBLE);
-                                    VendorPriceFragment.et_extra_km.setHint("Extra km charge");
-                                    VendorPriceFragment.et_amount.setHint("Package Amount");
+                                    if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("AC")) {
+                                        VendorPriceFragment.per_km_ac_amount.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.per_km_non_ac_amount.setVisibility(View.GONE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("NON AC")) {
+                                        VendorPriceFragment.per_km_ac_amount.setVisibility(View.GONE);
+                                        VendorPriceFragment.per_km_non_ac_amount.setVisibility(View.VISIBLE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("BOTH")) {
+                                        VendorPriceFragment.per_km_ac_amount.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.per_km_non_ac_amount.setVisibility(View.VISIBLE);
+                                    }
+                                    VendorPriceFragment.driver_batta.setVisibility(View.VISIBLE);
+                                    VendorPriceFragment.base_price_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.base_price_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_km_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_km_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_hr_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_hr_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_drop_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_drop_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_pick_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_pick_ac.setVisibility(View.GONE);
+                                } else if (et_spinner.getText().toString().equalsIgnoreCase("2 hrs -- 20 kms")
+                                        || et_spinner.getText().toString().equalsIgnoreCase("4 hrs -- 40 kms")
+                                        || et_spinner.getText().toString().equalsIgnoreCase("8 hrs -- 80 kms")
+                                        ) {
+                                    if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("AC")) {
+                                        VendorPriceFragment.base_price_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.base_price_non_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.extra_km_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_km_non_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.extra_hr_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_hr_non_ac.setVisibility(View.GONE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("NON AC")) {
+                                        VendorPriceFragment.base_price_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.base_price_non_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_km_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.extra_km_non_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_hr_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.extra_hr_non_ac.setVisibility(View.VISIBLE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("BOTH")) {
+                                        VendorPriceFragment.base_price_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.base_price_non_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_km_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_km_non_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_hr_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.extra_hr_non_ac.setVisibility(View.VISIBLE);
+                                    }
+                                    VendorPriceFragment.per_km_ac_amount.setVisibility(View.GONE);
+                                    VendorPriceFragment.per_km_non_ac_amount.setVisibility(View.GONE);
+                                    VendorPriceFragment.driver_batta.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_drop_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_drop_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_pick_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_pick_ac.setVisibility(View.GONE);
+                                } else if (et_spinner.getText().toString().equalsIgnoreCase("Airport Drop")) {
+                                    if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("AC")) {
+                                        VendorPriceFragment.airport_drop_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.airport_drop_non_ac.setVisibility(View.GONE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("NON AC")) {
+                                        VendorPriceFragment.airport_drop_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.airport_drop_non_ac.setVisibility(View.VISIBLE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("BOTH")) {
+                                        VendorPriceFragment.airport_drop_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.airport_drop_non_ac.setVisibility(View.VISIBLE);
+                                    }
+                                    VendorPriceFragment.per_km_ac_amount.setVisibility(View.GONE);
+                                    VendorPriceFragment.per_km_non_ac_amount.setVisibility(View.GONE);
+                                    VendorPriceFragment.driver_batta.setVisibility(View.GONE);
+                                    VendorPriceFragment.base_price_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.base_price_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_km_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_km_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_hr_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_hr_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_pick_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_pick_ac.setVisibility(View.GONE);
+                                } else if (et_spinner.getText().toString().equalsIgnoreCase("Airport Pick")) {
+                                    if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("AC")) {
+                                        VendorPriceFragment.airport_pick_non_ac.setVisibility(View.GONE);
+                                        VendorPriceFragment.airport_pick_ac.setVisibility(View.VISIBLE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("NON AC")) {
+                                        VendorPriceFragment.airport_pick_non_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.airport_pick_ac.setVisibility(View.GONE);
+                                    } else if (VendorPriceFragment.mVechicleType.equalsIgnoreCase("BOTH")) {
+                                        VendorPriceFragment.airport_pick_non_ac.setVisibility(View.VISIBLE);
+                                        VendorPriceFragment.airport_pick_ac.setVisibility(View.VISIBLE);
+                                    }
+                                    VendorPriceFragment.per_km_ac_amount.setVisibility(View.GONE);
+                                    VendorPriceFragment.per_km_non_ac_amount.setVisibility(View.GONE);
+                                    VendorPriceFragment.driver_batta.setVisibility(View.GONE);
+                                    VendorPriceFragment.base_price_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.base_price_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_km_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_km_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_hr_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.extra_hr_non_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_drop_ac.setVisibility(View.GONE);
+                                    VendorPriceFragment.airport_drop_non_ac.setVisibility(View.GONE);
                                 }
                             } else if (title.equalsIgnoreCase("Vehicle Make")) {
                                 if (et_spinner.getText().toString().equalsIgnoreCase("Other")) {
@@ -510,6 +614,8 @@ public class Utility {
                 mList.add(new SpinnerModel("2 hrs -- 20 kms"));
                 mList.add(new SpinnerModel("4 hrs -- 40 kms"));
                 mList.add(new SpinnerModel("8 hrs -- 80 kms"));
+                mList.add(new SpinnerModel("Airport Drop"));
+                mList.add(new SpinnerModel("Airport Pick"));
             } else {
                 for (int i = 1; i <= 60; i++) {
                     mList.add(new SpinnerModel("" + i));

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -119,6 +120,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_branch = (EditText) rootView.findViewById(R.id.et_branch);
         et_owner = (EditText) rootView.findViewById(R.id.et_owner);
         et_ifsc = (EditText) rootView.findViewById(R.id.et_ifsc);
+        et_ifsc.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         et_area_name = (EditText) rootView.findViewById(R.id.et_area_name);
         et_guarage = (EditText) rootView.findViewById(R.id.et_guarage);
         et_district = (AutoCompleteTextView) rootView.findViewById(R.id.et_district);

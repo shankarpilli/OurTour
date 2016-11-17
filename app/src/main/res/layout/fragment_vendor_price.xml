@@ -51,26 +51,6 @@
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
-                    android:id="@+id/et_ac_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/ac_price"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:singleLine="true"
-                    android:textSize="@dimen/twenty_sp" />
-
-                <EditText
-                    android:id="@+id/et_non_ac_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/non_ac_price"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:singleLine="true"
-                    android:textSize="@dimen/twenty_sp" />
-
-                <EditText
                     android:id="@+id/et_tour_packages"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,25 +63,134 @@
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
-                    android:id="@+id/et_amount"
+                    android:id="@+id/per_km_ac_amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/amount"
+                    android:hint="@string/per_km_ac_amount"
                     android:inputType="number"
                     android:maxLength="10"
                     android:singleLine="true"
                     android:textSize="@dimen/twenty_sp" />
 
                 <EditText
-                    android:id="@+id/et_extra_km"
+                    android:id="@+id/per_km_non_ac_amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/extra_km_charge"
+                    android:hint="@string/per_km_non_ac_amount"
                     android:inputType="number"
                     android:maxLength="10"
                     android:singleLine="true"
-                    android:textSize="@dimen/twenty_sp"
-                    android:visibility="gone" />
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/driver_batta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/driver_batta"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/base_price_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/base_price_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/base_price_non_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/base_price_non_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/extra_km_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/extra_km_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/extra_km_non_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/extra_km_non_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/extra_hr_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/extra_hr_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/extra_hr_non_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/extra_hr_non_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/airport_drop_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/airport_drop_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/airport_drop_non_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/airport_drop_non_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/airport_pick_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/airport_pick_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <EditText
+                    android:id="@+id/airport_pick_non_ac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/airport_pick_non_ac"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/twenty_sp" />
 
                 <EditText
                     android:id="@+id/et_driver_owner_name"

@@ -53,10 +53,22 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private EditText et_tour_packages;
     private EditText et_driver_owner_name;
     private EditText et_mobile;
-    public static EditText et_amount;
-    public static EditText et_extra_km;
-    public static EditText et_ac_price;
-    public static EditText et_non_ac_price;
+
+    public static EditText per_km_ac_amount;
+    public static EditText per_km_non_ac_amount;
+    public static EditText driver_batta;
+    public static EditText base_price_ac;
+    public static EditText base_price_non_ac;
+    public static EditText extra_km_ac;
+    public static EditText extra_km_non_ac;
+    public static EditText extra_hr_ac;
+    public static EditText extra_hr_non_ac;
+    public static EditText airport_drop_ac;
+    public static EditText airport_drop_non_ac;
+    public static EditText airport_pick_ac;
+    public static EditText airport_pick_non_ac;
+
+    public static String mVechicleType = "";
 
     private SuccessModel mSuccessModel;
     private VechicleSuccessModel mVechicleSuccessModel;
@@ -103,15 +115,23 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         et_tour_packages = (EditText) rootView.findViewById(R.id.et_tour_packages);
         et_driver_owner_name = (EditText) rootView.findViewById(R.id.et_driver_owner_name);
         et_mobile = (EditText) rootView.findViewById(R.id.et_mobile);
-        et_ac_price = (EditText) rootView.findViewById(R.id.et_ac_price);
-        et_non_ac_price = (EditText) rootView.findViewById(R.id.et_non_ac_price);
 
-        et_amount = (EditText) rootView.findViewById(R.id.et_amount);
-        et_extra_km = (EditText) rootView.findViewById(R.id.et_extra_km);
+        per_km_ac_amount = (EditText) rootView.findViewById(R.id.per_km_ac_amount);
+        per_km_non_ac_amount = (EditText) rootView.findViewById(R.id.per_km_non_ac_amount);
+        driver_batta = (EditText) rootView.findViewById(R.id.driver_batta);
+
+        base_price_ac = (EditText) rootView.findViewById(R.id.base_price_ac);
+        base_price_non_ac = (EditText) rootView.findViewById(R.id.base_price_non_ac);
+        extra_km_ac = (EditText) rootView.findViewById(R.id.extra_km_ac);
+        extra_km_non_ac = (EditText) rootView.findViewById(R.id.extra_km_non_ac);
+        extra_hr_ac = (EditText) rootView.findViewById(R.id.extra_hr_ac);
+        extra_hr_non_ac = (EditText) rootView.findViewById(R.id.extra_hr_non_ac);
+        airport_drop_ac = (EditText) rootView.findViewById(R.id.airport_drop_ac);
+        airport_drop_non_ac = (EditText) rootView.findViewById(R.id.airport_drop_non_ac);
+        airport_pick_ac = (EditText) rootView.findViewById(R.id.airport_pick_ac);
+        airport_pick_non_ac = (EditText) rootView.findViewById(R.id.airport_pick_non_ac);
 
         btn_submit.setOnClickListener(this);
-        //et_vehicle_make.setOnClickListener(this);
-        //et_seaters.setOnClickListener(this);
         et_tour_packages.setOnClickListener(this);
         setTypeface();
     }
@@ -124,10 +144,21 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         et_tour_packages.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_driver_owner_name.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
         et_mobile.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
-        et_amount.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
-        et_extra_km.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
-        et_ac_price.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
-        et_non_ac_price.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+
+        per_km_ac_amount.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        per_km_non_ac_amount.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        driver_batta.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+
+        base_price_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        base_price_non_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        extra_km_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        extra_km_non_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        extra_hr_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        extra_hr_non_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        airport_drop_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        airport_drop_non_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        airport_pick_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        airport_pick_non_ac.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
     }
 
     @Override
@@ -148,15 +179,22 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 if (validation()) {
                     mVehiclePricing = new VehiclePricing();
                     mVehiclePricing.setVehicle_id(getVechileId(et_vehicle_make.getText().toString()));
-                    mVehiclePricing.setAc_price(et_ac_price.getText().toString());
-                    mVehiclePricing.setNon_ac_price(et_non_ac_price.getText().toString());
                     mVehiclePricing.setDriver_name(et_driver_owner_name.getText().toString());
-                    mVehiclePricing.setDriver_bhatta(et_extra_km.getText().toString());
                     mVehiclePricing.setMobile_number(et_mobile.getText().toString());
-                    mVehiclePricing.setPackage_amount(et_amount.getText().toString());
                     mVehiclePricing.setTourpackges(et_tour_packages.getText().toString());
-                    mVehiclePricing.setPerkm(et_amount.getText().toString());
-                    mVehiclePricing.setExtra_km_charge(et_extra_km.getText().toString());
+                    mVehiclePricing.setPerkm_ac(per_km_ac_amount.getText().toString());
+                    mVehiclePricing.setPerkm_non_ac(per_km_non_ac_amount.getText().toString());
+                    mVehiclePricing.setDriver_batta(driver_batta.getText().toString());
+                    mVehiclePricing.setBase_price_ac(base_price_ac.getText().toString());
+                    mVehiclePricing.setBase_price_non_ac(base_price_non_ac.getText().toString());
+                    mVehiclePricing.setExtra_km_ac(extra_km_ac.getText().toString());
+                    mVehiclePricing.setExtra_km_non_ac(extra_km_non_ac.getText().toString());
+                    mVehiclePricing.setExtra_hr_ac(extra_hr_ac.getText().toString());
+                    mVehiclePricing.setExtra_hr_non_ac(extra_hr_non_ac.getText().toString());
+                    mVehiclePricing.setAirport_drop_ac(airport_drop_ac.getText().toString());
+                    mVehiclePricing.setAirport_drop_non_ac(airport_drop_non_ac.getText().toString());
+                    mVehiclePricing.setAirport_pick_ac(airport_pick_ac.getText().toString());
+                    mVehiclePricing.setAirport_pick_non_ac(airport_pick_non_ac.getText().toString());
                     postVendorInformation();
                 }
                 break;
@@ -237,66 +275,257 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         boolean isValidated = false;
         if (Utility.isValueNullOrEmpty(et_vehicle_make.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_vehicle_make, "Please enter the vehicle make");
-
         } else if (Utility.isValueNullOrEmpty(et_seaters.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_seaters, "Please select the number of seaters");
-
-        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("AC") &&
-                Utility.isValueNullOrEmpty(et_ac_price.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter AC price");
-            et_ac_price.requestFocus();
-        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("NON AC") &&
-                Utility.isValueNullOrEmpty(et_non_ac_price.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter NON AC price");
-            et_non_ac_price.requestFocus();
-        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("BOTH") &&
-                Utility.isValueNullOrEmpty(et_ac_price.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter AC price");
-            et_ac_price.requestFocus();
-        } else if (VehicleRegistrationFragment.vehicleRegistration.getVehicle_type().equalsIgnoreCase("BOTH") &&
-                Utility.isValueNullOrEmpty(et_non_ac_price.getText().toString().trim())) {
-            Utility.setSnackBarEnglish(mParent, et_seaters, "Please enter NON AC price");
-            et_non_ac_price.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_tour_packages.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_tour_packages, "Please select Tour Packages");
-
         } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Outstation")) {
-            if (Utility.isValueNullOrEmpty(et_amount.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_amount, "Please enter Per km amount");
-                et_amount.requestFocus();
-            } else if (Utility.isValueNullOrEmpty(et_extra_km.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_extra_km, "Please enter  Driver bhatta");
-                et_extra_km.requestFocus();
-            } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
-                et_driver_owner_name.requestFocus();
-            } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
-                et_mobile.requestFocus();
-            } else if (et_mobile.getText().toString().trim().length() != 10) {
-                Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
-                et_mobile.requestFocus();
-            } else {
-                isValidated = true;
+            if (mVechicleType.equalsIgnoreCase("AC")) {
+                if (Utility.isValueNullOrEmpty(per_km_ac_amount.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, per_km_ac_amount, "Please enter Per km ac amount");
+                    per_km_ac_amount.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(driver_batta.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, driver_batta, "Please enter  Driver bhatta");
+                    driver_batta.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                    et_driver_owner_name.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                    et_mobile.requestFocus();
+                } else if (et_mobile.getText().toString().trim().length() != 10) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                    et_mobile.requestFocus();
+                } else {
+                    isValidated = true;
+                }
+            } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
+                if (Utility.isValueNullOrEmpty(per_km_non_ac_amount.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, per_km_non_ac_amount, "Please enter Per km non ac amount");
+                    per_km_ac_amount.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(driver_batta.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, driver_batta, "Please enter  Driver bhatta");
+                    driver_batta.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                    et_driver_owner_name.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                    et_mobile.requestFocus();
+                } else if (et_mobile.getText().toString().trim().length() != 10) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                    et_mobile.requestFocus();
+                } else {
+                    isValidated = true;
+                }
+            } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
+                if (Utility.isValueNullOrEmpty(per_km_ac_amount.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, per_km_ac_amount, "Please enter Per km ac amount");
+                    per_km_ac_amount.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(per_km_non_ac_amount.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, per_km_non_ac_amount, "Please enter Per km non ac amount");
+                    per_km_non_ac_amount.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(driver_batta.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, driver_batta, "Please enter  Driver bhatta");
+                    driver_batta.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                    et_driver_owner_name.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                    et_mobile.requestFocus();
+                } else if (et_mobile.getText().toString().trim().length() != 10) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                    et_mobile.requestFocus();
+                } else {
+                    isValidated = true;
+                }
             }
-        } else {
-            if (Utility.isValueNullOrEmpty(et_amount.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_amount, "Please enter Package Amount");
-                et_amount.requestFocus();
-            } else if (Utility.isValueNullOrEmpty(et_extra_km.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_extra_km, "Please enter  Extra km charge");
-                et_extra_km.requestFocus();
-            } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
-                et_driver_owner_name.requestFocus();
-            } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
-                Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
-                et_mobile.requestFocus();
-            } else if (et_mobile.getText().toString().trim().length() != 10) {
-                Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
-                et_mobile.requestFocus();
-            } else {
-                isValidated = true;
+        } else if (et_tour_packages.getText().toString().equalsIgnoreCase("2 hrs -- 20 kms")
+                || et_tour_packages.getText().toString().equalsIgnoreCase("4 hrs -- 40 kms")
+                || et_tour_packages.getText().toString().equalsIgnoreCase("8 hrs -- 80 kms")
+                ) {
+            if (mVechicleType.equalsIgnoreCase("AC")) {
+                if (Utility.isValueNullOrEmpty(base_price_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, base_price_ac, "Please enter base ac price");
+                    base_price_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_km_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_km_ac, "Please enter  extra km price");
+                    extra_km_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_hr_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_hr_ac, "Please enter  extra hr price");
+                    extra_hr_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                    et_driver_owner_name.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                    et_mobile.requestFocus();
+                } else if (et_mobile.getText().toString().trim().length() != 10) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                    et_mobile.requestFocus();
+                } else {
+                    isValidated = true;
+                }
+            } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
+                if (Utility.isValueNullOrEmpty(base_price_non_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, base_price_non_ac, "Please enter base non ac price");
+                    base_price_non_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_km_non_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_km_non_ac, "Please enter  extra km non ac price");
+                    extra_km_non_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_hr_non_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_hr_non_ac, "Please enter  extra hr non ac price");
+                    extra_hr_non_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                    et_driver_owner_name.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                    et_mobile.requestFocus();
+                } else if (et_mobile.getText().toString().trim().length() != 10) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                    et_mobile.requestFocus();
+                } else {
+                    isValidated = true;
+                }
+            } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
+                if (Utility.isValueNullOrEmpty(base_price_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, base_price_ac, "Please enter base ac price");
+                    base_price_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(base_price_non_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, base_price_non_ac, "Please enter base non ac price");
+                    base_price_non_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_km_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_km_ac, "Please enter  extra km ac price");
+                    extra_km_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_km_non_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_km_non_ac, "Please enter  extra km non ac price");
+                    extra_km_non_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_hr_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_hr_ac, "Please enter  extra hr ac price");
+                    extra_hr_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(extra_hr_non_ac.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, extra_hr_non_ac, "Please enter  extra hr non ac price");
+                    extra_hr_non_ac.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                    et_driver_owner_name.requestFocus();
+                } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                    et_mobile.requestFocus();
+                } else if (et_mobile.getText().toString().trim().length() != 10) {
+                    Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                    et_mobile.requestFocus();
+                } else {
+                    isValidated = true;
+                }
+            } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Airport Drop")) {
+                if (mVechicleType.equalsIgnoreCase("AC")) {
+                    if (Utility.isValueNullOrEmpty(airport_drop_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_drop_ac, "Please enter airport drop ac amount");
+                        airport_drop_ac.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                        et_driver_owner_name.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                        et_mobile.requestFocus();
+                    } else if (et_mobile.getText().toString().trim().length() != 10) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                        et_mobile.requestFocus();
+                    } else {
+                        isValidated = true;
+                    }
+                } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
+                    if (Utility.isValueNullOrEmpty(airport_drop_non_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_drop_non_ac, "Please enter airport drop non ac amount");
+                        airport_drop_non_ac.requestFocus();
+                    }  else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                        et_driver_owner_name.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                        et_mobile.requestFocus();
+                    } else if (et_mobile.getText().toString().trim().length() != 10) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                        et_mobile.requestFocus();
+                    } else {
+                        isValidated = true;
+                    }
+                } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
+                    if (Utility.isValueNullOrEmpty(airport_drop_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_drop_ac, "Please enter airport drop ac amount");
+                        airport_drop_ac.requestFocus();
+                    }  else if (Utility.isValueNullOrEmpty(airport_drop_non_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_drop_non_ac, "Please enter airport drop non ac amount");
+                        airport_drop_non_ac.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                        et_driver_owner_name.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                        et_mobile.requestFocus();
+                    } else if (et_mobile.getText().toString().trim().length() != 10) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                        et_mobile.requestFocus();
+                    } else {
+                        isValidated = true;
+                    }
+                }
+            } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Airport Pick")) {
+                if (mVechicleType.equalsIgnoreCase("AC")) {
+                    if (Utility.isValueNullOrEmpty(airport_pick_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_pick_ac, "Please enter airport pick ac amount");
+                        airport_pick_ac.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                        et_driver_owner_name.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                        et_mobile.requestFocus();
+                    } else if (et_mobile.getText().toString().trim().length() != 10) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                        et_mobile.requestFocus();
+                    } else {
+                        isValidated = true;
+                    }
+                } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
+                    if (Utility.isValueNullOrEmpty(airport_pick_non_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_pick_non_ac, "Please enter airport pick non ac amount");
+                        airport_pick_non_ac.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                        et_driver_owner_name.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                        et_mobile.requestFocus();
+                    } else if (et_mobile.getText().toString().trim().length() != 10) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                        et_mobile.requestFocus();
+                    } else {
+                        isValidated = true;
+                    }
+                } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
+                    if (Utility.isValueNullOrEmpty(airport_pick_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_pick_ac, "Please enter airport pick ac amount");
+                        airport_pick_ac.requestFocus();
+                    }  else if (Utility.isValueNullOrEmpty(airport_pick_non_ac.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, airport_pick_non_ac, "Please enter airport pick non ac amount");
+                        airport_pick_non_ac.requestFocus();
+                    }  else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
+                        et_driver_owner_name.requestFocus();
+                    } else if (Utility.isValueNullOrEmpty(et_mobile.getText().toString().trim())) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Please enter the mobile number");
+                        et_mobile.requestFocus();
+                    } else if (et_mobile.getText().toString().trim().length() != 10) {
+                        Utility.setSnackBarEnglish(mParent, et_mobile, "Mobile number must me 10 characteristics");
+                        et_mobile.requestFocus();
+                    } else {
+                        isValidated = true;
+                    }
+                }
             }
         }
         return isValidated;
@@ -343,16 +572,23 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
     private void postVendorPrice(String vehicle_id) {
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<>();
         paramMap.put("vehicle_id", vehicle_id);
-        paramMap.put("ac_price", mVehiclePricing.getAc_price());
-        paramMap.put("non_ac_price", mVehiclePricing.getNon_ac_price());
-        paramMap.put("airport_drop_pick", mVehiclePricing.getAirport_drop_pick());
-        paramMap.put("driver_bhatta", mVehiclePricing.getDriver_bhatta());
         paramMap.put("driver_name", mVehiclePricing.getDriver_name());
         paramMap.put("mobile_number", mVehiclePricing.getMobile_number());
         paramMap.put("tourpackges", mVehiclePricing.getTourpackges());
-        paramMap.put("perkm", mVehiclePricing.getPerkm());
-        paramMap.put("package_amount", mVehiclePricing.getPackage_amount());
-        paramMap.put("extra_km_charge", mVehiclePricing.getExtra_km_charge());
+        paramMap.put("perkm_ac", mVehiclePricing.getPerkm_ac());
+        paramMap.put("perkm_non_ac", mVehiclePricing.getPerkm_non_ac());
+        paramMap.put("driver_batta", mVehiclePricing.getDriver_batta());
+        paramMap.put("base_price_ac", mVehiclePricing.getBase_price_ac());
+        paramMap.put("base_price_non_ac", mVehiclePricing.getBase_price_non_ac());
+        paramMap.put("extra_km_ac", mVehiclePricing.getExtra_km_ac());
+        paramMap.put("extra_km_non_ac", mVehiclePricing.getExtra_km_non_ac());
+        paramMap.put("extra_hr_ac", mVehiclePricing.getExtra_hr_ac());
+        paramMap.put("extra_hr_non_ac", mVehiclePricing.getExtra_hr_non_ac());
+        paramMap.put("airport_drop_ac", mVehiclePricing.getAirport_drop_ac());
+        paramMap.put("airport_drop_non_ac", mVehiclePricing.getAirport_drop_non_ac());
+        paramMap.put("airport_pick_ac", mVehiclePricing.getAirport_pick_ac());
+        paramMap.put("airport_pick_non_ac", mVehiclePricing.getAirport_pick_non_ac());
+
         VendorPriceSuccesParser mParser = new VendorPriceSuccesParser();
         ServerIntractorAsync serverIntractorAsync = new ServerIntractorAsync(getActivity(), Utility.getResourcesString(getActivity(),
                 R.string.please_wait), true,
@@ -397,20 +633,11 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
             et_vehicle_make.setText("" + VehicleRegistrationFragment.vehicleRegistration.getVehicle_make());
             et_seaters.setText("" + VehicleRegistrationFragment.vehicleRegistration.getSeater());
             if (type.equals("AC")) {
-                et_ac_price.setVisibility(View.VISIBLE);
-                et_non_ac_price.setVisibility(View.GONE);
-                et_ac_price.setText("");
-                et_non_ac_price.setText("");
+                mVechicleType = "AC";
             } else if (type.equalsIgnoreCase("NON AC")) {
-                et_ac_price.setVisibility(View.GONE);
-                et_non_ac_price.setVisibility(View.VISIBLE);
-                et_ac_price.setText("");
-                et_non_ac_price.setText("");
+                mVechicleType = "NON AC";
             } else if (type.equalsIgnoreCase("BOTH")) {
-                et_ac_price.setVisibility(View.VISIBLE);
-                et_non_ac_price.setVisibility(View.VISIBLE);
-                et_ac_price.setText("");
-                et_non_ac_price.setText("");
+                mVechicleType = "BOTH";
             }
         }
     }
