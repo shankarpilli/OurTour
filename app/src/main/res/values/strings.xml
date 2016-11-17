@@ -41,18 +41,18 @@
     <string name="non_ac_price">NON AC price</string>
 
     <string name="driver_batta">Driver batta</string>
-    <string name="per_km_ac_amount">Per km ac amount</string>
-    <string name="per_km_non_ac_amount">Per km non ac amount</string>
-    <string name="base_price_ac">Base ac Price</string>
-    <string name="base_price_non_ac">Base non ac Price</string>
-    <string name="extra_km_ac">Extra km ac</string>
-    <string name="extra_km_non_ac">Extra km non ac</string>
-    <string name="extra_hr_ac">Extra hr ac</string>
-    <string name="extra_hr_non_ac">Extra hr non ac</string>
-    <string name="airport_drop_ac">Airport drop ac</string>
-    <string name="airport_drop_non_ac">Airport drop non ac</string>
-    <string name="airport_pick_ac">Airport pick up ac</string>
-    <string name="airport_pick_non_ac">Airport pick up non ac</string>
+    <string name="per_km_ac_amount">Per km AC amount</string>
+    <string name="per_km_non_ac_amount">Per km Non AC amount</string>
+    <string name="base_price_ac">Base AC Price</string>
+    <string name="base_price_non_ac">Base Non AC Price</string>
+    <string name="extra_km_ac">Extra km AC</string>
+    <string name="extra_km_non_ac">Extra km Non AC</string>
+    <string name="extra_hr_ac">Extra hr AC</string>
+    <string name="extra_hr_non_ac">Extra hr Non AC</string>
+    <string name="airport_drop_ac">Airport drop AC</string>
+    <string name="airport_drop_non_ac">Airport drop Non AC</string>
+    <string name="airport_pick_ac">Airport pick up AC</string>
+    <string name="airport_pick_non_ac">Airport pick up Non AC</string>
 
     <string name="txt_hoem">Home</string>
     <string name="txt_about_us">About Us</string>

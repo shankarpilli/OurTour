@@ -282,7 +282,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
         } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Outstation")) {
             if (mVechicleType.equalsIgnoreCase("AC")) {
                 if (Utility.isValueNullOrEmpty(per_km_ac_amount.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, per_km_ac_amount, "Please enter Per km ac amount");
+                    Utility.setSnackBarEnglish(mParent, per_km_ac_amount, "Please enter Per km AC amount");
                     per_km_ac_amount.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(driver_batta.getText().toString().trim())) {
                     Utility.setSnackBarEnglish(mParent, driver_batta, "Please enter  Driver bhatta");
@@ -301,7 +301,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 }
             } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
                 if (Utility.isValueNullOrEmpty(per_km_non_ac_amount.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, per_km_non_ac_amount, "Please enter Per km non ac amount");
+                    Utility.setSnackBarEnglish(mParent, per_km_non_ac_amount, "Please enter Per km Non AC amount");
                     per_km_ac_amount.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(driver_batta.getText().toString().trim())) {
                     Utility.setSnackBarEnglish(mParent, driver_batta, "Please enter  Driver bhatta");
@@ -320,10 +320,10 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 }
             } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
                 if (Utility.isValueNullOrEmpty(per_km_ac_amount.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, per_km_ac_amount, "Please enter Per km ac amount");
+                    Utility.setSnackBarEnglish(mParent, per_km_ac_amount, "Please enter Per km AC amount");
                     per_km_ac_amount.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(per_km_non_ac_amount.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, per_km_non_ac_amount, "Please enter Per km non ac amount");
+                    Utility.setSnackBarEnglish(mParent, per_km_non_ac_amount, "Please enter Per km Non AC amount");
                     per_km_non_ac_amount.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(driver_batta.getText().toString().trim())) {
                     Utility.setSnackBarEnglish(mParent, driver_batta, "Please enter  Driver bhatta");
@@ -347,13 +347,13 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 ) {
             if (mVechicleType.equalsIgnoreCase("AC")) {
                 if (Utility.isValueNullOrEmpty(base_price_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, base_price_ac, "Please enter base ac price");
+                    Utility.setSnackBarEnglish(mParent, base_price_ac, "Please enter base AC price");
                     base_price_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_km_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_km_ac, "Please enter  extra km price");
+                    Utility.setSnackBarEnglish(mParent, extra_km_ac, "Please enter  extra km AC price");
                     extra_km_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_hr_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_hr_ac, "Please enter  extra hr price");
+                    Utility.setSnackBarEnglish(mParent, extra_hr_ac, "Please enter  extra hr AC price");
                     extra_hr_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                     Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -369,13 +369,13 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 }
             } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
                 if (Utility.isValueNullOrEmpty(base_price_non_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, base_price_non_ac, "Please enter base non ac price");
+                    Utility.setSnackBarEnglish(mParent, base_price_non_ac, "Please enter base Non AC price");
                     base_price_non_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_km_non_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_km_non_ac, "Please enter  extra km non ac price");
+                    Utility.setSnackBarEnglish(mParent, extra_km_non_ac, "Please enter  extra km Non AC price");
                     extra_km_non_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_hr_non_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_hr_non_ac, "Please enter  extra hr non ac price");
+                    Utility.setSnackBarEnglish(mParent, extra_hr_non_ac, "Please enter  extra hr Non AC price");
                     extra_hr_non_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                     Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -391,22 +391,22 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                 }
             } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
                 if (Utility.isValueNullOrEmpty(base_price_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, base_price_ac, "Please enter base ac price");
+                    Utility.setSnackBarEnglish(mParent, base_price_ac, "Please enter base AC price");
                     base_price_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(base_price_non_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, base_price_non_ac, "Please enter base non ac price");
+                    Utility.setSnackBarEnglish(mParent, base_price_non_ac, "Please enter base Non AC price");
                     base_price_non_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_km_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_km_ac, "Please enter  extra km ac price");
+                    Utility.setSnackBarEnglish(mParent, extra_km_ac, "Please enter  extra km AC price");
                     extra_km_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_km_non_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_km_non_ac, "Please enter  extra km non ac price");
+                    Utility.setSnackBarEnglish(mParent, extra_km_non_ac, "Please enter  extra km Non AC price");
                     extra_km_non_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_hr_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_hr_ac, "Please enter  extra hr ac price");
+                    Utility.setSnackBarEnglish(mParent, extra_hr_ac, "Please enter  extra hr AC price");
                     extra_hr_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(extra_hr_non_ac.getText().toString().trim())) {
-                    Utility.setSnackBarEnglish(mParent, extra_hr_non_ac, "Please enter  extra hr non ac price");
+                    Utility.setSnackBarEnglish(mParent, extra_hr_non_ac, "Please enter  extra hr Non AC price");
                     extra_hr_non_ac.requestFocus();
                 } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                     Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -423,7 +423,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
             } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Airport Drop")) {
                 if (mVechicleType.equalsIgnoreCase("AC")) {
                     if (Utility.isValueNullOrEmpty(airport_drop_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_drop_ac, "Please enter airport drop ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_drop_ac, "Please enter airport drop AC amount");
                         airport_drop_ac.requestFocus();
                     } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                         Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -439,7 +439,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     }
                 } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
                     if (Utility.isValueNullOrEmpty(airport_drop_non_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_drop_non_ac, "Please enter airport drop non ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_drop_non_ac, "Please enter airport drop Non AC amount");
                         airport_drop_non_ac.requestFocus();
                     }  else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                         Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -455,10 +455,10 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     }
                 } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
                     if (Utility.isValueNullOrEmpty(airport_drop_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_drop_ac, "Please enter airport drop ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_drop_ac, "Please enter airport drop AC amount");
                         airport_drop_ac.requestFocus();
                     }  else if (Utility.isValueNullOrEmpty(airport_drop_non_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_drop_non_ac, "Please enter airport drop non ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_drop_non_ac, "Please enter airport drop Non AC amount");
                         airport_drop_non_ac.requestFocus();
                     } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                         Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -476,7 +476,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
             } else if (et_tour_packages.getText().toString().equalsIgnoreCase("Airport Pick")) {
                 if (mVechicleType.equalsIgnoreCase("AC")) {
                     if (Utility.isValueNullOrEmpty(airport_pick_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_pick_ac, "Please enter airport pick ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_pick_ac, "Please enter airport pick AC amount");
                         airport_pick_ac.requestFocus();
                     } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                         Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -492,7 +492,7 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     }
                 } else if (mVechicleType.equalsIgnoreCase("NON AC")) {
                     if (Utility.isValueNullOrEmpty(airport_pick_non_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_pick_non_ac, "Please enter airport pick non ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_pick_non_ac, "Please enter airport pick Non AC amount");
                         airport_pick_non_ac.requestFocus();
                     } else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                         Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
@@ -508,10 +508,10 @@ public class VendorPriceFragment extends Fragment implements View.OnClickListene
                     }
                 } else if (mVechicleType.equalsIgnoreCase("BOTH")) {
                     if (Utility.isValueNullOrEmpty(airport_pick_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_pick_ac, "Please enter airport pick ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_pick_ac, "Please enter airport pick AC amount");
                         airport_pick_ac.requestFocus();
                     }  else if (Utility.isValueNullOrEmpty(airport_pick_non_ac.getText().toString().trim())) {
-                        Utility.setSnackBarEnglish(mParent, airport_pick_non_ac, "Please enter airport pick non ac amount");
+                        Utility.setSnackBarEnglish(mParent, airport_pick_non_ac, "Please enter airport pick Non AC amount");
                         airport_pick_non_ac.requestFocus();
                     }  else if (Utility.isValueNullOrEmpty(et_driver_owner_name.getText().toString().trim())) {
                         Utility.setSnackBarEnglish(mParent, et_driver_owner_name, "Please enter Driver/Owner name");
