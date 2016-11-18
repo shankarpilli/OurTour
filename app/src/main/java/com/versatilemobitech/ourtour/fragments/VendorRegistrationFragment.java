@@ -257,7 +257,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         if (Utility.isValueNullOrEmpty(et_firm_individual.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_firm_individual, "Please select the vendor type");
             et_firm_individual.requestFocus();
-        } else if (Utility.isValueNullOrEmpty(et_vendor.getText().toString().trim())) {
+        } else if (et_vendor.getVisibility() == View.VISIBLE && Utility.isValueNullOrEmpty(et_vendor.getText().toString().trim())) {
             Utility.setSnackBarEnglish(mParent, et_vendor, "Please enter the vendor firm name");
             et_vendor.requestFocus();
         } else if (Utility.isValueNullOrEmpty(et_email.getText().toString().trim())) {
