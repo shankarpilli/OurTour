@@ -55,7 +55,7 @@ import java.util.LinkedHashMap;
  */
 public class VendorRegistrationFragment extends Fragment implements View.OnClickListener, IAsyncCaller {
     public static EditText et_vendor;
-    private static EditText et_email;
+    public static EditText et_email;
     private static EditText et_phone_number;
     private static EditText et_owner;
     public static EditText et_registration_number;
@@ -115,6 +115,7 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
         et_email = (EditText) rootView.findViewById(R.id.et_email);
         et_phone_number = (EditText) rootView.findViewById(R.id.et_phone_number);
         et_registration_number = (EditText) rootView.findViewById(R.id.et_registration_number);
+        et_registration_number.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         et_bank = (EditText) rootView.findViewById(R.id.et_bank);
         et_bank_acc = (EditText) rootView.findViewById(R.id.et_bank_acc);
         et_branch = (EditText) rootView.findViewById(R.id.et_branch);

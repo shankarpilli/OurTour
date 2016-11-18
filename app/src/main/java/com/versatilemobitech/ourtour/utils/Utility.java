@@ -440,10 +440,14 @@ public class Utility {
                             et_spinner.setText(gender);
                             if (title.equalsIgnoreCase("vendor type")) {
                                 if (et_spinner.getText().toString().equalsIgnoreCase("Individual")) {
+                                    VendorRegistrationFragment.et_registration_number.setText("");
+                                    VendorRegistrationFragment.et_vendor.setText("");
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.GONE);
-                                    VendorRegistrationFragment.et_vendor.requestFocus();
+                                    VendorRegistrationFragment.et_vendor.setVisibility(View.GONE);
+                                    VendorRegistrationFragment.et_email.requestFocus();
                                 } else {
                                     VendorRegistrationFragment.et_registration_number.setVisibility(View.VISIBLE);
+                                    VendorRegistrationFragment.et_vendor.setVisibility(View.VISIBLE);
                                     VendorRegistrationFragment.et_vendor.requestFocus();
                                 }
                             } else if (title.equalsIgnoreCase("Tour Packages")) {
