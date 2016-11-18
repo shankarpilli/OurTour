@@ -46,30 +46,30 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
     private Toolbar mToolbar;
     private View rootView;
 
-    private static EditText edt_vehicle_make;
-    private static EditText edt_vehicle_model;
-    private static EditText edt_vehicle_type;
-    private static EditText edt_seaters;
+    public static EditText edt_vehicle_make;
+    public static EditText edt_vehicle_model;
+    public static EditText edt_vehicle_type;
+    public static EditText edt_seaters;
 
-    private static EditText edt_vehicle_reg_number;
-    private static EditText edt_vehicle_reg_date;
-    private static EditText edt_vehicle_exp_date;
+    public static EditText edt_vehicle_reg_number;
+    public static EditText edt_vehicle_reg_date;
+    public static EditText edt_vehicle_exp_date;
 
-    private static EditText edt_permit_number;
-    private static EditText edt_permit_reg_date;
-    private static EditText edt_permit_exp_date;
+    public static EditText edt_permit_number;
+    public static EditText edt_permit_reg_date;
+    public static EditText edt_permit_exp_date;
 
-    private static EditText edt_fitness_number;
-    private static EditText edt_fitness_reg_num;
-    private static EditText edt_fitness_exp_num;
+    public static EditText edt_fitness_number;
+    public static EditText edt_fitness_reg_num;
+    public static EditText edt_fitness_exp_num;
 
-    private static EditText edt_insurance_number;
-    private static EditText edt_insurance_reg_date;
-    private static EditText edt_insurance_exp_date;
+    public static EditText edt_insurance_number;
+    public static EditText edt_insurance_reg_date;
+    public static EditText edt_insurance_exp_date;
 
-    private static EditText edt_population_number;
-    private static EditText edt_population_reg_date;
-    private static EditText edt_population_exp_date;
+    public static EditText edt_population_number;
+    public static EditText edt_population_reg_date;
+    public static EditText edt_population_exp_date;
 
     public static EditText edt_if_other;
 
