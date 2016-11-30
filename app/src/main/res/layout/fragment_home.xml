@@ -10,8 +10,9 @@
     <ImageView
         android:id="@+id/iv_home"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_250dp"
-        android:layout_marginTop="@dimen/_20dp"
+        android:layout_height="@dimen/_220dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:scaleType="fitXY"
         android:src="@drawable/home_one" />
 
     <TextView
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_home"
+        android:gravity="left"
         android:paddingLeft="@dimen/_3dp"
         android:paddingRight="@dimen/_3dp"
         android:text="@string/txt_home_content" />
