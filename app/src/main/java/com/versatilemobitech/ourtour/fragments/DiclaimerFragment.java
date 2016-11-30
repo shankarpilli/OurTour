@@ -6,9 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
+import com.versatilemobitech.ourtour.utils.Utility;
 
 /**
  * Created by Rev's Nani on 13-10-2016.
@@ -39,6 +41,10 @@ public class DiclaimerFragment extends Fragment {
         }
         rootView = inflater.inflate(R.layout.fragment_diclaimer, container, false);
         mParent.txt_our_tour.setText(""+mToolBarTitle);
+
+        TextView tv_disclaimer = (TextView)rootView.findViewById(R.id.tv_disclaimer);
+        tv_disclaimer.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+
         return rootView;
     }
 }
