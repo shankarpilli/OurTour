@@ -45,7 +45,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private ArrayList<String> mSideMenuItemNamesList;
     private int[] mSideMenuItemIconsList = {R.drawable.side_menu_home, R.drawable.side_menu_abou_us,
             R.drawable.side_menu_contact_us, R.drawable.side_menu_terms_conditions,
-            R.drawable.side_menu_diclaimer, R.drawable.side_menu_help};
+            R.drawable.side_menu_diclaimer/*, R.drawable.side_menu_help*/};
 
     private LeftMenuAdapter mLeftMenuAdapter = null;
 
@@ -78,7 +78,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mSideMenuItemNamesList.add("Contact us");
         mSideMenuItemNamesList.add("Terms and conditions");
         mSideMenuItemNamesList.add("Disclaimer");
-        mSideMenuItemNamesList.add("Help");
+        //mSideMenuItemNamesList.add("Help");
 
         mLeftMenuAdapter = new LeftMenuAdapter(this, mSideMenuItemNamesList, mSideMenuItemIconsList);
         lvLeftDrawer.setAdapter(mLeftMenuAdapter);
@@ -121,10 +121,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 mBundle.putString("Diclaimer", "Diclaimer");
                 Utility.navigateDashBoardFragment(new DiclaimerFragment(), DiclaimerFragment.TAG, mBundle, DashboardActivity.this);
                 break;
-            case 6:
+           /* case 6:
                 mBundle.putString("Help", "Help");
                 Utility.navigateDashBoardFragment(new HelpFragment(), HelpFragment.TAG, mBundle, DashboardActivity.this);
-                break;
+                break;*/
         }
     }
 
