@@ -1,6 +1,7 @@
 package com.versatilemobitech.ourtour.fragments;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -395,7 +396,9 @@ public class VehicleRegistrationFragment extends Fragment implements View.OnClic
         EditText editText;
         String mFrom;
 
+        public SelectDateFragment() {}
 
+        @SuppressLint("ValidFragment")
         public SelectDateFragment(EditText mEditText, String mFrom) {
             this.editText = mEditText;
             this.mFrom = mFrom;
