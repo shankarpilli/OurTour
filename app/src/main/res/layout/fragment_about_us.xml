@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_15dp"
-        android:background="@color/themeColor"
-        android:gravity="center"
+        android:gravity="left"
         android:paddingBottom="@dimen/_10dp"
         android:paddingLeft="@dimen/_3dp"
         android:paddingRight="@dimen/_3dp"
         android:paddingTop="@dimen/_10dp"
-        android:text="@string/txt_about_us"
+        android:text="@string/about_us"
         android:textSize="@dimen/_20sp" />
 </LinearLayout>
