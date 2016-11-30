@@ -57,6 +57,7 @@
     <string name="txt_hoem">Home</string>
     <string name="txt_about_us">About Us</string>
     <string name="txt_contact_us">Contact us</string>
+    <string name="txt_follow_us">Follow us</string>
     <string name="txt_term_conditions">Term and conditions</string>
     <string name="txt_disclaimer">Disclaimer</string>
     <string name="txt_help">Help</string>
@@ -92,6 +93,10 @@
     <string name="verify">Verify</string>
     <string name="resend_otp">Resend OTP</string>
     <string name="otp_verification">OTP Verification</string>
+    <string name="contact_phone">9247103736</string>
+    <string name="contact_site">www.ourtour.in</string>
+    <string name="contact_mail">daduvainaveenkumar@gmail.com</string>
+    <string name="contact_address"> 202, 2nd floor, Shashirekha apartment, thirumalghery, thirumalghery X roads, Secundrabad, TS 500015</string>
     <string name="disclaimer">\t\t\t\t\t\t\t\tThe customer agrees and acknowledges that the use of the Mobile App/Website is at the sole risk of the customer and that Company disclaims all representations and warranties of any kind, whether express or implied as to condition, suitability, quality and fitness for any purposes are excluded to the fullest extent permitted by law.
 
 \n\n\t\t\t\t\t\t\t\tThe information contained in this Website / Application is for general information purposes only. The information is provided by Our Tour and while we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the Mobileapp or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
