@@ -332,7 +332,11 @@ public class VendorRegistrationFragment extends Fragment implements View.OnClick
                     // setDataToSpinner();
                 } else if (model instanceof OtpSentModel) {
                     mOtpSentModel = (OtpSentModel) model;
-                    showOtpVerificationDialog(getActivity());
+                    if(mOtpSentModel.getMessage().equalsIgnoreCase("Mobile number already registered")){
+                        gotoNextScreen();
+                    } else {
+                        showOtpVerificationDialog(getActivity());
+                    }
                 } else if (model instanceof OtpVerifyModel) {
                     mOtpVerifyModel = (OtpVerifyModel) model;
                     if (otpDialog != null) {
