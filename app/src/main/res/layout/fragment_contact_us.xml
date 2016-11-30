@@ -47,7 +47,7 @@
                 android:layout_width="@dimen/_30dp"
                 android:layout_height="@dimen/_30dp"
                 android:layout_gravity="center"
-                android:src="@drawable/mobile_icon" />
+                android:src="@drawable/address" />
 
             <TextView
                 android:id="@+id/tv_address"
