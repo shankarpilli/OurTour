@@ -28,7 +28,7 @@ public class DiclaimerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mParent = (DashboardActivity) getActivity();
         mToolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        mToolBarTitle = getArguments().getString("Diclaimer");
+        mToolBarTitle = getArguments().getString("Disclaimer");
 
     }
 
