@@ -47,7 +47,7 @@ public class ContctUsFragment extends Fragment {
             mToolbar.setVisibility(View.VISIBLE);
         }
         rootView = inflater.inflate(R.layout.fragment_contact_us, container, false);
-        mParent.txt_our_tour.setText(""+mToolBarTitle);
+        mParent.txt_our_tour.setText("" + mToolBarTitle);
 
         InitUI(rootView);
         return rootView;
@@ -55,25 +55,25 @@ public class ContctUsFragment extends Fragment {
 
     private void InitUI(View rootView) {
 
-        TextView tv_contact_us = (TextView)rootView.findViewById(R.id.tv_contact_us);
+        TextView tv_contact_us = (TextView) rootView.findViewById(R.id.tv_contact_us);
         tv_contact_us.setTypeface(Utility.setTypeFace_Roboto_Bold(getActivity()));
 
-        TextView tv_address = (TextView)rootView.findViewById(R.id.tv_address);
+        TextView tv_address = (TextView) rootView.findViewById(R.id.tv_address);
         tv_address.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
 
-        TextView tv_phone = (TextView)rootView.findViewById(R.id.tv_phone);
+        TextView tv_phone = (TextView) rootView.findViewById(R.id.tv_phone);
         tv_phone.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
 
-        TextView tv_mail = (TextView)rootView.findViewById(R.id.tv_mail);
+        TextView tv_mail = (TextView) rootView.findViewById(R.id.tv_mail);
         tv_mail.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
 
-        TextView tv_site = (TextView)rootView.findViewById(R.id.tv_site);
+        TextView tv_site = (TextView) rootView.findViewById(R.id.tv_site);
         tv_site.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
 
-        TextView tv_share = (TextView)rootView.findViewById(R.id.tv_site);
+        TextView tv_share = (TextView) rootView.findViewById(R.id.tv_share);
         tv_share.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
 
-        TextView tv_follow_us = (TextView)rootView.findViewById(R.id.tv_site);
+        TextView tv_follow_us = (TextView) rootView.findViewById(R.id.tv_follow_us);
         tv_follow_us.setTypeface(Utility.setTypeFace_Roboto_Bold(getActivity()));
 
         ImageView iv_yogi = (ImageView) rootView.findViewById(R.id.iv_yogi);
@@ -130,7 +130,7 @@ public class ContctUsFragment extends Fragment {
             public void onClick(View view) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "New version of Ourtour is available. " + "https://play.google.com/store/apps/details?id=com.versatilemobitech.ourtour&hl=en");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
@@ -140,7 +140,7 @@ public class ContctUsFragment extends Fragment {
             public void onClick(View view) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "New version of Ourtour is available. " + "https://play.google.com/store/apps/details?id=com.versatilemobitech.ourtour&hl=en");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
@@ -150,7 +150,7 @@ public class ContctUsFragment extends Fragment {
             public void onClick(View view) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "New version of Ourtour is available. " + "https://play.google.com/store/apps/details?id=com.versatilemobitech.ourtour&hl=en");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
