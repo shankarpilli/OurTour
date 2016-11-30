@@ -118,7 +118,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 Utility.navigateDashBoardFragment(new TermsAndConditionsFragment(), TermsAndConditionsFragment.TAG, mBundle, DashboardActivity.this);
                 break;
             case 5:
-                mBundle.putString("Diclaimer", "Diclaimer");
+                mBundle.putString("Disclaimer", "Disclaimer");
                 Utility.navigateDashBoardFragment(new DiclaimerFragment(), DiclaimerFragment.TAG, mBundle, DashboardActivity.this);
                 break;
            /* case 6:

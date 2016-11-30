@@ -1,8 +1,11 @@
 package com.versatilemobitech.ourtour.fragments;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +18,8 @@ import android.widget.TextView;
 
 import com.versatilemobitech.ourtour.R;
 import com.versatilemobitech.ourtour.activities.DashboardActivity;
+import com.versatilemobitech.ourtour.designs.MaterialDialog;
+import com.versatilemobitech.ourtour.permissions.Permissions;
 import com.versatilemobitech.ourtour.utils.Utility;
 
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
@@ -50,7 +55,44 @@ public class ContctUsFragment extends Fragment {
         mParent.txt_our_tour.setText("" + mToolBarTitle);
 
         InitUI(rootView);
+
+        if (Utility.isMarshmallowOS()) {
+            Permissions.getInstance().setActivity(getActivity());
+            CheckForPermissions(getActivity(), Manifest.permission.CALL_PHONE);
+        }
+
         return rootView;
+    }
+
+    private void CheckForPermissions(final Context mContext, final String... mPermisons) {
+        // A request for two permissions
+        Permissions.getInstance().requestPermissions(new Permissions.IOnPermissionResult() {
+            @Override
+            public void onPermissionResult(Permissions.ResultSet resultSet) {
+
+                if (resultSet.isPermissionGranted(Manifest.permission.CALL_PHONE)) {
+                    // setUi();
+                } else {
+                    final MaterialDialog denyDialog = new MaterialDialog(mContext, Permissions.TITLE,
+                            Permissions.MESSAGE);
+                    //Positive
+                    denyDialog.setAcceptButton("RE-TRY");
+                    denyDialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            CheckForPermissions(mContext, mPermisons);
+                        }
+                    });
+                    denyDialog.show();
+                }
+            }
+
+            @Override
+            public void onRationaleRequested(Permissions.IOnRationaleProvided callback, String... permissions) {
+                Permissions.getInstance().showRationaleInDialog(Permissions.TITLE,
+                        Permissions.MESSAGE, "RE-TRY", callback);
+            }
+        }, mPermisons);
     }
 
     private void InitUI(View rootView) {
@@ -63,12 +105,37 @@ public class ContctUsFragment extends Fragment {
 
         TextView tv_phone = (TextView) rootView.findViewById(R.id.tv_phone);
         tv_phone.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        tv_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "9247103736"));
+                startActivity(intent);
+            }
+        });
 
         TextView tv_mail = (TextView) rootView.findViewById(R.id.tv_mail);
         tv_mail.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        tv_mail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto", "daduvainaveenkumar@gmail.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ourtour");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+            }
+        });
 
         TextView tv_site = (TextView) rootView.findViewById(R.id.tv_site);
         tv_site.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
+        tv_site.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://www.ourtour.in";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
 
         TextView tv_share = (TextView) rootView.findViewById(R.id.tv_share);
         tv_share.setTypeface(Utility.setTypeFace_Roboto_Regular(getActivity()));
