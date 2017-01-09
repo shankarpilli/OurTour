@@ -102,70 +102,92 @@
     <string name="txt_accept">Accept</string>
     <string name="contact_mail">daduvainaveenkumar@gmail.com</string>
     <string name="contact_address"> 202, 2nd floor, Shashirekha apartment, thirumalghery, thirumalghery X roads, Secundrabad, TS 500015</string>
-    <string name="disclaimer">The customer agrees and acknowledges that the use of the Mobile App/Website is at the sole risk of the customer and that Company disclaims all representations and warranties of any kind, whether express or implied as to condition, suitability, quality and fitness for any purposes are excluded to the fullest extent permitted by law.
+    <string name="disclaimer">The customer agrees and acknowledges that the use of the Mobile App/ Website is at the sole risk of the customers and that Company disclaims all representations and warranties of any kind, whether express or implied as to condition, suitability, quality and fitness for any purposes are excluded to the fullest extent permitted by law.
 
-\n\nThe information contained in this Website / Application is for general information purposes only. The information is provided by Our Tour and while we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the Mobileapp or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+\n\nThe information contained in this Website / Application is for general information purposes only. The information is provided by ourTour and while we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
 
-\n\nIn no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arise out of, or in connection with, the use of this Mobileapp.
+\n\nIn no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arise out of, or in connection with, the use of this website.
 
-\n\nThrough this Mobileapp you are able to link to other Mobileapps which are not under the control of OurTour. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+\n\nThrough this website you are able to link to other websites which are not under the control of OurTour. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
 
-\n\nEvery effort is made to keep the Mobile Application/ Website up and running smoothly. However, OurTour takes no responsibility for, and will not be liable for, the Mobile Application/ Website being temporarily unavailable due to technical issues beyond our control.</string>
-    <string name="about_us">OurTour, India\'s most popular mobile app for Outstation transportation, integrates Nation transportation for customers and driver partners on mobile platform.
+\n\nEvery effort is made to keep the Website / Application up and running smoothly. However, ourTour takes no responsibility for, and will not be liable for, the Website / Application being temporarily unavailable due to technical issues beyond our control.</string>
+    <string name="about_us">OurTour, India\'s most popular mobile app for Outstation tours,
+    integrates Nation tours for customers and driver partners onto a mobile technology platform. As
+    one of India\'s fastest growing companies we ensure convenient, transparent and quick service
+    fulfillment using technology to make tours &amp; travels hassle free for everyone.
 
-\n\nAs one of India\'s fastest growing companies we ensure convenient, transparent and quick service fulfillment using technology to make transportation hassle free for everyone.
+    \n\nourTour offer\'s on its platform a wide range of affordable AC, Non AC Vehicles on using the
+    ourTour mobile app, users can conveniently book vehicles available to them.
 
-\n\nOurTour offerings on its platform ranges from affordable AC, Non AC Vehicles on using the ourTour mobile app, users can conveniently book vehicles available to them.
+    \n\nWe\’ve empowered hundreds of thousands of vendor-partners as entrepreneurs, by building
+    service providers. They can increase their income on the ourTour platform.
 
-\n\nWe\'ve empowered hundreds of thousands of vendor-partners as entrepreneurs, by building an service providers. They are increase their income on the ourTour platform.
+    \n\nWe ourTour hereby proudly introduce ourselves as one of the car &amp; coach rental company
+    in providing all type of car &amp; coach rental services and had left a smile on our client\'s
+    heart with our prompted service and reasonable rates. ourTour is Car and coach rental for
+    families, Corporates and Government Institutions housed in and around nation. We have a rich
+    legacy of providing trusted destination management solutions and car coach rental services in
+    terms to our clients since last decade.
 
-\n\nWe ourTour hereby proudly introduce ourselves as one of the car &quot; coach rental company in providing all type of car &quot; coach rental services and had left a smile on our customer\'s heart with our prompt service and reasonable rates. ourTour is Car and coach rental for families, Corporate and Government Institutions.
+    \n\nOur business Car and coach rental ourTour is driven by the fundamental need of ensuring safe
+    and secure tour for our clients. Year after year, our clients have shown faith in us owing to
+    our punctual service, friendly support staff, trained chauffeurs, and well maintained fleet of
+    cars. For families, Car and coach rental ourTour offer cheapest rents, are it a short trip or
+    long. To the individual and family travelers Car Rental ourTour offer the safety and comfort
+    most desired. Our Corporate customers find great cost savings through our customized package
+    deals. Our in-depth knowledge of India and best routes helps in cutting down the time to commute
+    drastically.
 
-\n\nOur business Car Rental ourTour is driven by the fundamental need of ensuring safe and secure transport for our customers. Year after year, our clients have shown faith in us owing to our punctual service, friendly support staff, trained chauffeurs, and well maintained fleet of cars.
+    \n\nGet in touch with our Travel Advisor today to experience the joy of hassle free tour- a
+    luxury each of us deserves in today\’s fast paced world.</string>
 
-\n\nFor families, Car Rental ourTour offer cheapest rents, are it a short trip or long. To the individual and family travelers Car Rental ourTour offer the safety and comfort most desired. Our Corporate customers find great cost savings through our customized package deals. Our in-depth knowledge of India and best routes helps in cutting down the time to commute drastically.</string>
     <string name="terms_conditions">Only commercially registered vehicles (contact carriage) will be put to service by the contactor.
 
-\n\nVehicles inspected and approved by Our Tour(Geo Race Technologies Pvt Ltd), transport Verification team will be inducted into the fleet.
+\n\nVehicles inspected and approved by OurTour (GeoRace Technologies Pvt Ltd), transport Verification team will be inducted into the fleet.
 
 \n\nThere will be One Supervisors deputed by the Vendor on 10 hours shift to supervise the services and will coordinate with our authorized representative on a daily basis with respect to the operations.
+
+\n\nAll drivers will be in possession of valid identity cards issued by the OurTour (GeoRace Technologies Pvt Ltd). If the driver happens to leave the organization, he should return the ID cards to OurTour (GeoRace Technologies Pvt Ltd).
 
 \n\nThe drivers shall conduct themselves at all times in accordance with the highest standards of safety and workmanship, treat all passengers with consideration and take all efforts to make the trip secure and comfortable for all on board. In particular, Vendor shall ensure that it has, and the drivers are aware of, a zero tolerance policy of any incidents of unsafe or rash driving, including but not limited to exceeding the speed limit, driving at a speeds that are not consistent with existing driving condition, overtaking vehicles in an unsafe manner, etc.
 
 \n\nOne Manager from the Vendor will visit us at least once a week to ensure that the services are being provided to our satisfaction.
 
-\n\nVendoror will follow the duty rosters issued by Our Tour(Geo Race Technologies Pvt Ltd) transport team.
+\n\nVendor  will follow the duty rosters issued by OurTour (GeoRace Technologies Pvt Ltd) transport team.
 
-\n\nRegistration documents, state  &amp; national permits as applicable, original road tax receipts, insurance papers, PUC, driver license, antecedent verification records and other relevant documents for all the vehicles should be in place and available for inspection. Xerox copy of all these documents will be submitted by the vendor in a file consisting of all statutory documents made available at Our Tour(Geo Race Technologies Pvt Ltd) site.
+\n\nRegistration documents, state &amp; national permits as applicable, original road tax receipts, insurance papers, PUC, driver license, antecedent verification records and other relevant documents for all the vehicles should be in place and available for inspection. Xerox copy of all these documents will be submitted by the vendor in a file consisting of all statutory documents made available at OurTour (GeoRace Technologies Pvt Ltd) site.
 
-\n\nVendor shall indemnify and keep indemnified OurTour(Geo Race Technologies Pvt Ltd) against any such adverse claims by any of Vendor’s personnel/passengers.
+\n\nNotwithstanding any degree of supervision exercised by us over Vendor personnel assigned for the services, such personnel are and at all times, be deemed to be the employees of the ‘Vendor’ and in no circumstances shall the relationship of OurTour Passenger be deemed to arise between Company and vendor\’s personnel.
 
-\n\nThe Vendor should engage drivers and supervisors/helpers upon completion of criminal background verification &amp; referral checks. Vendoror shall produce the documents as and when required by OurTour(Geo Race Technologies Pvt Ltd).
+\n\nVendor shall indemnify and keep indemnified OurTour (GeoRace Technologies Pvt Ltd) against any such adverse claims by any of Vendor\’s personnel/passengers.
 
-\n\nOurTour(Geo Race Technologies Pvt Ltd) will have the right to request the Vendor to replace any staff whose performance, in Our Tour(Geo Race Technologies Pvt Ltd) opinion, is unsatisfactory. OurTour(Geo Race Technologies Pvt Ltd) is not bound to five reasons for this.
+\n\nThe Vendor should engage drivers and supervisors/helpers upon completion of criminal back ground verification &amp; referral checks. Vendor shall produce the documents as and when required by OurTour (GeoRace Technologies Pvt Ltd).
 
-\n\nThe Vendor should follow a proper maintenance schedule for the vehicles and keep the vehicles clean. ourTour may regularly inspect the vehicles to satisfy themselves about the quality of vehicles. The expenses incurred by the Vendor for maintenances, fuel, salaries of the drivers or any other charges will be borne by the Vendor. Vendor will produce the maintenance records of vehicles when demanded by Our Tour(Geo Race Technologies Pvt Ltd).
+\n\nOurTour (GeoRace Technologies Pvt Ltd) will have the right to request the Vendor to replace any staff whose performance, in OurTour opinion is unsatisfactory. OurTour(GeoRace Technologies Pvt Ltd) is not bound to file reasons for this.
 
-\n\nThe Vendor will provide basic minimum requirements namely – Company Sticker, first aid kit, torch, list of important telephone nos of Our Tour(Geo Race Technologies Pvt Ltd)/ Vendor / ambulance / Police / fire etc duly laminated and hung, basic tool kit, spare wheel, fire extinguisher, Music system, Good upholstery inside the vehicle, Cell phone with hands free with the drivers In all the vehicles and the driver mobile phone should be off when engine is on.
+\n\nThe Vendor should follow a proper maintenance schedule for the vehicles and keep the vehicles clean. ourTour may regularly inspect the vehicles to satisfy themselves about the quality of vehicles. The expenses incurred by the Vendor for maintenances, fuel, salaries of the drivers or any other charges will be borne by the Vendor. Vendor will produce the maintenance records of vehicles when demanded by OurTour(GeoRace Technologies Pvt Ltd).
+
+\n\nThe Vendor will provide basic minimum requirements namely – Company Sticker, first aid kit, torch, list of important telephone nos of OurTour(GeoRace Technologies Pvt Ltd)/ Vendor / ambulance / Police / fire etc duly laminated and hung, basic tool kit, spare wheel, fire extinguisher, Music system, Good upholstery inside the vehicle, Cell phone with hands free with the drivers In all the vehicles and the driver mobile phone should be off when engine is on.
+
 \n\nAll vehicles shall be fitted with necessary safety gadgets such as handholds seatbelts etc., for all passengers.
 
 \n\nIt is Vendor responsibility to arrange replacement vehicles with in 60mins of receiving the information about the scheduled vehicles, not reporting on time due to various reasons.
 
-\n\nOurTour(Geo Race Technologies Pvt Ltd) is not responsible for any additional payment for the backup vehicles in case of breakdowns/vehicles not arriving at the scheduled time.
+\n\nOurTour(GeoRace Technologies Pvt Ltd) is not responsible for any additional payment for the backup vehicles in case of breakdowns/vehicles not arriving at the scheduled time.
 
-\n\nThe Vendor should have a proper communication network (Radio trunking systems OR Mobile Phones) and should be able to track all vehicles doing pick-ups/drops. The vehicles, which are put for the use of Our Tour(Geo Race Technologies Pvt Ltd), should have either a Mobile phones or fitted with trunk radio and these shall be kept serviceable and operational at all times.
+\n\nThe Vendor should have a proper communication network (Radio trunking systems OR Mobile Phones) and should be able to track all vehicles doing pick-ups/drops. The vehicles, which are put for the use of OurTour(GeoRace Technologies Pvt Ltd), should have either a Mobile phones or fitted with trunk radio and these shall be kept serviceable and operational at all times.
 
-\n\nOurTour(Geo Race Technologies Pvt Ltd) may at any time recommend a change in the services to be rendered during the term of the Vendor and in case of such change; the modalities will be mutually agreed.
+\n\nOurTour(GeoRace Technologies Pvt Ltd) may at any time recommend a change in the services to be rendered during the term of the Vendor and in case of such change; the modalities will be mutually agreed.
 
-\n\nThe Vendor shall not assign its obligation and duties to any other person/ company without the written consent of Our Tour(Geo Race Technologies Pvt Ltd).
+\n\nThe Vendor shall not assign its obligation and duties to any other person/ company without the written consent of OurTour(GeoRace Technologies Pvt Ltd).
 
-\n\nThe Vendor must obtain all necessary permits/licenses and other approvals necessary for performing the services and shall pay all fees required by law. The Vendor will be responsible and liable for compliance as are applicable from time to time with regard to the Vendor including provisions of such statutes as Motor Vehicles Act of (1965), the Minimum Wages Act, Employees Provident Fund Act, Employees State Insurance Act, Leave Provisions, and Bonus Act and amendments issued to the same from time to time. If at any instance Our Tour(Geo Race Technologies Pvt Ltd) incurs any damage for non-compliance with statutory provisions in respect of the Passengers, such damages shall be re-covered from the Vendor. The Vendor is required to maintain copies of necessary documents and records as required under various statutes on our premises. Vendor is responsible for all such claims made by the Authority even at a later date for the Vendor period.
+\n\nThe Vendor must obtain all necessary permits/licenses and other approvals necessary for performing the services and shall pay all fees required by law. The Vendor will be responsible and liable for compliance as are applicable from time to time with regard to the Vendor including provisions of such statutes as Motor Vehicles Act of (1965), the Minimum Wages Act, Employees Provident Fund Act, Employees State Insurance Act, Leave Provisions, and Bonus Act and amendments issued to the same from time to time. If at any instance OurTour(GeoRace Technologies Pvt Ltd) incurs any damage for non-compliance with statutory provisions in respect of the Passengers, such damages shall be re-covered from the Vendor. The Vendor is required to maintain copies of necessary documents and records as required under various statutes on our premises. Vendor is responsible for all such claims made by the Authority even at a later date for the Vendor period.
 
 \n\nThe Vendor must provide the company with Insurance Certificates for all its drivers and vehicles.
 
 \n\nThe Vendor will be solely responsible for any damage to the vehicles due to any accidents irrespective or any reason for the accident.
 
-\n\nThe Vendor shall be solely responsible and OurTour(Geo Race Technologies Pvt Ltd) shall have no liability whatsoever for any loss, damage or injury to any individual, including any liability arising due to death of any individual, that may be caused as a result of any accident or malfunction of vehicles or otherwise, irrespective of any reason for the accident.
+\n\nThe Vendor shall be solely responsible and OurTour(GeoRace Technologies Pvt Ltd) shall have no liability whatsoever for any loss, damage or injury to any individual, including any liability arising due to death of any individual, that may be caused as a result of any accident or malfunction of vehicles or otherwise, irrespective of any reason for the accident.
 
 \n\nThe Vendor will provide uniforms to all the drivers/personnel and shall bear all charges towards its maintenance.
 
@@ -179,24 +201,25 @@
 
 \n\nCabs / Vehicles deputed for OurTour(GeoRace Technologies Pvt Ltd) should not be used for any other duties by the Vendor. This is to ensure good condition of the Vehicles.
 
-\n\nThe Vendor’s personnel deputed at OurTour(GeoRace Technologies Pvt Ltd) should follow the instruction given from time to time to meet OurTour(GeoRace Technologies Pvt Ltd)’s requirement.
+\n\nThe Vendor\’s personnel deputed at OurTour(GeoRace Technologies Pvt Ltd) should follow the instruction given from time to time to meet OurTour(GeoRace Technologies Pvt Ltd)\’s requirement.
 
 \n\nWindscreens of the vehicles should always be of laminated type so as to be shatterproof and should be kept clean. Two windshield wipers in good working condition should be present in all the vehicles.
 
 \n\nThe vehicles to run as per the schedule agreed with Logistics Manager of OurTour(GeoRace Technologies Pvt Ltd).
 
 \n\nThe Vendor shall ensure that the trip given by OurTour(GeoRace Technologies Pvt Ltd) is being adhered to and there shall be no deviation whatsoever without the prior consent of transport department of OurTour(GeoRace Technologies Pvt Ltd). Also the Vendor shall ensure that there is no unauthorized use of the vehicles other than for performance of duties as agreed upon with OurTour(GeoRace Technologies Pvt Ltd).
+
 \n\nThe drivers shall not pick up any unauthorized passengers before, during the performance of their duties.
 
-\n\nThe Vendor shall provide duty log sheets for each vehicle on a daily basis to be duly signed by passengers using the vehicles, with special mention to the time of pickup/drop and kilometer readings. Corrections or overwriting to be avoided.
+\n\nThe Vendor shall provide duty log sheets for each vehicle on a daily basis to be duly signed by passengers using the vehicles, with special mention to the time of pickup/drop and kilometer readings. Corrections or over writing to be avoided.
 
-\n\nThe Vendor’s personnel must not work more than 12 consecutive hours in 24 hours period, except under emergency conditions or if authorized by OurTour(GeoRace Technologies Pvt Ltd).
+\n\nThe Vendor\’s personnel must not work more than 12 consecutive hours in 24 hours period, except under emergency conditions or if authorized by OurTour(GeoRace Technologies Pvt Ltd).
 
 \n\nThe Vendor must ensure that a strike or other disorder will not impair the performance of the service. In-case of failure to do so may even lead to Penalized.
 
-\n\nOurTour(Geo Race Technologies Pvt Ltd) will perform at frequent intervals, performance evaluation of the Vendor.
+\n\nOurTour(GeoRace Technologies Pvt Ltd) will perform at frequent intervals, performance evaluation of the Vendor.
 
-\n\nIf in the reasonable opinion of Our Tour(Geo Race Technologies Pvt Ltd), performance of any of the services under the agreement with the Vendor, is in contravention or breach of any laws as may be applicable from time to time or industry practice, under the circumstances which would amount to objectionable services, the agreement will stand terminated forthwith without any obligations on part of OurTour(GeoRace Technologies Pvt Ltd).
+\n\nIf in the reasonable opinion of OurTour(GeoRace Technologies Pvt Ltd), performance of any of the services under the agreement with the Vendor, is in contravention or breach of any laws as may be applicable from time to time or industry practice, under the circumstances which would amount to objectionable services, the agreement will stand terminated forthwith without any obligations on part of OurTour(GeoRace Technologies Pvt Ltd).
 
 \n\nThe Supervisor deployed by Vendor for controlling the operations on a daily basis will be equipped with a mobile phone and a charger, the cost of which will be paid by the Vendor under the arrangement with the Vendor. OurTour(GeoRace Technologies Pvt Ltd) will not entertain any reimbursement of these expenses to the Vendor.
 
@@ -209,11 +232,5 @@
 \n(f)    Taxi Permit (State &amp; National)
 \n(g)    Identity Card issued by the Vendor and by OurTour(GeoRace Technologies Pvt Ltd)
 
-\n\nVendor shall ensure at its cost that all vehicles used in the provision of the services meet the highest safety guidelines and shall ensure that the vehicles are in good conditions all the time, including with regard to maintenance of battery, tyres, brake systems, etc. For this, the vehicles shall be inspected on a daily basis by the Vendor and shall also be submitted to routine inspection on a monthly basis at reputable service stations or to such service stations as may be designated by Our Tour(Geo race Technologies Pvt Ltd).
-
-\n\nWhen the user books the cab the booking advance amount will be transfer/hand over to you in 2 days before of the scheduled date.
-
-\n\nFor the maintenance and getting the leads to you the Geo race  technologies Pvt ltd/Ourtour will charge 10% on each successful ride with the corresponding kilometers bill amount.
-
-\n\nGeorace Technologies Pvt ltd/OurTour will charge the vehicle break down charges to the vendor when the cab/vehicle is under booking/in service to ourtour customer. The charges will be applicable for both outstation &amp; inter city travelling/ride. The actual kilometers/plan amount we will pay until breakdown point of the vehicle.</string>
+\n\nVendor shall ensure at its cost that all vehicles used in the provision of the services meet the highest safety guidelines and shall ensure that the vehicles are in good conditions all the time, including with regard to maintenance of battery, tyres, brake systems, etc. For this, the vehicles shall be inspected on a daily basis by the Vendor and shall also be submitted to routine inspection on a monthly basis at reputable service stations or to such service stations as may be designated by OurTour(GeoRace Technologies Pvt Ltd).</string>
 </resources>

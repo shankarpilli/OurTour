@@ -1,0 +1,5 @@
+1st Page : 
+Location : /C:\Users\Shankar\Downloads\OurtourKeystore\OurtourKeystore\Ourtour.jks
+Password : versatile
+
+apk Name : ourtour
